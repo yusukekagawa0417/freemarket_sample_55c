@@ -1,24 +1,139 @@
-# README
+### DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### usersテーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
+|birthday|date|null: false|
+|postal_code|integer|null: false|
+|prefecture_id|integer|null: false, foreign_key: true|
+|city|string|null: false|
+|address_number|string||
+|building_name|string||
+|tel|integer|unique: true|
+|icon_image|string||
+|profile|text||
 
-* Ruby version
+#### Association
 
-* System dependencies
+- has_many :items, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :messages, dependent: :destroy
+- has_manu :evaluations, dependent: :destroy
 
-* Configuration
+### itemsテーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|description|text|null: false|
+|category_id|references|null: false, foreign_key: true|
+|condition|integer|null: false|
+|shipping_fee|integer|null: false|
+|pregecture_id|integer|null: false|
+|shipping_date|integer|null: false|
+|price|integer|null: false|
+|seller_id|references|null: false, foreign_key: { to_table: :users }|
+|buyer_id|references|foreign_key: { to_table: :users }|
+|status|integer|null: false|
+|size|integer||
+|brand_id|references|foreign_key: true|
 
-* Database initialization
+#### Association
 
-* How to run the test suite
+- has_many :images, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :messages, dependent: :destroy
+- belongs_to :user
+- belongs_to :category
+- belongs_to :brand
 
-* Services (job queues, cache servers, search engines, etc.)
+### imagesテーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|item_image|string|null: false|
+|item_id|references|null: false, foreign_key: true|
 
-* ...  
+#### Association
+
+- belongs_to :item
+
+### likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :item
+- belongs_to :user
+
+### messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|message|text|null: false|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :item
+- belongs_to :user
+
+### evaluationsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|evaluation|integer|null: false|
+|comment|text||
+|user_id|references|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :user
+
+### brandsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+
+#### Association
+
+- has_many :categories, through: :brand_categories
+- has_many :items
+
+### categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|ancestry|string||
+
+#### Association
+
+- has_many :brands, through: :brand_categories
+- has_many :items
+
+### brand_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|brand_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :brand
+- belongs_to :category
