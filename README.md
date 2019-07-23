@@ -12,21 +12,32 @@
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |birthday|date|null: false|
-|postal_code|integer|null: false|
-|prefecture_id|integer|null: false, foreign_key: true|
-|city|string|null: false|
-|address_number|string||
-|building_name|string||
 |tel|integer|unique: true|
 |icon_image|string||
 |profile|text||
 
 #### Association
 
+- has_one :address, dependent: :destroy
 - has_many :items, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :messages, dependent: :destroy
 - has_manu :evaluations, dependent: :destroy
+
+### addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|integer|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|address_number|string||
+|building_name|string||
+|user_id|refernces|null: false, foreign_key: true|
+
+#### Association
+
+- belongs_to :user
 
 ### itemsテーブル
 
