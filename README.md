@@ -12,7 +12,7 @@
 |firstname_kana|string|null: false|
 |lastname_kana|string|null: false|
 |birthday|date|null: false|
-|tel|integer|unique: true|
+|tel|string|unique: true|
 |icon_image|string||
 |profile|text||
 
@@ -28,7 +28,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false|
+|postal_code|string|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |address_number|string||
@@ -123,6 +123,7 @@
 #### Association
 
 - has_many :categories, through: :brand_categories
+- has_many :brand_categories
 - has_many :items
 
 ### categoriesテーブル
@@ -135,6 +136,7 @@
 #### Association
 
 - has_many :brands, through: :brand_categories
+- has_many :brand_categories
 - has_many :items
 
 ### brand_categoriesテーブル
