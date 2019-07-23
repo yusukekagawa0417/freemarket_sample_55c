@@ -57,6 +57,7 @@
             box-sizing: border-box;
           }
           &-submit {
+            margin: 32px 0 0 0;
             &-btn {
               background-color: #ea352d;
               border: solid 1px #ea352d;
@@ -64,17 +65,16 @@
               display: block;
               width: 343px;
               line-height: 48px;
-              font-size: 14px;
-              margin: 32px 0 0 0;
+              font-size: 14px;   
             }
           }
           &-sentence {
-            display: inline;
-            float: right;
-            margin: 32px 0 0 0;
-            &-content {
+            margin: 8px 0 0 0;
+            &-link {
+              margin: 24px 0 0 0;
               text-decoration: none;
               color: #0099e8;
+              float: right;
             } 
           }
         }
