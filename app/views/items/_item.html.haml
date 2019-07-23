@@ -1,13 +1,13 @@
 .o_items-boxes
   .o_items-box
-    %a{href: "#"}
+    = link_to "#" do
       %h3.o_items-box__title
         レディース 新着アイテム
     .o_items-box__content
       .o_items
         .o_item
-          %a{href: "#"}
-            %img{src: "https://placehold.jp/200x200.png"}
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
             .o_item__body
               .o_item__body--title
                 美品COACH
@@ -18,8 +18,8 @@
                   = fa_icon 'heart', class: "o_icon-heart"
                   45
         .o_item
-          %a{href: "#"}
-            %img{src: "https://placehold.jp/200x200.png"}
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
             .o_item__body
               .o_item__body--title
                 美品COACH
@@ -30,8 +30,8 @@
                   = fa_icon 'heart', class: "o_icon-heart"
                   45
         .o_item
-          %a{href: "#"}
-            %img{src: "https://placehold.jp/200x200.png"}
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
             .o_item__body
               .o_item__body--title
                 美品COACH
@@ -42,8 +42,8 @@
                   = fa_icon 'heart', class: "o_icon-heart"
                   45
         .o_item
-          %a{href: "#"}
-            %img{src: "https://placehold.jp/200x200.png"}
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
             .o_item__body
               .o_item__body--title
                 美品COACH
@@ -54,5 +54,5 @@
                   = fa_icon 'heart', class: "o_icon-heart"
                   45
       %h3.o_items-box__view-all
-        %a{href: "#"}
-          すべての商品を見る
+        = link_to "すべての商品を見る", "#"
+          
