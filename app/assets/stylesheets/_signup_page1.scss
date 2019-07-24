@@ -5,14 +5,7 @@
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: #333;   
-  .k_su_header {
-    height: 128px;
-    width: 100%;
-    &__title {
-      text-align: center;
-      line-height: 128px;
-    }
-  }
+
   .k_su_wrapper1 {
     height: 1600px;
     width: 100%;
@@ -24,6 +17,7 @@
       &__header {
         height: 97px;
         font-size: 22px;
+        font-weight: bold;
         text-align: center;
         line-height: 97px;
         border-bottom: 1px solid #f5f5f5;
@@ -59,6 +53,7 @@
             border: 1px solid #ccc;
             background: #fff;
             font-size: 16px;
+            box-sizing: border-box;
           }
         }
         &--form2 {
@@ -88,6 +83,7 @@
             border: 1px solid #ccc;
             background: #fff;
             font-size: 16px;
+            box-sizing: border-box;
           }
         }
         &--form3 {
@@ -131,6 +127,7 @@
               border: 1px solid #ccc;
               background: #fff;
               font-size: 16px;
+              box-sizing: border-box;
             }
           }
         }
@@ -162,11 +159,12 @@
               border: 1px solid #ccc;
               background: #fff;
               font-size: 16px;
+              box-sizing: border-box;
             }
-            p {
+            .k_su_date {
               height: 48px;
               line-height: 48px;
-              margin: 0 2px;
+              margin: 6px 6px 0 0;
             }
           }
           &-sentence {
@@ -182,7 +180,15 @@
             display: inline;
           }
           &-span {
+            margin: 20px 0 0 0;
             text-align: center;
+            &-p {
+              display: inline;
+            }
+            &-content {
+              text-decoration: none;
+              color: #0099e8;
+            }
           }
           &-input {
             &-btn {
@@ -207,33 +213,6 @@
             
           }
         }
-      }
-    }
-  }
-  
-  .k_su_footer {
-    height: 348px;
-    width: 100%;
-    &__inner {
-      height: 100%;
-      width: 456px;
-      margin: 100px auto;
-      text-align: center;
-      &--nav {
-        width: 100%;
-        display: flex;
-        list-style: none;
-        &-li {
-          margin: 0 5px;
-          &-a {
-            text-decoration: none;
-            color: #333333;
-            font-size: 12px;       
-          }
-        }
-      }
-      &--logo {
-      
       }
     }
   }
