@@ -1,16 +1,14 @@
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-.o_container {
+.o_detail-container {
   background: #F5F5F5;
   padding: 30px 0 50px;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
+  a {
+    text-decoration: none;
+  }
 }
 
-.o_detailpage {
+.o_detail-field {
   width: 50%;
   margin: 0 auto;
 }
@@ -157,14 +155,19 @@ a {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  &--left-btn {
-    background: #F5F5F5;
-    border-radius: 30px;
-    font-size: 14px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    i {
-      color: #ccc;
+  &--left {
+    a {
+      color: #333;      
+    }
+    &-btn {
+      background: #F5F5F5;
+      border-radius: 30px;
+      font-size: 14px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      i {
+        color: #ccc;
+      }
     }
   }
   &--right {
@@ -260,6 +263,9 @@ a {
   margin: 10px 0 10px;
   &:last-child {
     margin-right: 0;
+  }
+  a {
+    color: #333;    
   }
   &__body {
     height: 80px;
