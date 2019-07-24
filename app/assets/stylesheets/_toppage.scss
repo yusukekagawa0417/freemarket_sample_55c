@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-h2, h3 {
-  width: 100%;
-  text-align: center;
-}
-
 a {
   text-decoration: none;
 }
@@ -16,6 +11,10 @@ a {
 .o_white {
   background: #f5f5f5;
   padding-bottom: 20px;
+  h2, h3 {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .o_top-image {
@@ -29,11 +28,11 @@ a {
   font-weight: bold;
 }
 
-.o_items-boxes {
+.o_topitems-boxes {
   width: 100%;
 }
 
-.o_items-box {
+.o_topitems-box {
   width: 100%;
   padding: 0 200px;
   &__title {
@@ -62,12 +61,12 @@ a {
   }
 }
 
-.o_items {
+.o_topitems {
   display: flex;
   justify-content: space-between;
 }
 
-.o_item {
+.o_topitem {
   background: #FFF;
   margin: 10px 20px;
   &:last-child {
@@ -94,5 +93,5 @@ a {
 }
 
 .o_icon-heart {
-  color: #ea352d;
+  color: #ccc;
 }
