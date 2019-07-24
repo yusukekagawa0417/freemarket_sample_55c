@@ -1,10 +1,7 @@
 %nav.n_mypage_top
-  %ul.n_mypage_top__head
-    %li.n_head_list
-      メルカリ
-      = fa_icon 'chevron-right', class: 'n_icon'
-      %a.n_list__item{href: "遷移先ページURL"}
-    %li.n_head_l_list
-      マイページ
-      %a.n_list__item{href: "遷移先ページURL"}
-      
+  %ul.n_head
+    %li.n_head__list
+      = link_to "メルカリ", "https://www.yahoo.co.jp/", class: "n_head__list__link"
+      = fa_icon 'chevron-right', class: 'n_head__list__arrow'
+    %li.n_head__list
+      = link_to "マイページ", "https://www.yahoo.co.jp/", class: "n_head__list__l_link"

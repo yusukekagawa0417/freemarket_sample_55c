@@ -3,28 +3,32 @@
   border-top: 1px solid #eee;
   border-bottom: 3px solid rgba(54, 52, 52, 0.205);
   background: #fff;
-  &__head{
+  .n_head{
     width: 1020px;
     overflow: visible;
     margin: 0 auto;
     padding: 16px 0;
     font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     
-    // n_head_listは最後の項目ではないため矢印アイコンを表示する。
-    // n_head_l_listは最後の項目になるので矢印は表示せず、太字にしている。
-    .n_head_list{
+    // linkとl_linkの違いは太字のみå。
+    &__list{
       display: inline-block;
-      font-size: 14px;
-      line-height: 1.2;
-      .n_icon{
+      &__link{
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+      &__l_link{
+        font-weight: 600;
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.2;
+      }
+      &__arrow{
         color: gray;
       }
-    }
-    .n_head_l_list{
-      display: inline-block;
-      font-size: 14px;
-      line-height: 1.2;
-      font-weight: 600;
     }
   }
 }
