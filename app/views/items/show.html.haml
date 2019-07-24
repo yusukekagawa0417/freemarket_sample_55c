@@ -1,0 +1,284 @@
+.o_container
+  .o_detailpage
+    .o_item
+      %h1 マライカ ペンダントトップ
+      .o_item__main
+        .o_item__main--image
+          .o_image-main
+            = image_tag("https://placehold.jp/300x300.png")
+          .o_image-sub
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+        %table.o_item__main--table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "ニックン", "#"
+                .o_user-evaluations
+                  .evaluation
+                    = fa_icon 'smile-o', class: "o_smile"
+                    %span 100
+                  .evaluation
+                    = fa_icon 'meh-o', class: "o_meh"
+                    %span 50
+                  .evaluation
+                    = fa_icon 'frown-o', class: "o_frown"
+                    %span 1
+            %tr
+              %th カテゴリー
+              %td
+                .td-category
+                  = link_to "メンズ", "#"
+                .td-category
+                  = link_to "#" do
+                    = fa_icon 'chevron-right'
+                    %span アクセサリー
+                .td-category
+                  = link_to "#" do
+                    = fa_icon 'chevron-right'
+                    %span ネックレス
+            %tr
+              %th ブランド
+              %td
+                = link_to "ルイ ヴィトン", "#"
+            %tr
+              %th 商品の状態
+              %td 新品、未使用
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td 普通郵便(定形、定形外)
+            %tr
+              %th 配送元地域
+              %td
+                = link_to "佐賀県", "#"
+            %tr
+              %th 発送日の目安
+              %td 4~7日で発送
+      .o_item__price
+        %span.price-main
+          ¥ 2,400
+        %span.price-tax
+          (税込)
+        %span.price-fee
+          送料込み
+      .o_item__baloon
+        .o_item__baloon-text
+          %p 売上金¥2,285円をお持ちです
+      = link_to "購入画面に進む", "#", class: "o_item__buybtn"
+      .o_item__description
+        %p
+          とても綺麗なグリーンのアイドクレースという天然石のペンダントトップです。
+          %br/
+          銀色の縁は、シルバー925です。
+          %br/
+          気に入って先週届きましたが、私には似合わず出品致しました♪
+          %br/
+          どうぞよろしくお願い致します。
+          %br/
+          日曜日の発送予定です♪
+          %br/
+          即購入大丈夫です。
+          %br/
+          チェーンは元からありません。
+      .o_item__sub
+        .o_item__sub--left
+          = link_to "#", class: "o_item__sub--left-btn" do
+            = fa_icon 'heart'
+            %span いいね!
+            %span 1
+          = link_to "#", class: "o_item__sub--left-btn" do
+            = fa_icon 'flag'
+            %span 不適切な商品の報告
+        .o_item__sub--right
+          = link_to "#" do
+            = fa_icon 'lock'
+            %span あんしん・あんぜんへの取り組み
+    
+    %ul.o_item__nav
+      %li
+        = link_to "#" do
+          = fa_icon 'chevron-left'
+          %span 魔天降臨
+      %li
+        = link_to "#" do
+          %span 大人気シルバーアクセサリー
+          = fa_icon 'chevron-right'
+
+    .o_social_box
+      %ul
+        = link_to "#" do
+          %li.o_icon.o_facebook
+            = fa_icon 'facebook-square'
+        = link_to "#" do
+          %li.o_icon.o_twitter
+            = fa_icon 'twitter'
+        = link_to "#" do
+          %li.o_icon.o_pinterest
+            = fa_icon 'pinterest'
+
+    .o_user
+      %h2
+        = link_to "ニックンさんのその他の出品", "#"
+      .o_user-items
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+      .o_user-items
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+    .o_user
+      %h2
+        = link_to "ルイ ヴィトンのネックレス その他の商品", "#"
+      .o_user-items
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+      .o_user-items
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
+        .o_user-item
+          = link_to "#" do
+            = image_tag("https://placehold.jp/200x200.png")
+            .o_user-item__body
+              .o_user-item__body--title
+                美品COACH
+              .o_user-item__body--bottom
+                .o_user-item__body--bottom--price
+                  ¥43,500
+                .o_user-item__body--bottom--like
+                  = fa_icon 'heart', class: "o_icon-heart"
+                  45
