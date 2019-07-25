@@ -1,9 +1,10 @@
 = render 'layouts/header'
+= render "users/top_column"
 
 .s_main
   .s_wrapper
     .s_left-side
-      aiueo
+      = render "users/mypage_sidebar"
     .s_right-side.s_confirmation_height
       = render 'confirmation'
 
