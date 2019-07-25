@@ -8,12 +8,12 @@
 -# = render partial: "layouts/footer"
 
 = render 'layouts/header'
-= render partial: "top_column"
+= render "top_column"
 .s_main
   .s_wrapper
     .s_left-side
-      = render partial: "mypage_sidebar"
+      = render "mypage_sidebar"
     .s_right-side
-      = render partial:'mypage_main'
+      = render 'mypage_main'
 
 = render 'layouts/footer'
