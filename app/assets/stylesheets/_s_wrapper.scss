@@ -1,0 +1,25 @@
+.s_main {
+  height: 1292px;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.s_wrapper{
+  height: 1252px;
+  width: 1100px;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  justify-content: space-between;
+}
+
+.s_left-side{
+  width: 280px;
+  background: white;
+}
+
+.s_right-side{
+  width: 700px;
+  background: white;
+  height: 370px;
+}
