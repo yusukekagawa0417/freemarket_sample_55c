@@ -1,11 +1,16 @@
-.o_useredit-container {
+.o_useredit {
   background: #F5F5F5;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  width: 100%;
-  height: 100vh;
-  padding: 50px;
   font-size: 14px;
   color: #333;
+}
+
+.o_useredit-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px;
 }
 
 .o_useredit-field {
