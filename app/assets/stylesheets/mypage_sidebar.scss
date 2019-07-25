@@ -12,35 +12,44 @@
       &__list{
         min-height: 48px;
         display: block;
+        width: 100%;
         border-bottom: 1px solid #eee;
-        &__side_toplink{
-          text-decoration: none;
-          color: rgb(51, 51, 51);
-          font-size: 14px;
-          font-weight: 600;
-          position: relative;
-          //display:  inline;
-        }
-        &__side_link{
-          text-decoration: none;
-          color: #333;
-          font-size: 14px;
-          position: relative;
-          display:  inline;
-          padding: 16px;
-        }
-        &__ficon{
-          display: block;
-          color: #333;
-          float: right;
-        }
-        &__icon{
-          display: block;
-          color: #ccc;
-          float: right;
-        }
-        &__icon:hover{
-          color: #333;
+        &__parent{
+          display: flex;
+          height: 48px;
+          line-height: 48px;
+          &__side_toplink{
+            color: rgb(51, 51, 51);
+            font-size: 14px;
+            font-weight: 600;
+            width: 92%;
+            padding-left: 10px;
+            text-decoration: none;
+            display: block;
+          }
+          &__side_link{
+            color: #333;
+            font-size: 14px;
+            width: 92%;
+            padding-left: 10px;
+            text-decoration: none;
+            display: block;
+          }
+          &__ficon{
+            color: #333;
+            width: 8%;
+            line-height: 48px;
+            display: block;
+          }
+          &__icon{
+            color: #ccc;
+            width: 8%;
+            line-height: 48px;
+            display: block;
+          }
+          &__icon:hover{
+            color: #333;
+          }
         }
       }
     }

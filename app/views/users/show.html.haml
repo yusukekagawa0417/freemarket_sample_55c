@@ -7,17 +7,17 @@
       %seciton.n_mypage_center__user_icon
         = link_to "", "https://www.yahoo.co.jp/", class: "n_mypage_center__user_icon__link"
         %img.n_mypage_center__user_icon__avater{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
-        .n_mypage_center__user_icon__avater__name
+        .n_mypage_center__user_icon__name
           user_name
-        .hoge
-          .n_mypage_center__user_icon__avater__name__phrase
-            評価
-            %span.n_mypage_center__user_icon__avater__name__number
-              0
-          .n_mypage_center__user_icon__avater__name__phrase
-            出品数
-            %span.n_mypage_center__user_icon__avater__name__number
-              1
+          %ul.n_mypage_center__user_icon__name__list
+            %li.n_mypage_center__user_icon__name__list__column
+              評価
+              %span.n_mypage_center__user_icon__name__list__column__number
+                0
+            %li.n_mypage_center__user_icon__name__list__column
+              出品数
+              %span.n_mypage_center__user_icon__name__list__column__number
+                1
       %section.n_notification
         %ul.n_notification__tags
           %li.n_notification__tags__tag.line
