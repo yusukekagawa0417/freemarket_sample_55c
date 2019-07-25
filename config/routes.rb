@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   #items関係
   resources :items, only: [:index, :show, :new]
 
-  namespace :purchace do
+  namespace :purchase do
     resources :items, only: [:show]
   end
 

@@ -1,11 +1,12 @@
-.k_ir_single-container {
+// .k_ir_single-container {
   .k_su_footer {
     height: 200px;
     width: 100%;
     &__inner {
       height: 100%;
       width: 456px;
-      margin: 50px auto 0;
+      padding: 40px 0;
+      margin: 0 auto;
       text-align: center;
       &--nav {
         width: 100%;
@@ -31,4 +32,4 @@
       }
     }
   }
-}
+// }
