@@ -1,4 +1,4 @@
-class Logout::UsersController < ApplicationController
+class Credit::UsersController < ApplicationController
   def new
   end
 
