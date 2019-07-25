@@ -14,6 +14,19 @@ Rails.application.routes.draw do
     resources :users, only: [:new]
   end
 
+  namespace :registration do
+    resources :users do
+      collection do
+        get 'new_page1'
+        get 'new_page2'
+        get 'new_page3'
+        get 'new_page4'
+        get 'new_page5'
+        get 'new_page6'
+      end
+    end
+  end
+
   namespace :session do
     resources :users, only: [:new]
   end
