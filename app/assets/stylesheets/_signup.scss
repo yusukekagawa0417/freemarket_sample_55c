@@ -28,7 +28,7 @@
       height: 287px;
       width: 343px;
       margin: 0 auto;
-      padding: 40px 40px 64px;
+      padding: 40px 0px 64px;
       &--mail-regi {
         position: relative;
         height: 50px;
@@ -45,12 +45,13 @@
           top: 13px;
           left: 20px;
           font-size: 23px;
+          color: white;
         }
       }
       &--facebook-regi {
         position: relative;
         height: 50px;
-        width: 343px;
+        width: 100%;
         line-height: 50px;
         text-align: center;
         background-color: #385185;
@@ -64,12 +65,13 @@
           top: 13px;
           left: 20px;
           font-size: 26px;
+          color: white;
         }
       }
       &--google-regi {
         position: relative;
         height: 50px;
-        width: 343px;
+        width: 100%;
         line-height: 50px;
         text-align: center;
         background-color: #fff;
