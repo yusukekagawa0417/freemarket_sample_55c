@@ -1,0 +1,82 @@
+.o_useredit-container {
+  background: #F5F5F5;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  width: 100%;
+  height: 100vh;
+  padding: 50px;
+  font-size: 14px;
+  color: #333;
+}
+
+.o_useredit-field {
+  background: #fff;
+  width: 700px;
+  height: 580px;
+  margin: 0 auto;
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 0;
+  }
+}
+
+.o_useredit-form {
+  height: 160px;
+  width: 100%;
+  &__top {
+    background: url("https://www.mercari.com/jp/assets/img/mypage/user-bg.jpg?61716930");
+    padding: 72px 16px 24px;
+    text-align: center;
+    img {
+      border-radius: 50%;
+      vertical-align : middle;
+      margin-right: 5px;
+    }
+    input {
+      width: 220px;
+      height: 40px;
+      padding: 5px 5px 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      &:focus {
+        border: 1px solid #0099e8;
+        outline: 0;
+      }
+    }
+  }
+}
+
+.o_useredit-form__bottom {
+  margin: 30px 14px 0;
+  textarea {
+    width: 650px;
+    height: 220px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    &:focus {
+      border: 1px solid #0099e8;
+      outline: 0;
+    }
+  }
+}
+
+.o_useredit-button {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 20px;
+  background: #ea352d;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.95;
+  transition-duration: 0.5s;
+  &:hover {
+    opacity: 1;
+  }
+}

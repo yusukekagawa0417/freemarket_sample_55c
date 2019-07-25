@@ -1,0 +1,29 @@
+.s-box
+  .s-container
+    %h2
+      .s-container__head 
+        支払い方法
+      
+    .s-container__body  
+      %section
+        .s-body__high
+          %h3.s-body__high--font
+            クレジットカード一覧
+        %ul  
+          %li    
+            .s-body__middle
+              %form.s-body__middle__credit
+                %figure
+                  = image_tag("//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3135490372/",size: "26x20")
+                .s-credit__number
+                  00000000000000
+                .s-credit__expiration-date
+                  00/00
+                %button.s-credit__delete-btn{type: "submit"}
+                  削除する
+          .s-body__low
+            =link_to "#" do
+              %span
+                支払い方法について
+              %i.s-body__low--right-icon
+                = fa_icon 'chevron-right', class:'s-body__low--right-icon'
