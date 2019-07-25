@@ -1,49 +1,20 @@
-.t_buy-page
-  .t_header
-
-  .t_main
-    %section.t_buy
-      %h2.t_buy__head 購入内容の確認
-      %section.t_buy__item
-        .t_buy__item__top
-          %p.t_buy__item__top--image
-            = image_tag "//placehold.jp/64x64.png", size: '64×64', alt: 'item_image'
-          %p.t_buy__item__top--name ニットニットニットニットニットニットセーター
-        %p.t_buy__item__price
-          ¥600 
-          %span 送料込み
-        %p.t_buy__item__point ポイントはありません
-        .t_buy__item__pay-table
-          %p.t_buy__item__pay-table__you-pay 支払い金額
-          %p.t_buy__item__pay-table__cell-price ¥600
-        %button.t_buy__item__btn 購入する
-
-      %section.t_buy__user-info
-        %section.t_buy__user-info__delivery
-          %h3 配送先
-          .t_buy__user-info__delivery__address
-            %p 〒150-0041
-            東京都 渋谷区
-            神南1-12-16
-            %br/
-            山田 太郎
-          .t_buy__user-info__delivery__address__edit 
-            =link_to '#' do
-              変更する
-              = fa_icon 'chevron-right', class: 'icon'
-              
-        %section.t_buy__user-info
-          %section.t_buy__user-info__payment
-            %h3 支払い方法
-            .t_buy__user-info__payment__card
-              %p ************0000 
-              %br/
-              12 / 20
-              %figure
-              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3236810361", width: '49', alt: "visa"
-            .t_buy__user-info__payment__edit
-              =link_to '#' do
-                変更する
-                = fa_icon 'chevron-right', class: 'icon'
-
-  .t_footer
+= render 'layouts/header'
+.o_white
+  .o_top-image
+    = image_tag("https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?891577966", height: "400px")
+  .o_pickup-container
+    %h2.o_pickup-head
+      ピックアップカテゴリー
+      = render 'item'
+      = render 'item'
+      = render 'item'
+      = render 'item'
+  .o_pickup-container
+    %h2.o_pickup-head
+      ピックアップブランド
+      = render 'item'
+      = render 'item'
+      = render 'item'
+      = render 'item'
+= render 'layouts/footer'
+= render 'layouts/sell-btn'
