@@ -1,5 +1,8 @@
 @import "reset";
 @import "font-awesome";
+@import "mypage_top";
+@import "user_mypage";
+@import "mypage_sidebar";
 @import "credit_infomation";
 @import "show";
 @import "confirmation";
@@ -11,6 +14,7 @@
 @import "footer";
 @import "item_regi_footer";
 @import "item_regi";
+@import "s_wrapper";
 
 .sell-btn {
   position: fixed;
