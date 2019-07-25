@@ -1,1 +1,20 @@
-%h1 aiueo
+= render 'layouts/header'
+.o_white
+  .o_top-image
+    = image_tag("https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?891577966", height: "400px")
+  .o_pickup-container
+    %h2.o_pickup-head
+      ピックアップカテゴリー
+      = render 'item'
+      = render 'item'
+      = render 'item'
+      = render 'item'
+  .o_pickup-container
+    %h2.o_pickup-head
+      ピックアップブランド
+      = render 'item'
+      = render 'item'
+      = render 'item'
+      = render 'item'
+= render 'layouts/footer'
+= render 'layouts/sell-btn'
