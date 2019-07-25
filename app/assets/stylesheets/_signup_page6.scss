@@ -20,10 +20,9 @@
     height: 153px;
     width: 343px;
     margin: 0 auto;
-    padding: 40px 40px 64px;
-    box-sizing: border-box;
+    padding: 40px 0 64px;
     &--form {
-      width: 273px;
+      width: 343px;
       height: 50px;
       &-sentence {
         text-align: center;
@@ -33,7 +32,7 @@
     &--form2 {
       margin: 40px auto 0;
       height: 50px;
-      width: 273px;
+      width: 343px;
       &-input {
         &-btn {
           background-color: #ea352d;

@@ -28,11 +28,11 @@
       height: 287px;
       width: 343px;
       margin: 0 auto;
-      padding: 40px 40px 64px;
+      padding: 40px 0px 64px;
       &--mail-regi {
         position: relative;
         height: 50px;
-        width: 343px;
+        width: 100%;
         line-height: 50px;
         text-align: center;
         background-color: #ea352d;
@@ -51,7 +51,7 @@
       &--facebook-regi {
         position: relative;
         height: 50px;
-        width: 343px;
+        width: 100%;
         line-height: 50px;
         text-align: center;
         background-color: #385185;
@@ -71,7 +71,7 @@
       &--google-regi {
         position: relative;
         height: 50px;
-        width: 343px;
+        width: 100%;
         line-height: 50px;
         text-align: center;
         background-color: #fff;
