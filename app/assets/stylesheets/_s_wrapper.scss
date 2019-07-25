@@ -6,11 +6,11 @@
 
 .s_wrapper{
   height: 1352px;
-  width: 1100px;
+  width: 80%;
   display: flex;
   margin: 0 auto;
-  padding-top: 40px;
-  justify-content: space-between;
+  padding: 50px;
+  justify-content: center;
 }
 
 .s_left-side{
@@ -23,6 +23,7 @@
   width: 700px;
   background: white;
   height: 370px;
+  margin: 0 auto;
 }
 
 .s_confirmation_height{
