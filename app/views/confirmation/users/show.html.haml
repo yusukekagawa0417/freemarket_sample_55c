@@ -1,81 +1,10 @@
-.s_content
-  %section.s_content__mypage
-    %h2.s_content__mypage__head 
-      本人情報の登録
-    %form.s_content__mypage__single-inner{action: "#",method: "#", novalidate: ""}
-      %div
-        %p
-          お客さまの本人情報をご登録ください。
-          %br
-          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+= render 'layouts/header'
 
-        %p.s_content__mypage__single-inner__textright
-          =link_to "#" do
-            本人確認書類のアップロードについて
-            %i
-              = fa_icon 'chevron-right', class:'s_content__mypage__single-inner--textright-icon'
+.s_main
+  .s_wrapper
+    .s_left-side
+      aiueo
+    .s_right-side.s_confirmation_height
+      = render 'confirmation'
 
-        .s_content__mypage__single-inner__form-group
-          %label 
-            お名前 
-          %p 
-            personal name
-
-        .s_content__mypage__single-inner__form-group
-          %label 
-            お名前カナ
-          %p
-            personal name
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "birthday"}
-            生年月日
-          %p
-            1111/11/11
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "zip_code"}
-            郵便番号
-          %span.s_content__mypage__single-inner__form-group__any 
-            任意
-          %input.s_content__mypage__single-inner__form-group__input{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "prefecture"}
-            都道府県
-          %span.s_content__mypage__single-inner__form-group__any
-            任意
-          .s_content__mypage__single-inner__form-group__select-Prefecture
-            %i.s_content__mypage__single-inner__form-group__select-Prefecture--icon
-            %input.s_content__mypage__single-inner__form-group__select-Prefecture__select{name: "prefecture"} 
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "city"}
-            市区町村
-          %span.s_content__mypage__single-inner__form-group__any
-            任意
-          %input.s_content__mypage__single-inner__form-group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "address1_label"}
-            番地
-          %span.s_content__mypage__single-inner__form-group__any 
-            任意
-          %input.s_content__mypage__single-inner__form-group__input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}
-
-        .s_content__mypage__single-inner__form-group
-          %label{for: "address2_label"}
-            建物名
-          %span.s_content__mypage__single-inner__form-group__any
-            任意
-          %input.s_content__mypage__single-inner__form-group__input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
-
-        %button.s_content__mypage__single-inner__btn-red{type: "submit"}
-          登録する
-        
-        .s_content__mypage__single-inner__text-right
-          %p 
-            =link_to "#" do
-              本人情報の登録について
-              %i.s_content__mypage__single-inner__text-right
-                = fa_icon 'chevron-right', class:'s_content__mypage__single-inner--textright-icon'
+= render 'layouts/footer'
