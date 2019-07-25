@@ -64,6 +64,9 @@
   }
   td {
     padding: 10px;
+    .td-category a,i {
+      color: #0099e8;
+    }
   }
 }
 
@@ -111,7 +114,6 @@
     min-width: 120px;
     max-width: 100%;
     color: #fff;
-    font-size: 16px;
     background: #05B0B4;
     border-radius: 5px;
     &:before {
@@ -190,7 +192,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  a {
+  a,i {
     color: #0099e8;
     &:hover {
       opacity: 0.7;
@@ -214,7 +216,7 @@
       &:hover {
         opacity: 0.7;
       }
-      a {
+      a,i {
         color: #fff;
       }
     }
