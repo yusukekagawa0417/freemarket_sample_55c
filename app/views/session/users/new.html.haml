@@ -1,4 +1,12 @@
-.o_logout-container
-  .o_logout-field
-    .o_logout-field__content
-      = link_to "ログアウト", "#", class: "o_logout-button"
+= render 'layouts/header'
+
+.s_main
+  .s_wrapper
+    .s_left-side
+      aiueo
+    .s_right-side
+      .o_logout-container
+        .o_logout-field
+          .o_logout-field__content
+            = link_to "ログアウト", "#", class: "o_logout-button"
+= render 'layouts/footer'
