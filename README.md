@@ -20,9 +20,10 @@
 
 - has_one :address, dependent: :destroy
 - has_many :items, dependent: :destroy
+- has_many :receipts, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :messages, dependent: :destroy
-- has_manu :evaluations, dependent: :destroy
+- has_many :evaluations, dependent: :destroy
 
 ### addressesテーブル
 
@@ -52,7 +53,7 @@
 |shipping_date|integer|null: false|
 |price|integer|null: false|
 |seller_id|references|null: false, foreign_key: { to_table: :users }|
-|buyer_id|references|foreign_key: { to_table: :users }|
+<!-- |buyer_id|references|foreign_key: { to_table: :users }| -->
 |status|integer|null: false|
 |size|integer||
 |brand_id|references|foreign_key: true|
@@ -62,6 +63,7 @@
 - has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :messages, dependent: :destroy
+- has_one  :receipt, dependent: :destroy
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
@@ -76,6 +78,20 @@
 #### Association
 
 - belongs_to :item
+
+### receiptsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: { to_table: :users }|
+|seller_id|references|null: false, foreign_key: { to_table: :users }|
+
+#### Association
+
+- belongs_to :item
+- belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
+- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
 
 ### likesテーブル
 
