@@ -66,6 +66,14 @@
         font-size: 14px;
         border-bottom: 1px solid #eee;
         padding: 14px;
+        &__link{
+          min-height: 50px;
+          display: block;
+          position: absolute;
+          top: 17%;
+          left: 0;
+          right: 0;
+        }
         &__m_icon{
           float: left;
           width: 48px;
@@ -121,18 +129,16 @@
       line-height: 72px;
     }
     &__tags{
+      display: flex;
       &__tag{
-        box-sizing: border-box;
         font-size: 16px;
         font-weight: 600;
-        line-height: 72px;
-        width: 347px;
-        display: inline-block;
+        line-height: 70px;
+        width: 350px;
         text-align: center;
       }
       .line{
         border-top: 2px solid red;
-        border-bottom: 1px solid #eee;
       }
       .color{
         background-color: #eee;
