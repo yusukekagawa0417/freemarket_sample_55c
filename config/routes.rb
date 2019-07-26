@@ -1,46 +1,34 @@
 Rails.application.routes.draw do
   root 'items#index'
   #items関係
-  resources :items, only: [:index, :show, :new]
-
-  namespace :purchase do
-    resources :items, only: [:show]
+  resources :items do
+    resource :likes, only: [:create, :destroy]
+    resources :messages, only: [:index, :create]
   end
+
+  resources :purchases, only: [:new, :create]
 
   #users関係
-  resources :users, only: [:show, :edit]
-
-  namespace :registration do
-    resources :users, only: [:new]
-  end
-
-  namespace :registration do
-    resources :users do
-      collection do
-        get 'new_page1'
-        get 'new_page2'
-        get 'new_page3'
-        get 'new_page4'
-        get 'new_page5'
-        get 'new_page6'
-      end
+  resources :users, only: [:new, :create, :show, :edit, :update] do
+    member do
+      get :logout
     end
   end
 
-  namespace :session do
-    resources :users, only: [:new]
+  #credits関係
+  resources :credits, only: [:new, :create]
+
+  #devise関係
+  resources :registrations, only: [:new, :create, :edit, :update] do
+    collection do
+      get :new1
+      get :new2
+      get :new3
+      get :new4
+      get :new5
+      get :new6
+    end
   end
 
-  namespace :logout do
-    resources :users, only: [:new]
-  end
-
-  namespace :credit do
-    resources :users, only: [:new]
-  end
-
-  namespace :confirmation do
-    resources :users, only: [:show]
-  end
-
+  resources :sessions, only: [:new]
 end
