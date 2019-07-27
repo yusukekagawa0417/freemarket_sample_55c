@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'items#index'
+  
   #items関係
   resources :items do
     resource :likes, only: [:create, :destroy]
