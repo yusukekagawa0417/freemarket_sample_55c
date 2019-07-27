@@ -10,8 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_125355) do
 
+ActiveRecord::Schema.define(version: 2019_07_27_032436) do
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.integer "condition"
+    t.integer "shipping_fee"
+    t.integer "shipping_date"
+    t.integer "price", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "seller_id"
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
+  end
+  
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
@@ -45,5 +69,8 @@ ActiveRecord::Schema.define(version: 2019_07_26_125355) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "addresses", "users"
+
 end
