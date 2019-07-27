@@ -66,6 +66,10 @@
         margin: 8px auto 0;
         background-color: #f5f5f5;
         border: dashed 1px silver;
+        cursor: pointer;
+        &-default {
+          display: none;
+        }
         &-content {
           text-align: center;
           padding: 70px;

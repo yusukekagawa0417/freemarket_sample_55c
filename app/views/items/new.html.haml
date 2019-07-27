@@ -17,12 +17,14 @@
               必須
             .k_ir_section__inner--form-sentence 
               最大10枚までアップロードできます
-            .k_ir_section__inner--form-input
-              .k_ir_section__inner--form-input-content 
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをダウンロード
+            
             = f.fields_for :images do |images_f|
-              = images_f.file_field :image
+              = images_f.label :image do
+                .k_ir_section__inner--form-input
+                  .k_ir_section__inner--form-input-content 
+                    %p ドラッグアンドドロップ
+                    %p またはクリックしてファイルをダウンロード
+              = images_f.file_field :image, class: 'k_ir_section__inner--form-input-default'
             
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
