@@ -17,14 +17,14 @@
               必須
             .k_ir_section__inner--form-sentence 
               最大10枚までアップロードできます
-            
-            = f.fields_for :images do |images_f|
-              = images_f.label :image do
+
+            = f.fields_for :images do |image|
+              = image.label :image do
                 .k_ir_section__inner--form-input
                   .k_ir_section__inner--form-input-content 
                     %p ドラッグアンドドロップ
                     %p またはクリックしてファイルをダウンロード
-              = images_f.file_field :image, class: 'k_ir_section__inner--form-input-default'
+              = image.file_field :image, class: 'k_ir_section__inner--form-input-default'
             
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
@@ -60,7 +60,7 @@
               = fa_icon 'question-circle', class: 'k_ir_icon'
             .k_ir_section__inner--form3-right
               .k_ir_section__inner--form3-right-label
-                配送量の負担
+                配送料の負担
               .k_ir_section__inner--form3-right-span
                 必須
               = f.select :shipping_fee, Item.shipping_fees.keys.to_a, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
