@@ -33,10 +33,12 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :status,
+      :condition,
       :shipping_fee,
       :shipping_date,
       :price,
-      images_attributes: [:image, :item_id]).merge(seller_id: 1)
+      images_attributes: [:image, :item_id]
+      )
+      .merge(seller_id: 1).merge(status: 0)
   end
 end
