@@ -50,8 +50,7 @@
                 商品の状態
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :status, ['---', 1, 2, 3], {}, class: "k_ir_section__inner--form3-right-select"
 
           .k_ir_section__inner--form3.k_ir_section__inner--form4
             .k_ir_section__inner--form3-left
@@ -62,8 +61,7 @@
                 配送量の負担
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :shipping_fee, ['---', 1, 2, 3], {}, class: "k_ir_section__inner--form3-right-select"
               .k_ir_section__inner--form3-right-label
                 発送元の地域
               .k_ir_section__inner--form3-right-span
@@ -74,8 +72,7 @@
                 発送までの日数
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :shipping_date, ['---', 1, 2, 3], {}, class: "k_ir_section__inner--form3-right-select"
 
           .k_ir_section__inner--form5
             .k_ir_section__inner--form5-left
