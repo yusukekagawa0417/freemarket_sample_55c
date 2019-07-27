@@ -53,7 +53,6 @@
 |shipping_date|integer|null: false|
 |price|integer|null: false|
 |seller_id|references|null: false, foreign_key: { to_table: :users }|
-<!-- |buyer_id|references|foreign_key: { to_table: :users }| -->
 |status|integer|null: false|
 |size|integer||
 |brand_id|references|foreign_key: true|
@@ -72,7 +71,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_image|string|null: false|
+|image|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 #### Association
