@@ -1,126 +1,128 @@
-.k_ir_single-container
-  %header.k_ir_header
-    %h1.k_ir_header__title
-      = link_to "#" do
-        %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185"}
+= form_for @item do |f|
+  .k_ir_single-container
+    %header.k_ir_header
+      %h1.k_ir_header__title
+        = link_to "#" do
+          %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185"}
 
-  %main.k_ir_wrapper
-    %section.k_ir_section
-      %h2.k_ir_section__header
-        商品の情報を入力
-      .k_ir_section__inner
-        .k_ir_section__inner--form
-          .k_ir_section__inner--form-label
-            出品画像
-          .k_ir_section__inner--form-span
-            必須
-          .k_ir_section__inner--form-sentence 
-            最大10枚までアップロードできます
-          .k_ir_section__inner--form-input
-            .k_ir_section__inner--form-input-content 
-              %p ドラッグアンドドロップ
-              %p またはクリックしてファイルをダウンロード
-          
-        .k_ir_section__inner--form2
-          .k_ir_section__inner--form2-label
-            商品名
-          .k_ir_section__inner--form2-span
-            必須
-          %input{class: "k_ir_section__inner--form2-input", placeholder: "商品名（必須40文字まで）"}
-          .k_ir_section__inner--form2-label
-            商品の説明
-          .k_ir_section__inner--form2-span
-            必須
-          %textarea{class: "k_ir_section__inner--form2-textarea", row: '3', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年度に1蔓延で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
-
-          
-        .k_ir_section__inner--form3
-          .k_ir_section__inner--form3-left
-            商品の詳細
-          .k_ir_section__inner--form3-right
-            .k_ir_section__inner--form3-right-label
-              カテゴリー
-            .k_ir_section__inner--form3-right-span
+    %main.k_ir_wrapper
+      %section.k_ir_section
+        %h2.k_ir_section__header
+          商品の情報を入力
+        .k_ir_section__inner
+          .k_ir_section__inner--form
+            .k_ir_section__inner--form-label
+              出品画像
+            .k_ir_section__inner--form-span
               必須
-            %select{class: "k_ir_section__inner--form3-right-select"}
-              %option ---
-            .k_ir_section__inner--form3-right-label
-              商品の状態
-            .k_ir_section__inner--form3-right-span
-              必須
-            %select{class: "k_ir_section__inner--form3-right-select"}
-              %option ---
-
-        .k_ir_section__inner--form3.k_ir_section__inner--form4
-          .k_ir_section__inner--form3-left
-            配送について
-            = fa_icon 'question-circle', class: 'k_ir_icon'
-          .k_ir_section__inner--form3-right
-            .k_ir_section__inner--form3-right-label
-              配送量の負担
-            .k_ir_section__inner--form3-right-span
-              必須
-            %select{class: "k_ir_section__inner--form3-right-select"}
-              %option ---
-            .k_ir_section__inner--form3-right-label
-              発送元の地域
-            .k_ir_section__inner--form3-right-span
-              必須
-            %select{class: "k_ir_section__inner--form3-right-select"}
-              %option ---
-            .k_ir_section__inner--form3-right-label
-              発送までの日数
-            .k_ir_section__inner--form3-right-span
-              必須
-            %select{class: "k_ir_section__inner--form3-right-select"}
-              %option ---
-
-        .k_ir_section__inner--form5
-          .k_ir_section__inner--form5-left
-            販売価格（300~9,999,999）
-            = fa_icon 'question-circle', class: 'k_ir_icon'
-          .k_ir_section__inner--form5-right
-            .k_ir_right__content
-              .k_ir_right__content--left
-                .k_ir_right__content--left-label
-                  価格
-                .k_ir_right__content--left-span
-                  必須
-              .k_ir_right__content--right
-                .k_ir_right__content--right-price
-                  ¥
-                  %input{class: "k_ir_right__content--right-price-input", placeholder: '例）300'}
-            .k_ir_right__content
-              .k_ir_right__content--left
-                販売手数料（10%）
-              .k_ir_right__content--right
-                ー
-            .k_ir_right__content.k_ir_no_border
-              .k_ir_right__content--left
-                .k_ir_right__content--left-label
-                  販売利益
-              .k_ir_right__content--right
-                .k_ir_right__content--right-label
-                  ー
-
-        .k_ir_section__inner--form6
-          .k_ir_section__inner--form6-sentence
-            .k_ir_line1
-              = link_to '禁止されている出品', '#', class: 'k_ir_link' 
-              、
-              = link_to '行為', '#', class: 'k_ir_link' 
-              を必ずご確認ください。
-            .k_ir_line2
-              またブランド品でシリアルナンバー等がある場合はご記載ください。
-              = link_to '偽ブランドの販売', '#', class: 'k_ir_link'  
-              は犯罪であり処罰される可能性があります。
-            .k_ir_line3
-              また、出品を持ちまして
-              = link_to '加盟店規約', '#', class: 'k_ir_link' 
-              に同意したことになります。
+            .k_ir_section__inner--form-sentence 
+              最大10枚までアップロードできます
+            .k_ir_section__inner--form-input
+              .k_ir_section__inner--form-input-content 
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをダウンロード
+            = f.fields_for :images do |images_f|
+              = images_f.file_field :image
             
-          %input{type: 'submit', value: '出品する', class: 'k_ir_section__inner--form6-input-btn'}
-          %input{type: 'submit', value: 'もどる', class: 'k_ir_section__inner--form6-input-btn k_ir_gray-btn'}
+          .k_ir_section__inner--form2
+            .k_ir_section__inner--form2-label
+              商品名
+            .k_ir_section__inner--form2-span
+              必須
+            = f.text_field :name, class: "k_ir_section__inner--form2-input", placeholder: "商品名（必須40文字まで）"
+            .k_ir_section__inner--form2-label
+              商品の説明
+            .k_ir_section__inner--form2-span
+              必須
+            = f.text_area :description, class: "k_ir_section__inner--form2-textarea", row: '3', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年度に1蔓延で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
 
-  %footer.k_ir_footer
-    = render 'registrations/footer'
+          .k_ir_section__inner--form3
+            .k_ir_section__inner--form3-left
+              商品の詳細
+            .k_ir_section__inner--form3-right
+              .k_ir_section__inner--form3-right-label
+                カテゴリー
+              .k_ir_section__inner--form3-right-span
+                必須
+              %select{class: "k_ir_section__inner--form3-right-select"}
+                %option ---
+              .k_ir_section__inner--form3-right-label
+                商品の状態
+              .k_ir_section__inner--form3-right-span
+                必須
+              %select{class: "k_ir_section__inner--form3-right-select"}
+                %option ---
+
+          .k_ir_section__inner--form3.k_ir_section__inner--form4
+            .k_ir_section__inner--form3-left
+              配送について
+              = fa_icon 'question-circle', class: 'k_ir_icon'
+            .k_ir_section__inner--form3-right
+              .k_ir_section__inner--form3-right-label
+                配送量の負担
+              .k_ir_section__inner--form3-right-span
+                必須
+              %select{class: "k_ir_section__inner--form3-right-select"}
+                %option ---
+              .k_ir_section__inner--form3-right-label
+                発送元の地域
+              .k_ir_section__inner--form3-right-span
+                必須
+              %select{class: "k_ir_section__inner--form3-right-select"}
+                %option ---
+              .k_ir_section__inner--form3-right-label
+                発送までの日数
+              .k_ir_section__inner--form3-right-span
+                必須
+              %select{class: "k_ir_section__inner--form3-right-select"}
+                %option ---
+
+          .k_ir_section__inner--form5
+            .k_ir_section__inner--form5-left
+              販売価格（300~9,999,999）
+              = fa_icon 'question-circle', class: 'k_ir_icon'
+            .k_ir_section__inner--form5-right
+              .k_ir_right__content
+                .k_ir_right__content--left
+                  .k_ir_right__content--left-label
+                    価格
+                  .k_ir_right__content--left-span
+                    必須
+                .k_ir_right__content--right
+                  .k_ir_right__content--right-price
+                    ¥
+                    = f.text_field :price, class: "k_ir_right__content--right-price-input", placeholder: '例）300'
+              .k_ir_right__content
+                .k_ir_right__content--left
+                  販売手数料（10%）
+                .k_ir_right__content--right
+                  ー
+              .k_ir_right__content.k_ir_no_border
+                .k_ir_right__content--left
+                  .k_ir_right__content--left-label
+                    販売利益
+                .k_ir_right__content--right
+                  .k_ir_right__content--right-label
+                    ー
+
+          .k_ir_section__inner--form6
+            .k_ir_section__inner--form6-sentence
+              .k_ir_line1
+                = link_to '禁止されている出品', '#', class: 'k_ir_link' 
+                、
+                = link_to '行為', '#', class: 'k_ir_link' 
+                を必ずご確認ください。
+              .k_ir_line2
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to '偽ブランドの販売', '#', class: 'k_ir_link'  
+                は犯罪であり処罰される可能性があります。
+              .k_ir_line3
+                また、出品を持ちまして
+                = link_to '加盟店規約', '#', class: 'k_ir_link' 
+                に同意したことになります。
+              
+            = f.submit :出品する, class: 'k_ir_section__inner--form6-input-btn'
+            %input{type: 'submit', value: 'もどる', class: 'k_ir_section__inner--form6-input-btn k_ir_gray-btn'}
+
+    %footer.k_ir_footer
+      = render 'registrations/footer'
