@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do |user|
-  link "マイページ", user_path(1)
+  link "マイページ", user_path(current_user)
 end
 
 crumb :detail do |item|
@@ -30,8 +30,8 @@ crumb :logout do
   parent :mypage
 end
 
-crumb :selling_items do
-  link "出品した商品 - 出品中", root_path
+crumb :selling_items do |user|
+  link "出品した商品 - 出品中", selling_user_path(current_user)
   parent :mypage
 end
 
