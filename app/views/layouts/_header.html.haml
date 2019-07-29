@@ -1,7 +1,7 @@
 .header
   .header-top
     %h1
-      = link_to "#" do
+      = link_to root_path do
         %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", width: "150px"}
     %form
       %input{type: "text", placeholder: "何かお探しですか？"}
@@ -20,6 +20,7 @@
             = link_to "#" do
               = fa_icon 'tag', class: "o_icon-red"
               %span ブランドから探す
+
     - if user_signed_in?
       .header-bottom__right
         %ul

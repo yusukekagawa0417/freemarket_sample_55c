@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root 'items#index'
   
   #items関係
@@ -30,7 +31,17 @@ Rails.application.routes.draw do
       get :new5
       get :new6
     end
+    collection do
+      post :create1
+      post :create2
+      post :create3
+      post :create4
+      post :create5
+      post :create6
+    end
   end
+
+
 
   resources :sessions, only: [:new]
 end
