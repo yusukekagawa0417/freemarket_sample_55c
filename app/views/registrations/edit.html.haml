@@ -5,7 +5,7 @@
   .o_useredit-container
     .n_mypage-sidebar
       = render 'users/mypage_sidebar'
-    = form_for @user do |f|
+    = form_for(@user, url: registration_path) do |f|
       .o_useredit-field
         %h2 プロフィール
         .o_useredit-form

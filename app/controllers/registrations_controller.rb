@@ -82,10 +82,12 @@ class RegistrationsController < ApplicationController
 
 
   def edit
-    @user = User.find(1)
+    @user = User.find(current_user.id)
   end
 
   def update
+    current_user.update(user_params)
+    redirect_to edit_registration_path(current_user)
   end
 
   private
