@@ -37,7 +37,7 @@
               = fa_icon 'check', class: "o_icon-gray"
               %span やることリスト
           %li
-            = link_to "#", class: "o_link-mypage" do
+            = link_to user_path(current_user), class: "o_link-mypage" do
               .header-bottom__right--image 
                 %img{src: "https://placehold.jp/30x30.png"}
               %span マイページ
