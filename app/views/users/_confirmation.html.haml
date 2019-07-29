@@ -41,7 +41,7 @@
               郵便番号
             %span.s_content__mypage__single-inner__form-group__any 
               任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+            %input.s_content__mypage__single-inner__form-group__input{name: "zip_code", placeholder: "例）1234567", type: "text", value: user.address.postal_code}
 
           .s_content__mypage__single-inner__form-group
             %label{for: "prefecture"}
@@ -57,21 +57,21 @@
               市区町村
             %span.s_content__mypage__single-inner__form-group__any
               任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}
+            %input.s_content__mypage__single-inner__form-group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: user.address.city}
 
           .s_content__mypage__single-inner__form-group
             %label{for: "address1_label"}
               番地
             %span.s_content__mypage__single-inner__form-group__any 
               任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}
+            %input.s_content__mypage__single-inner__form-group__input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: user.address.address_number}
 
           .s_content__mypage__single-inner__form-group
             %label{for: "address2_label"}
               建物名
             %span.s_content__mypage__single-inner__form-group__any
               任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
+            %input.s_content__mypage__single-inner__form-group__input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: user.address.building_name}
 
           %button.s_content__mypage__single-inner__btn-red{type: "submit"}
             登録する

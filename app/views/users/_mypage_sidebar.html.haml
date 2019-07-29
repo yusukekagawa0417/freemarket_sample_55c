@@ -3,7 +3,7 @@
     %ul.n_side_bar__mypage
       %li.n_side_bar__mypage__list.top
         .n_side_bar__mypage__list__parent
-          = link_to "マイページ", user_path(1), class: "n_side_bar__mypage__list__parent__side_toplink" 
+          = link_to "マイページ", user_path(current_user), class: "n_side_bar__mypage__list__parent__side_toplink" 
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__ficon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
@@ -75,7 +75,7 @@
     %ul.n_side_bar__mypage
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
-          = link_to "プロフィール", edit_registration_path(1), class: "n_side_bar__mypage__list__parent__side_link"
+          = link_to "プロフィール", edit_registration_path(current_user), class: "n_side_bar__mypage__list__parent__side_link"
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
@@ -91,7 +91,7 @@
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
-          = link_to "本人情報", edit_user_path(1), class: "n_side_bar__mypage__list__parent__side_link"
+          = link_to "本人情報", edit_user_path(current_user), class: "n_side_bar__mypage__list__parent__side_link"
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
@@ -99,5 +99,5 @@
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
-          = link_to "ログアウト", logout_user_path(1), class: "n_side_bar__mypage__list__parent__side_link"
+          = link_to "ログアウト", logout_user_path(current_user), class: "n_side_bar__mypage__list__parent__side_link"
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"

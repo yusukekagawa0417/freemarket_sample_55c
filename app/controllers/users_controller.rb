@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @items = Item.where(seller_id: @user.id)
   end
 
   def update
