@@ -31,7 +31,7 @@
 
 .header-bottom {
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   display: flex;
   justify-content: space-between;
   font-size: 14px;
@@ -60,10 +60,8 @@
         img {
           border-radius: 50%;
         }
-        &:last-child {
-          a {
-            display: flex;
-          }
+        .o_link-mypage {
+          display: flex;
           span {
             margin-left: 5px;
           }
@@ -90,5 +88,34 @@
   }
   &-red {
     color: #EA352D;
+  }
+}
+
+.o_btn {
+  height: 32px;
+  line-height: 32px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.o_registration {
+  border: 1px solid #ea352d;
+  background: #ea352d;
+  color: #fff;
+  opacity: 0.9;
+  transition-duration: 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.o_login {
+  border: 1px solid #0099e8;
+  color: #0099e8;
+  transition-duration: 0.3s;
+  &:hover {
+    background: #0099e8;
+    color: #fff;
   }
 }
