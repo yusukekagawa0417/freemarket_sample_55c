@@ -1,4 +1,5 @@
 = render 'layouts/header'
+- breadcrumb :logout
 = render "top_column"
 
 .s_main
@@ -9,6 +10,6 @@
       .o_logout-container
         .o_logout-field
           .o_logout-field__content
-            = link_to "ログアウト", "#", class: "o_logout-button"
+            = link_to "ログアウト", destroy_user_session_path, class: "o_logout-button"
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
