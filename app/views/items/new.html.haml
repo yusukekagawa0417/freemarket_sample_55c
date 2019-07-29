@@ -24,7 +24,8 @@
                   .k_ir_section__inner--form-input-content 
                     %p ドラッグアンドドロップ
                     %p またはクリックしてファイルをダウンロード
-              = image.file_field :image, class: 'k_ir_section__inner--form-input-default'
+                = image.file_field :image, multiple: true, name: "images[image][]", class: 'k_ir_section__inner--form-input-default'
+                #preview
             
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
