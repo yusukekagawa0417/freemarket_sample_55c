@@ -6,6 +6,6 @@
     .s_left-side
       = render "mypage_sidebar"
     .s_right-side
-      = render partial: 'mypage_main', locals: {user: @user}
+      = render partial: 'mypage_main', locals: {user: @user, items: @items}
 
 = render 'layouts/footer'
