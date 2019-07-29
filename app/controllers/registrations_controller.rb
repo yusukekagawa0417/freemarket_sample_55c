@@ -80,13 +80,12 @@ class RegistrationsController < ApplicationController
   def new6 
   end
 
-  def create
+
+  def edit
+    @user = User.find(1)
   end
 
-  def edit 
-  end
-
-  def update 
+  def update
   end
 
   private
