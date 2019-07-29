@@ -57,7 +57,7 @@ class RegistrationsController < ApplicationController
                 lastname:       session[:lastname], 
                 firstname_kana: session[:firstname_kana], 
                 lastname_kana:  session[:lastname_kana], 
-                birthday:       session[:birthday], 
+                birthday:       "2019-07-20", 
                 tel:            session[:tel],
                 address_attributes:{id:            session[:id],
                                     postal_code:   session[:postal_code],   
