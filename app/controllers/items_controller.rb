@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      params[:images]['image'].each do |i|
+        @image = @item.images.create!(image: i)
+      end
       redirect_to root_path
     else
       render 'items/new'
