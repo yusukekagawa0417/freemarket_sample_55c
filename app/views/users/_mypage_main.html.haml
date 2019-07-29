@@ -1,18 +1,18 @@
 .n_mypage_center
   %seciton.n_mypage_center__user_icon
-    = link_to "", "https://www.yahoo.co.jp/", class: "n_mypage_center__user_icon__link"
-    %img.n_mypage_center__user_icon__avater{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
-    .n_mypage_center__user_icon__name
-      user_name
-      %ul.n_mypage_center__user_icon__name__list
-        %li.n_mypage_center__user_icon__name__list__column
-          評価
-          %span.n_mypage_center__user_icon__name__list__column__number
-            0
-        %li.n_mypage_center__user_icon__name__list__column
-          出品数
-          %span.n_mypage_center__user_icon__name__list__column__number
-            1
+    = link_to "#", class: "n_mypage_center__user_icon__link" do
+      %img.n_mypage_center__user_icon__avater{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
+      .n_mypage_center__user_icon__name
+        = user.nickname
+        %ul.n_mypage_center__user_icon__name__list
+          %li.n_mypage_center__user_icon__name__list__column
+            評価
+            %span.n_mypage_center__user_icon__name__list__column__number
+              0
+          %li.n_mypage_center__user_icon__name__list__column
+            出品数
+            %span.n_mypage_center__user_icon__name__list__column__number
+              1
   %section.n_notification
     %ul.n_notification__tags
       %li.n_notification__tags__tag.line
@@ -21,7 +21,7 @@
         やることリスト
     %ul.n_notification__contents
       %li.n_notification__contents__content
-        = link_to "", "https://www.yahoo.co.jp/", class: "n_notification__contents__content__link"
+        = link_to "", "#", class: "n_notification__contents__content__link"
         %img.n_notification__contents__content__m_icon{src:"https://static.mercdn.net/images/mercari_profile.png"}
         .n_notification__contents__content__body
           .n_notification__contents__content__body__text
@@ -34,11 +34,13 @@
         .n_notification__contents__content__arrow_right
           = fa_icon "chevron-right", class: ".n_notification__contents__content__arrow_right__icon"
       %li.n_notification__contents__content
-        = link_to "", "https://www.yahoo.co.jp/", class: "n_notification__contents__content__link"
+        = link_to "", "#", class: "n_notification__contents__content__link"
         %img.n_notification__contents__content__m_icon{src:"https://static.mercdn.net/images/mercari_profile.png"}
         .n_notification__contents__content__body
           .n_notification__contents__content__body__text
-            ああああああああああああああああああああああああああああああああああああああああああああああ
+            テストテスト
+            %br
+            テストテスト
             .n_time
               %time.n_time__t_icon
                 = fa_icon "clock-o", class: "n_watch_icon"
@@ -47,11 +49,13 @@
         .n_notification__contents__content__arrow_right
           = fa_icon "chevron-right", class: ".n_notification__contents__content__arrow_right__icon"
       %li.n_notification__contents__content
-        = link_to "", "https://www.yahoo.co.jp/", class: "n_notification__contents__content__link"
+        = link_to "", "#", class: "n_notification__contents__content__link"
         %img.n_notification__contents__content__m_icon{src:"https://static.mercdn.net/images/mercari_profile.png"}
         .n_notification__contents__content__body
           .n_notification__contents__content__body__text
-            眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い眠い
+            test
+            %br
+            test
             .n_time
               %time.n_time__t_icon
                 = fa_icon "clock-o", class: "n_watch_icon"
@@ -60,11 +64,11 @@
         .n_notification__contents__content__arrow_right
           = fa_icon "chevron-right", class: ".n_notification__contents__content__arrow_right__icon"
       %li.n_notification__contents__content
-        = link_to "", "https://www.yahoo.co.jp/", class: "n_notification__contents__content__link"
+        = link_to "", "#", class: "n_notification__contents__content__link"
         %img.n_notification__contents__content__m_icon{src:"https://static.mercdn.net/images/mercari_profile.png"}
         .n_notification__contents__content__body
           .n_notification__contents__content__body__text
-            AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            AAAAAAAAAAAAAAAA
             .n_time
               %time.n_time__t_icon
                 = fa_icon "clock-o", class: "n_watch_icon"
@@ -73,11 +77,11 @@
         .n_notification__contents__content__arrow_right
           = fa_icon "chevron-right", class: ".n_notification__contents__content__arrow_right__icon"
       %li.n_notification__contents__content
-        = link_to "", "https://www.yahoo.co.jp/", class: "n_notification__contents__content__link"
+        = link_to "", "#", class: "n_notification__contents__content__link"
         %img.n_notification__contents__content__m_icon{src:"https://static.mercdn.net/images/mercari_profile.png"}
         .n_notification__contents__content__body
           .n_notification__contents__content__body__text
-            testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest
+            testtesttesttest
             .n_time
               %time.n_time__t_icon
                 = fa_icon "clock-o", class: "n_watch_icon"
@@ -86,7 +90,7 @@
         .n_notification__contents__content__arrow_right
           = fa_icon "chevron-right", class: ".n_notification__contents__content__arrow_right__icon"
       %li.n_notification__contents__mypage_view_all
-        = link_to "一覧を見る", "https://www.yahoo.co.jp/", class: "n_notification__contents__mypage_view_all__column"
+        = link_to "一覧を見る", "#", class: "n_notification__contents__mypage_view_all__column"
   %section.n_negotiation_list
     %h2.n_negotiation_list__head
       購入した商品

@@ -20,9 +20,10 @@ class RegistrationsController < ApplicationController
   def new6 
   end
 
-  def edit 
+  def edit
+    @user = User.find(1)
   end
 
-  def update 
+  def update
   end
 end
