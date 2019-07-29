@@ -86,6 +86,8 @@ class RegistrationsController < ApplicationController
   end
 
   def update
+    current_user.update(user_params)
+    redirect_to edit_registration_path(current_user)
   end
 
   private
