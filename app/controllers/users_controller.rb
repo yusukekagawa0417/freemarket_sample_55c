@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  def new
-  end
+  # def new
+  # end
 
-  def create
-  end
+  # def create
+  # end
   
   def show
     @user = User.find(1)

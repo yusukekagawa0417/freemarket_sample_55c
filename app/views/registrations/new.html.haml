@@ -1,7 +1,7 @@
 .k_su_single-container
   %header.k_su_header
     %h1.k_su_header__title
-      = link_to "#" do
+      = link_to root_path do
         %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185"}
 
   %main.k_su_wrapper
@@ -10,7 +10,7 @@
         新規会員登録
 
       .k_su_section__inner
-        = link_to "#", class: "k_su_section__inner--mail-regi" do
+        = link_to new1_registrations_path, class: "k_su_section__inner--mail-regi" do
           = fa_icon 'envelope', class: "k_su_icon"
           メールアドレスで登録する
         = link_to "#", class: "k_su_section__inner--facebook-regi" do
