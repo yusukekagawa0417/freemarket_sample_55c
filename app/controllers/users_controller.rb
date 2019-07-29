@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   # end
   
   def show
-    @user = User.find(1)
+    @user = User.find(current_user.id)
+    @items = Item.where(seller_id: @user.id)
   end
 
   def edit
-    @user = User.find(1)
+    @user = User.find(current_user.id)
   end
 
   def update

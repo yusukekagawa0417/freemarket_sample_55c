@@ -40,6 +40,6 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image, :item_id]
       )
-      .merge(seller_id: 1).merge(status: 0)
+      .merge(seller_id: current_user.id).merge(status: 0)
   end
 end
