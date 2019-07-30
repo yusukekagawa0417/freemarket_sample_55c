@@ -10,9 +10,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save && params[:image][:images].length != 0
       params[:image][:images].each do |i|
         @item.images.create!(image: i)
       end

@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', function() {
   $(document).on('change', 'input[type= "file"]', function(){
     var file = $(this).prop('files')[0];
     image_files.push(file);
-    var reader = new FileReader;
+    var reader = new FileReader();
     
     var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
     var btn = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>')
