@@ -62,7 +62,7 @@
                 都道府県
               .k_su_section4__inner--form3-span
                 必須
-              = i.text_field :prefecture_id, class: "k_su_section4__inner--form3-input", placeholder: "例）神奈川"
+              = i.collection_select :prefecture_id, Prefecture.all, :id, :name
               
             .k_su_section4__inner--form3
               .k_su_section4__inner--form3-label
