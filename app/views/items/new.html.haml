@@ -69,8 +69,7 @@
                 発送元の地域
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}
               .k_ir_section__inner--form3-right-label
                 発送までの日数
               .k_ir_section__inner--form3-right-span
