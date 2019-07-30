@@ -17,7 +17,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item =Item.find(params[:id])
+    @item = Item.find(params[:id])
+    @image = Image.find_by(params[:users_id])
+    @images = @item.images
   end
 
   def edit

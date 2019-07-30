@@ -3,26 +3,20 @@
 .o_detail-container
   .o_detail-field
     .o_item
-      %h1 マライカ ペンダントトップ
+      %h1 
+        = @item.name
       .o_item__main
         .o_item__main--image
           .o_image-main
-            = image_tag("https://placehold.jp/300x300.png")
+            = image_tag @image.image.to_s, size: "300x300"
           .o_image-sub
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
+            - @images.each do |image|
+              = image_tag image.image.to_s, size: "60x60"
         %table.o_item__main--table
           %tbody
             %tr
-              %th 出品者
+              %th 
+                出品者
               %td
                 = link_to "ニックン", "#"
                 .o_user-evaluations
@@ -55,9 +49,11 @@
             %tr
               %th 商品の状態
               %td 新品、未使用
+              -# = f.select :condtion, options_for_select(Item.conditions.keys)
             %tr
               %th 配送料の負担
               %td 送料込み(出品者負担)
+              -# = f.select :shipping_fee, options_for_select(Item.shipping_fees.keys)
             %tr
               %th 配送の方法
               %td 普通郵便(定形、定形外)
@@ -68,9 +64,11 @@
             %tr
               %th 発送日の目安
               %td 4~7日で発送
+              -# = f.select :shipping_date, options_for_select(Item.shipping_dates.keys)
       .o_item__price
         %span.price-main
-          ¥ 2,400
+          ¥
+          = @item.price
         %span.price-tax
           (税込)
         %span.price-fee
@@ -78,22 +76,10 @@
       .o_item__baloon
         .o_item__baloon-text
           売上金¥2,285円をお持ちです
-      = link_to "購入画面に進む", "#", class: "o_item__buybtn"
+      = link_to "購入画面に進む", new_item_purchase_path(@item.id), class: "o_item__buybtn"
       .o_item__description
         %p
-          とても綺麗なグリーンのアイドクレースという天然石のペンダントトップです。
-          %br/
-          銀色の縁は、シルバー925です。
-          %br/
-          気に入って先週届きましたが、私には似合わず出品致しました♪
-          %br/
-          どうぞよろしくお願い致します。
-          %br/
-          日曜日の発送予定です♪
-          %br/
-          即購入大丈夫です。
-          %br/
-          チェーンは元からありません。
+          = @item.description
       .o_item__sub
         .o_item__sub--left
           = link_to "#", class: "o_item__sub--left-btn" do
@@ -284,5 +270,4 @@
                 .o_user-item__body--bottom--like
                   = fa_icon 'heart', class: "o_icon-heart"
                   45
-
 = render 'layouts/footer'
