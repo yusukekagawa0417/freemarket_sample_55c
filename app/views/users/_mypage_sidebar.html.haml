@@ -1,4 +1,3 @@
-
 .n_side
   %nav.n_side_bar
     %ul.n_side_bar__mypage
@@ -24,7 +23,7 @@
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
-          = link_to "出品した商品 - 出品中", "#", class: "n_side_bar__mypage__list__parent__side_link"
+          = link_to "出品した商品 - 出品中", selling_user_path(current_user), class: "n_side_bar__mypage__list__parent__side_link"
           = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent

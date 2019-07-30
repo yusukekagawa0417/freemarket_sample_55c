@@ -29,3 +29,13 @@ crumb :logout do
   link "ログアウト", logout_user_path
   parent :mypage
 end
+
+crumb :selling_items do |user|
+  link "出品した商品 - 出品中", selling_user_path(current_user)
+  parent :mypage
+end
+
+crumb :selling_items_edit do |item|
+  link "出品商品画面", seller_item_path(item)
+  parent :selling_items
+end

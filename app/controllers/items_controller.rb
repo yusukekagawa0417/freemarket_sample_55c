@@ -28,6 +28,10 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
   end
 
+  def seller
+    @item = Item.find(params[:id])
+  end
+
   def edit
   end
 
