@@ -91,13 +91,13 @@
             .k_su_section__inner--form5-span
               必須
             .k_su_section__inner--form5-input
-              = f.date_select :birthday
-              %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
-              %p.k_su_date 年
-              %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
-              %p.k_su_date 月
-              %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
-              %p.k_su_date 日
+              = f.date_field :birthday
+              -# %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
+              -# %p.k_su_date 年
+              -# %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
+              -# %p.k_su_date 月
+              -# %input{class: "k_su_section__inner--form5-input-child", placeholder: "--"}
+              -# %p.k_su_date 日
             .k_su_section__inner--form5-sentence
               %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
               
