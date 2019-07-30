@@ -10,13 +10,15 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
-      params[:images]['image'].each do |i|
-        @image = @item.images.create!(image: i)
+      params[:image][:images].each do |i|
+        @item.images.create!(image: i)
       end
       redirect_to root_path
     else
+      @item.images.build
       render 'items/new'
     end
   end

@@ -19,13 +19,14 @@
               最大10枚までアップロードできます
 
             = f.fields_for :images do |image|
+              #preview
               = image.label :image do
                 .k_ir_section__inner--form-input
                   .k_ir_section__inner--form-input-content 
                     %p ドラッグアンドドロップ
                     %p またはクリックしてファイルをダウンロード
-                = image.file_field :image, multiple: true, name: "images[image][]", class: 'k_ir_section__inner--form-input-default'
-                #preview
+                = image.file_field :image, multiple: true, name: "image[images][]", class: 'k_ir_section__inner--form-input-default'
+                .preview-btn
             
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
