@@ -14,6 +14,9 @@
         display: block;
         width: 100%;
         border-bottom: 1px solid #eee;
+        &:hover {
+          background: #eee;
+        }
         &__parent{
           display: flex;
           height: 48px;
@@ -46,9 +49,6 @@
             width: 8%;
             line-height: 48px;
             display: block;
-          }
-          &__icon:hover{
-            color: #333;
           }
         }
       }

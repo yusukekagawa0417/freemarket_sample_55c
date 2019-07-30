@@ -17,12 +17,15 @@
               必須
             .k_ir_section__inner--form-sentence 
               最大10枚までアップロードできます
-            .k_ir_section__inner--form-input
-              .k_ir_section__inner--form-input-content 
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをダウンロード
-            = f.fields_for :images do |images_f|
-              = images_f.file_field :image
+
+            = f.fields_for :images do |image|
+              = image.label :image do
+                .k_ir_section__inner--form-input
+                  .k_ir_section__inner--form-input-content 
+                    %p ドラッグアンドドロップ
+                    %p またはクリックしてファイルをダウンロード
+                = image.file_field :image, multiple: true, name: "images[image][]", class: 'k_ir_section__inner--form-input-default'
+                #preview
             
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
@@ -34,7 +37,7 @@
               商品の説明
             .k_ir_section__inner--form2-span
               必須
-            = f.text_area :description, class: "k_ir_section__inner--form2-textarea", row: '3', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年度に1蔓延で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+            = f.text_area :description, class: "k_ir_section__inner--form2-textarea", row: '3', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年度に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
 
           .k_ir_section__inner--form3
             .k_ir_section__inner--form3-left
@@ -50,8 +53,7 @@
                 商品の状態
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :condition, Item.conditions.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
 
           .k_ir_section__inner--form3.k_ir_section__inner--form4
             .k_ir_section__inner--form3-left
@@ -59,11 +61,10 @@
               = fa_icon 'question-circle', class: 'k_ir_icon'
             .k_ir_section__inner--form3-right
               .k_ir_section__inner--form3-right-label
-                配送量の負担
+                配送料の負担
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
               .k_ir_section__inner--form3-right-label
                 発送元の地域
               .k_ir_section__inner--form3-right-span
@@ -74,8 +75,7 @@
                 発送までの日数
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.select :shipping_date, Item.shipping_dates.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
 
           .k_ir_section__inner--form5
             .k_ir_section__inner--form5-left
@@ -122,7 +122,6 @@
                 に同意したことになります。
               
             = f.submit :出品する, class: 'k_ir_section__inner--form6-input-btn'
-            %input{type: 'submit', value: 'もどる', class: 'k_ir_section__inner--form6-input-btn k_ir_gray-btn'}
 
     %footer.k_ir_footer
       = render 'registrations/footer'

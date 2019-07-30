@@ -79,3 +79,10 @@ gem 'mini_magick'
 gem 'pry-rails'
 
 gem 'devise'
+gem 'active_hash'
+
+gem 'jquery-rails'
+
+gem 'fog-aws'
+
+gem 'gretel'
