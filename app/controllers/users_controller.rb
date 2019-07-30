@@ -6,17 +6,22 @@ class UsersController < ApplicationController
   # end
   
   def show
-    @user = User.find(current_user.id)
-    @items = Item.where(seller_id: @user.id)
+    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    @items = Item.where(seller_id: @user.id)
   end
 
   def update
   end
 
   def logout
+  end
+
+  def selling
+    @user = User.find(params[:id])
+    @items = Item.where(seller_id: current_user.id)
   end
 end

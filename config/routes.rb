@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :items do
     resource :likes, only: [:create, :destroy]
     resources :messages, only: [:index, :create]
+    member do
+      get :seller
+    end
   end
 
   resources :purchases, only: [:new, :create]
@@ -15,6 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update] do
     member do
       get :logout
+      get :selling
     end
   end
 
