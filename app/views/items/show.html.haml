@@ -49,12 +49,12 @@
                 = link_to "ルイ ヴィトン", "#"
             %tr
               %th 商品の状態
-              %td 新品、未使用
-              -# = f.select :condtion, options_for_select(Item.conditions.keys)
+              %td
+                = @item.condition
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
-              -# = f.select :shipping_fee, options_for_select(Item.shipping_fees.keys)
+              %td
+                =@item.shipping_fee
             %tr
               %th 配送の方法
               %td 普通郵便(定形、定形外)
@@ -64,8 +64,8 @@
                 = link_to "佐賀県", "#"
             %tr
               %th 発送日の目安
-              %td 4~7日で発送
-              -# = f.select :shipping_date, options_for_select(Item.shipping_dates.keys)
+              %td
+                = @item.shipping_date
       .o_item__price
         %span.price-main
           ¥
