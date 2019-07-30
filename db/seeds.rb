@@ -1,4 +1,4 @@
-#Brandテーブルの初期設定
+#Brandテーブルの初期設定 
 require "csv"
 brand_array = CSV.read('db/brand.csv')
 registration_array = ["brand"]
