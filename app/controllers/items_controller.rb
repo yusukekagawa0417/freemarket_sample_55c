@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    @image = Image.find_by(params[:users_id])
+    @image = Image.find_by(params[:items_id])
     @images = @item.images
   end
 
