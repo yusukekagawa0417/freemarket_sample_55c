@@ -61,7 +61,7 @@
             %tr
               %th 配送元地域
               %td
-                = link_to "佐賀県", "#"
+                = link_to @item.prefecture_name, "#"
             %tr
               %th 発送日の目安
               %td
@@ -104,8 +104,8 @@
       %li
         - if @item.next.present?
           = link_to item_path(@item.next.id) do
-            = fa_icon 'chevron-right'
             = @item.next.name
+            = fa_icon 'chevron-right'
 
     .o_social_box
       %ul
