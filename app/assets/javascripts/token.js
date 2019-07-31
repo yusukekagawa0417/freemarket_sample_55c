@@ -22,7 +22,6 @@ $(function(){
           dataType: 'html'
         })
         .done(function() {
-          console.log("ok");
           location.href = "/registrations/new6";
         })
         .fail(function() {
