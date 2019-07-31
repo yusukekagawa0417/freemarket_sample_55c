@@ -113,19 +113,19 @@
                 .k_ir_right__content--right
                   .k_ir_right__content--right-price
                     ¥
-                    = f.text_field :price, class: "k_ir_right__content--right-price-input", placeholder: '例）300'
+                    = f.text_field :price, class: "k_ir_right__content--right-price-input", id: "sell-price", placeholder: '例）300'
               .k_ir_right__content
                 .k_ir_right__content--left
                   販売手数料（10%）
-                .k_ir_right__content--right
-                  ー
+                .k_ir_right__content--right#mercari_fee
+                  \-
               .k_ir_right__content.k_ir_no_border
                 .k_ir_right__content--left
                   .k_ir_right__content--left-label
                     販売利益
                 .k_ir_right__content--right
-                  .k_ir_right__content--right-label
-                    ー
+                  .k_ir_right__content--right-label#seller_gain
+                    \-
 
           .k_ir_section__inner--form6
             .k_ir_section__inner--form6-sentence
