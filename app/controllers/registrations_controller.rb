@@ -63,34 +63,28 @@ class RegistrationsController < ApplicationController
         require 'payjp'
         Payjp.api_key = ENV['PAYJP_SECRET_KEY']
         response_customer = Payjp::Customer.create(card: params[:token])
-        if response_customer == nil
-          flash.now[:alert] = 'クレジットカードを登録できませんでした'
-          redirect_to new5_registrations_path
-        else
-          session[:customer] = response_customer.id
-          
-          User.create(email:      session[:email], 
-                  password:       session[:password], 
-                  nickname:       session[:nickname], 
-                  firstname:      session[:firstname], 
-                  lastname:       session[:lastname], 
-                  firstname_kana: session[:firstname_kana], 
-                  lastname_kana:  session[:lastname_kana], 
-                  birthday:       session[:birthday] , 
-                  tel:            session[:tel],
-                  customer:       session[:customer], 
-                  address_attributes:{id:            session[:id],
-                                      postal_code:   session[:postal_code],   
-                                      prefecture_id: session[:prefecture_id],  
-                                      city:          session[:city],           
-                                      address_number:session[:address_number], 
-                                      building_name: session[:building_name]}) 
-          
-          redirect_to new6_registrations_path
-        end
+        session[:customer] = response_customer.id
+        
+        User.create(email:      session[:email], 
+                password:       session[:password], 
+                nickname:       session[:nickname], 
+                firstname:      session[:firstname], 
+                lastname:       session[:lastname], 
+                firstname_kana: session[:firstname_kana], 
+                lastname_kana:  session[:lastname_kana], 
+                birthday:       session[:birthday] , 
+                tel:            session[:tel],
+                customer:       session[:customer], 
+                address_attributes:{id:            session[:id],
+                                    postal_code:   session[:postal_code],   
+                                    prefecture_id: session[:prefecture_id],  
+                                    city:          session[:city],           
+                                    address_number:session[:address_number], 
+                                    building_name: session[:building_name]}) 
+        
+        redirect_to new6_registrations_path
       }
     end
-    
   end
 
   def new6 
