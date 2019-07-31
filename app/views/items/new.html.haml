@@ -19,15 +19,33 @@
               最大10枚までアップロードできます
 
             = f.fields_for :images do |image|
-              #preview
-              = image.label :image do
-                .k_ir_section__inner--form-input
-                  .k_ir_section__inner--form-input-content 
-                    %p ドラッグアンドドロップ
-                    %p またはクリックしてファイルをダウンロード
-                = image.file_field :image, multiple: true, name: "image[images][]", class: 'k_ir_section__inner--form-input-default'
-                .preview-btn
-            
+              .o_image-zone1-parent
+                .o_image-zone1
+                  #preview1
+                  .o_image-label1
+                    = image.label :image do
+                      .o_file-field
+                        = image.file_field :image, multiple: true, name: "image[images][]"
+                      .k_ir_section__inner--form-input
+                        .k_ir_section__inner--form-input-content 
+                          %p
+                            ドラッグアンドドロップ
+                            %br
+                            またはクリックしてファイルをダウンロード
+              .o_image-zone2-parent
+                .o_image-zone2
+                  #preview2
+                  .o_image-label2
+                    = image.label :image do
+                      .o_file-field
+                        = image.file_field :image, multiple: true, name: "image[images][]"
+                      .k_ir_section__inner--form-input
+                        .k_ir_section__inner--form-input-content 
+                          %p
+                            ドラッグアンドドロップ
+                            %br
+                            またはクリックしてファイルをダウンロード
+
           .k_ir_section__inner--form2
             .k_ir_section__inner--form2-label
               商品名
