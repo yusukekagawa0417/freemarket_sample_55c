@@ -21,6 +21,13 @@ $(function(){
           data: { token: token },
           dataType: 'html'
         })
+        .done(function() {
+          console.log("ok");
+          location.href = "/registrations/new6";
+        })
+        .fail(function() {
+          alert('クレジットカード登録に失敗しました')
+        })
       }
       else {
         alert('クレジットカード登録に失敗しました!')
