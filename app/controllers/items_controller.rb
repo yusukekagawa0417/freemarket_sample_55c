@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show, :seller, :edit, :update, :destroy]
 
   def index
   end
@@ -11,22 +12,21 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      params[:images]['image'].each do |i|
-        @image = @item.images.create!(image: i)
+    if @item.save && params[:image][:images].length != 0
+      params[:image][:images].each do |i|
+        @item.images.create!(image: i)
       end
       redirect_to root_path
     else
+      @item.images.build
       render 'items/new'
     end
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def seller
-    @item = Item.find(params[:id])
   end
 
   def edit
@@ -39,6 +39,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(
       :name,
@@ -47,6 +52,7 @@ class ItemsController < ApplicationController
       :shipping_fee,
       :shipping_date,
       :price,
+      :prefecture_id,
       images_attributes: [:image, :item_id]
       )
       .merge(seller_id: current_user.id).merge(status: 0)
