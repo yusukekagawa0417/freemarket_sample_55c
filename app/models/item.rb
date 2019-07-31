@@ -38,4 +38,13 @@ class Item < ApplicationRecord
     "出品停止中": 2,
     "売却済み": 3
   }
+
+  # 前後のアイテムレコードの取得
+  def prev
+    Item.where("id<?", self.id).order("id DESC").first
+  end
+  
+  def next
+    Item.where("id>?", self.id).order("id ASC").first
+  end  
 end
