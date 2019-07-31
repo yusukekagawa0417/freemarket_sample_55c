@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_054153) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "receipts", "items"
   add_foreign_key "receipts", "users", column: "buyer_id"
-  add_foreign_key "receipts", "users", column: "item_id"
   add_foreign_key "receipts", "users", column: "seller_id"
 end
