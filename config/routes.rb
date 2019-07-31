@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   #items関係
   resources :items do
+    resources :purchases, only: [:new, :create]
     resource :likes, only: [:create, :destroy]
     resources :messages, only: [:index, :create]
     resources :purchases, only: [:new, :create]
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
       get :seller
     end
   end
-
 
   #users関係
   resources :users, only: [:new, :create, :show, :edit, :update] do

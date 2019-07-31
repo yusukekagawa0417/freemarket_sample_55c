@@ -15,6 +15,7 @@
 |tel|string|unique: true|
 |icon_image|string||
 |profile|text||
+|customer|string|null: false|
 
 #### Association
 

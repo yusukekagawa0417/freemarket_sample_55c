@@ -9,7 +9,8 @@
       .t_buy__item__top
         %p.t_buy__item__top--image
           = image_tag "//placehold.jp/64x64.png", size: '64×64', alt: 'item_image'
-        %p.t_buy__item__top--name ニットニットニットニットニットニットセーター
+        %p.t_buy__item__top--name 
+          = @item.name
       %p.t_buy__item__price
         ¥600 
         %span 送料込み
@@ -17,7 +18,7 @@
       .t_buy__item__pay-table
         %p.t_buy__item__pay-table__you-pay 支払い金額
         %p.t_buy__item__pay-table__cell-price ¥600
-      %button.t_buy__item__btn 購入する
+      = link_to "購入する", item_purchases_path(item_id: @item.id, seller_id: @item.seller_id), method: :POST, class: "t_buy__item__btn"
 
     %section.t_buy__user-info
       %section.t_buy__user-info__delivery
