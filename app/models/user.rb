@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # has_many :evaluations, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
-  validates :encrypted_password, presence: true
+  validates :password, presence: true, length: {minimum: 6}
   validates :nickname, presence: true
   validates :firstname, presence: true
   validates :lastname, presence: true
