@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture, shortcuts: :name
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
   has_many   :images, dependent: :destroy
 
@@ -39,4 +41,13 @@ class Item < ApplicationRecord
     "出品停止中": 2,
     "売却済み": 3
   }
+
+  # 前後のアイテムレコードの取得
+  def prev
+    Item.where("id<?", self.id).order("id DESC").first
+  end
+  
+  def next
+    Item.where("id>?", self.id).order("id ASC").first
+  end  
 end
