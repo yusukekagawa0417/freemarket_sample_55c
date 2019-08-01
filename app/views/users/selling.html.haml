@@ -1,0 +1,16 @@
+= render 'layouts/header'
+- breadcrumb :selling_items, @user
+= render "top_column"
+
+.s_main
+  .s_wrapper
+    .s_left-side
+      = render "mypage_sidebar"
+    .s_right-side
+      .s_content
+        - @items.each do |item|
+          = link_to item.name, seller_item_path(item)
+          %br
+
+= render 'layouts/footer'
+= render 'layouts/sell-btn'

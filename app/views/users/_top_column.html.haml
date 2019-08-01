@@ -1,7 +1,2 @@
 %nav.n_mypage_top
-  %ul.n_head
-    %li.n_head__list
-      = link_to "メルカリ", "https://www.yahoo.co.jp/", class: "n_head__list__link"
-      = fa_icon 'chevron-right', class: 'n_head__list__arrow'
-    %li.n_head__list
-      = link_to "マイページ", "https://www.yahoo.co.jp/", class: "n_head__list__l_link"
+  = breadcrumbs pretext: "", separator: " &rsaquo; "

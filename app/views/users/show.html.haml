@@ -1,10 +1,11 @@
 = render 'layouts/header'
+- breadcrumb :mypage, @user
 = render "top_column"
 .s_main
   .s_wrapper
     .s_left-side
       = render "mypage_sidebar"
     .s_right-side
-      = render 'mypage_main'
+      = render partial: 'mypage_main', locals: {user: @user, items: @items}
 
 = render 'layouts/footer'

@@ -1,11 +1,12 @@
 = render 'layouts/header'
+- breadcrumb :confirmation
 = render "users/top_column"
 .s_main
   .s_wrapper
     .s_left-side
       = render "users/mypage_sidebar"
     .s_right-side
-      = render 'confirmation'
+      = render partial: 'confirmation', locals: {user: @user}
 
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
