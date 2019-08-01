@@ -1,15 +1,18 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture, shortcuts: :name
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
   has_many   :images, dependent: :destroy
 
   accepts_nested_attributes_for :images
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :condition, presence: true
   validates :shipping_fee, presence: true
+  validates :prefecture_id, presence: true
   validates :shipping_date, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :status,  presence: true
 
   enum condition: {
@@ -38,4 +41,13 @@ class Item < ApplicationRecord
     "出品停止中": 2,
     "売却済み": 3
   }
+
+  # 前後のアイテムレコードの取得
+  def prev
+    Item.where("id<?", self.id).order("id DESC").first
+  end
+  
+  def next
+    Item.where("id>?", self.id).order("id ASC").first
+  end  
 end
