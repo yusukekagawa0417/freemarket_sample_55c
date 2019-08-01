@@ -80,7 +80,7 @@
       = link_to "購入画面に進む", new_item_purchase_path(@item.id), class: "o_item__buybtn"
       .o_item__description
         %p
-          = @item.description
+          = simple_format(@item.description)
       .o_item__sub
         .o_item__sub--left
           = link_to "#", class: "o_item__sub--left-btn" do
