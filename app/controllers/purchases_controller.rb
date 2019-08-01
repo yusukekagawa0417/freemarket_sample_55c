@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   
   def create
     #支払い
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = Rails.application.credentials.payjp_secret_key
     charge = Payjp::Charge.create(
       amount: Item.find(purchase_params[:item_id]).price,
       customer: current_user.customer,

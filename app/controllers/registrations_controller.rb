@@ -61,7 +61,7 @@ class RegistrationsController < ApplicationController
     respond_to do |format|
       format.html {
         require 'payjp'
-        Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+        Payjp.api_key = Rails.application.credentials.payjp_secret_key
         response_customer = Payjp::Customer.create(card: params[:token])
         session[:customer] = response_customer.id
         
