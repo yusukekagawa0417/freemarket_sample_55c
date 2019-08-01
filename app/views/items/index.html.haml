@@ -7,58 +7,100 @@
     ピックアップカテゴリ
     .o_topitems-boxes
       .o_topitems-box
+      
         %h3.o_topitems-box__title    
           レディース 新着アイテム
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
         %h3.o_topitems-box__title
           メンズ新着アイテム
         .o_topitems-box__content
-          .o_topitems  
+          .o_topitems    
           = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
         %h3.o_topitems-box__title
           ベビー・キッズ 新着アイテム
-        .o_topitems-box__content
-          .o_topitems  
-          = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+          .o_topitems-box__content
+            .o_topitems    
+            = link_to "#" do
+              .o_topitems-box__content
+                .o_topitems
+                  = render partial: 'item', locals: { item: @items }, collection: @items
+            .o_topitems-box__view-all
+              = link_to "すべての商品を見る", "#"
+
         %h3.o_topitems-box__title
-          コスメ・香水・美容 新着アイテム  
+          コスメ・香水・美容 新着アイテム    
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
   .o_pickup-container
   %h2.o_pickup-head
     ピックアップブランド
     .o_topitems-boxes
       .o_topitems-box
+
         %h3.o_topitems-box__title
           シャネル 新着アイテム
         .o_topitems-box__content
-          .o_topitems  
+          .o_topitems    
           = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
         %h3.o_topitems-box__title
           ルイ ヴィトン 新着アイテム
         .o_topitems-box__content
-          .o_topitems  
-          = link_to "#" do  
-            = render partial: 'item', locals: { item: @items }
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
         %h3.o_topitems-box__title
           シュプリーム 新着アイテム
         .o_topitems-box__content
-          .o_topitems  
-          = link_to "#" do  
-            = render partial: 'item', locals: { item: @items }
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
         %h3.o_topitems-box__title
           ナイキ 新着アイテム
         .o_topitems-box__content
-          .o_topitems  
+          .o_topitems    
           = link_to "#" do
-            = render partial: 'item', locals: { item: @items }
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', locals: { item: @items }, collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
