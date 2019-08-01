@@ -1,58 +1,14 @@
-.o_topitems-boxes
-  .o_topitems-box
-    = link_to "#" do
-      %h3.o_topitems-box__title
-        レディース 新着アイテム
-    .o_topitems-box__content
-      .o_topitems
-        .o_topitem
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_topitem__body
-              .o_topitem__body--title
-                美品COACH
-              .o_topitem__body--bottom
-                .o_topitem__body--bottom--price
-                  ¥43,500
-                .o_topitem__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_topitem
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_topitem__body
-              .o_topitem__body--title
-                美品COACH
-              .o_topitem__body--bottom
-                .o_topitem__body--bottom--price
-                  ¥ 43,500
-                .o_topitem__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_topitem
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_topitem__body
-              .o_topitem__body--title
-                美品COACH
-              .o_topitem__body--bottom
-                .o_topitem__body--bottom--price
-                  ¥ 43,500
-                .o_topitem__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_topitem
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_topitem__body
-              .o_topitem__body--title
-                美品COACH
-              .o_topitem__body--bottom
-                .o_topitem__body--bottom--price
-                  ¥ 43,500
-                .o_topitem__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-      .o_topitems-box__view-all
-        = link_to "すべての商品を見る", "#"
-          
+
+.o_topitem
+  = link_to item_path(item.id) do
+    -item.images.each do |image|
+      =image_tag image.image.to_s , height: "213px" , width: "213px"
+    .o_topitem__body
+      .o_topitem__body--title
+        = item.name
+      .o_topitem__body--bottom
+        .o_topitem__body--bottom--price
+          = item.price
+        .o_topitem__body--bottom--like
+          = fa_icon 'heart', class: "o_icon-heart"
+          45
