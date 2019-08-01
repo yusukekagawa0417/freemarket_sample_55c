@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :seller, :edit, :update, :destroy]
 
   def index
+    @items = Item.all.limit(4)
   end
 
   def new
@@ -24,6 +25,10 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @item = Item.find(params[:id])
+    @images = @item.images
+    @image = @images.first
+    @user = User.find(@item.seller_id)
   end
 
   def seller

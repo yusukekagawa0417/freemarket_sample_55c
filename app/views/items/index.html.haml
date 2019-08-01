@@ -3,18 +3,104 @@
   .o_top-image
     = image_tag("https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?891577966", height: "400px")
   .o_pickup-container
-    %h2.o_pickup-head
-      ピックアップカテゴリー
-      = render 'item'
-      = render 'item'
-      = render 'item'
-      = render 'item'
+  %h2.o_pickup-head
+    ピックアップカテゴリ
+    .o_topitems-boxes
+      .o_topitems-box
+      
+        %h3.o_topitems-box__title    
+          レディース 新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
+        %h3.o_topitems-box__title
+          メンズ新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
+        %h3.o_topitems-box__title
+          ベビー・キッズ 新着アイテム
+          .o_topitems-box__content
+            .o_topitems    
+            = link_to "#" do
+              .o_topitems-box__content
+                .o_topitems
+                  = render partial: 'item', collection: @items
+            .o_topitems-box__view-all
+              = link_to "すべての商品を見る", "#"
+
+        %h3.o_topitems-box__title
+          コスメ・香水・美容 新着アイテム    
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
   .o_pickup-container
-    %h2.o_pickup-head
-      ピックアップブランド
-      = render 'item'
-      = render 'item'
-      = render 'item'
-      = render 'item'
+  %h2.o_pickup-head
+    ピックアップブランド
+    .o_topitems-boxes
+      .o_topitems-box
+
+        %h3.o_topitems-box__title
+          シャネル 新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
+        %h3.o_topitems-box__title
+          ルイ ヴィトン 新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
+        %h3.o_topitems-box__title
+          シュプリーム 新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
+        %h3.o_topitems-box__title
+          ナイキ 新着アイテム
+        .o_topitems-box__content
+          .o_topitems    
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"      
+
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
