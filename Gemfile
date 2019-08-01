@@ -86,4 +86,7 @@ gem 'jquery-rails'
 gem 'fog-aws'
 
 gem 'gretel'
+
 gem 'ancestry'
+
+gem 'payjp'
