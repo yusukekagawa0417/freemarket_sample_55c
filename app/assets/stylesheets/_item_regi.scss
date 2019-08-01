@@ -18,8 +18,58 @@
 }
 
 .k_ir_wrapper {
-  height: 2150px;
   width: 100%;
+}
+
+.o_image-zone1, .o_image-zone2 {
+  display: flex;
+  img {
+    width: 110px;
+  }
+}
+
+.o_image-zone2-parent {
+  display: none;
+  margin-top: 10px;
+}
+
+#preview1, #preview2 {
+  display: flex;
+}
+
+.o_image-label1, .o_image-label2 {
+  width: 100%;
+  height: 160px;
+}
+
+.o_file-field {
+  display: none;
+}
+
+.add_img {
+  background: #f5f5f5;
+  border: 1px solid #eee;
+  height: 160px;
+  width: 110px;
+  margin-right: 17px;
+}
+
+.img_area {
+  padding-top: 30px;
+  height: 70%;
+}
+
+.btn_wrapper {
+  height: 30%;
+  text-align: center;
+  margin-top: 10px;
+  a {
+    color: #0099e8;
+    &:hover {
+      opacity: 0.7;
+      text-decoration: underline;
+    }
+  }
 }
 
 .k_ir_section {
@@ -36,10 +86,9 @@
     border-bottom: 1px solid #f5f5f5;
   }
   &__inner {
-    height: 1333px;
+    height: 100%;
     width: 100%;
     &--form {
-      height: 350px;
       border-bottom: 1px solid #f5f5f5;
       padding: 40px 40px 64px;
       box-sizing: border-box;
@@ -58,17 +107,18 @@
       }
       &-sentence {
         margin: 5px 0;
-
       }
       &-input {
-        height: 200px;
-        width: 100%;
-        margin: 8px auto 0;
+        height: 160px;
+        margin: 0 auto;
         background-color: #f5f5f5;
         border: dashed 1px silver;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
         &-content {
           text-align: center;
-          padding: 70px;
         }
       }
     }
@@ -128,7 +178,6 @@
       }
       &-right {
         width: 60%;
-      
         &-label {
           display: inline;
           font-weight: bold;
@@ -142,7 +191,7 @@
           font-size: 12px;
           display: inline;
         }
-        &-select {
+        &-select, select {
           width: 100%;
           display: block;
           height: 48px;
@@ -269,7 +318,7 @@
     }
     &--form6 {
       height: 300px;
-      padding: 40px 40px 64px;
+      padding: 40px;
       box-sizing: border-box;
       .k_ir_link {
         text-decoration: none;

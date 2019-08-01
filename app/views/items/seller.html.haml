@@ -1,0 +1,94 @@
+= render 'layouts/header'
+- breadcrumb :selling_items_edit, @item
+= render 'users/top_column'
+.o_detail-container
+  .o_detail-field
+    .o_item
+      %h1 マライカ ペンダントトップ
+      .o_item__main
+        .o_item__main--image
+          .o_image-main
+            = image_tag("https://placehold.jp/300x300.png")
+          .o_image-sub
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+            = image_tag("https://placehold.jp/60x60.png")
+        %table.o_item__main--table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "ニックン", "#"
+            %tr
+              %th カテゴリー
+              %td
+                .td-category
+                  = link_to "メンズ", "#"
+                .td-category
+                  = link_to "#" do
+                    = fa_icon 'chevron-right'
+                    アクセサリー
+                .td-category
+                  = link_to "#" do
+                    = fa_icon 'chevron-right'
+                    ネックレス
+            %tr
+              %th ブランド
+              %td
+                = link_to "ルイ ヴィトン", "#"
+            %tr
+              %th 商品の状態
+              %td 新品、未使用
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td 普通郵便(定形、定形外)
+            %tr
+              %th 配送元地域
+              %td
+                = link_to "佐賀県", "#"
+            %tr
+              %th 発送日の目安
+              %td 4~7日で発送
+      .o_item__price
+        %span.price-main
+          ¥ 2,400
+        %span.price-tax
+          (税込)
+        %span.price-fee
+          送料込み
+      .o_item__description
+        %p
+          とても綺麗なグリーンのアイドクレースという天然石のペンダントトップです。
+          %br/
+          銀色の縁は、シルバー925です。
+          %br/
+          気に入って先週届きましたが、私には似合わず出品致しました♪
+          %br/
+          どうぞよろしくお願い致します。
+          %br/
+          日曜日の発送予定です♪
+          %br/
+          即購入大丈夫です。
+          %br/
+          チェーンは元からありません。
+
+    .o_item__seller
+      = link_to "商品の編集", edit_item_path(@item), class: "o_item__editbtn"
+      %p or
+      = form_for @item do |f|
+        = f.hidden_field :status
+        = f.submit "出品を一旦停止する", class: "o_item__editbtn--gray"
+      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "o_item__editbtn--gray"
+
+      
+= render 'layouts/footer'

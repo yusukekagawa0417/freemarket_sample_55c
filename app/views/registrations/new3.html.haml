@@ -2,7 +2,7 @@
   %header.k_su_header
     .k_su_header__inner
       %h1.k_su_header__inner--title
-        = link_to "#" do
+        = link_to root_path do
           %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?891577966", alt: "mercari", width: "185", height: "49"}
 
       .k_su_header__inner--pan
@@ -31,36 +31,38 @@
     %section.k_su_section3
       %h2.k_su_section3__header
         電話番号認証
-      .k_su_section3__inner
-        .k_su_section3__inner--form
-          .k_su_section3__inner--form-label
-            認証番号
-          %input{class: "k_su_section3__inner--form-input", placeholder: "認証番号を入力"}  
-   
-          .k_su_section3__inner--form-span
-            %p SMSで届いた認証番号を入力してください。
-          .k_su_section3__inner--form-submit
-            %input{type: 'submit', value: '認証して完了', class: 'k_su_section3__inner--form-submit-btn'}
-            
-      .k_su_section3__inner2
-        .k_su_section3__inner2--form
-          .k_su_section3__inner2--form-label
-            30秒たっても認証番号が届かない方へ
-          .k_su_section3__inner2--form-span
-            %p 電話で認証番号を聞くこともできます。
-          .k_su_section3__inner2--form-submit
-            %input{type: 'submit', value: '電話で認証番号を聞く（通話無料）', class: 'k_su_section3__inner2--form-submit-btn'}
-            
-      .k_su_section3__inner3
-        .k_su_section3__inner3--form
-          .k_su_section3__inner3--form-label
-            認証番号を再送することもできます。もう一度電話番号を入力して下さい。    
-          %a{href: '#', class: 'k_su_section3__inner3--form-span'} 電話番号を再度入力する
-          .k_su_section3__inner3--form-sentence
-            %p.k_su_section3__inner3--form-sentence-content     ※SMSが届かない場合は
-            = link_to 'SMS受信設定', '#', class: 'k_su_section3__inner3--form-link'
-            %p.k_su_section3__inner3--form-sentence-content 
-              を確認して、もう一度電話番号を入力してください。
+
+      = form_for(@user, url: create3_registrations_path) do |f|
+        .k_su_section3__inner
+          .k_su_section3__inner--form
+            .k_su_section3__inner--form-label
+              認証番号
+            = f.text_field :tel, class: "k_su_section3__inner--form-input", placeholder: "認証番号を入力"
+    
+            .k_su_section3__inner--form-span
+              %p SMSで届いた認証番号を入力してください。
+            .k_su_section3__inner--form-submit
+              = f.submit '認証して完了', class: 'k_su_section3__inner--form-submit-btn'
+              
+        .k_su_section3__inner2
+          .k_su_section3__inner2--form
+            .k_su_section3__inner2--form-label
+              30秒たっても認証番号が届かない方へ
+            .k_su_section3__inner2--form-span
+              %p 電話で認証番号を聞くこともできます。
+            .k_su_section3__inner2--form-submit
+              %input{type: 'submit', value: '電話で認証番号を聞く（通話無料）', class: 'k_su_section3__inner2--form-submit-btn'}
+              
+        .k_su_section3__inner3
+          .k_su_section3__inner3--form
+            .k_su_section3__inner3--form-label
+              認証番号を再送することもできます。もう一度電話番号を入力して下さい。    
+            %a{href: '#', class: 'k_su_section3__inner3--form-span'} 電話番号を再度入力する
+            .k_su_section3__inner3--form-sentence
+              %p.k_su_section3__inner3--form-sentence-content     ※SMSが届かない場合は
+              = link_to 'SMS受信設定', '#', class: 'k_su_section3__inner3--form-link'
+              %p.k_su_section3__inner3--form-sentence-content 
+                を確認して、もう一度電話番号を入力してください。
           
   %footer.k_su_footer
     = render 'footer'

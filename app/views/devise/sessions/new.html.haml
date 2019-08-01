@@ -19,14 +19,15 @@
             Facebookで登録する
           = link_to  "#", class: "k_su_section7__inner--form-google-regi" do
             = fa_icon 'google', class: "k_su_icon"
-            Googleで登録する          
-        .k_su_section7__inner--form2
-          %input{class: "k_su_section7__inner--form2-input", placeholder: "メールアドレス"}
-          %input{class: "k_su_section7__inner--form2-input", placeholder: "パスワード"}
-          %img{src: 'https://placehold.jp/300x74.png', class: 'k_su_section7__inner--form2-tag'}
-          %input{type: 'submit', value: 'ログイン', class: 'k_su_section7__inner--form2-btn'}
-          = link_to "パスワードお忘れの方", "#", class: 'k_su_section7__inner--form2-link'
-            
+            Googleで登録する      
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|    
+          .k_su_section7__inner--form2
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "k_su_section7__inner--form2-input"
+            = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "k_su_section7__inner--form2-input"
+            %img{src: 'https://placehold.jp/300x74.png', class: 'k_su_section7__inner--form2-tag'}
+            = f.submit 'ログイン', class: 'k_su_section7__inner--form2-btn'
+            = link_to "パスワードお忘れの方", "#", class: 'k_su_section7__inner--form2-link'
+
 
   %footer.k_su_footer
     = render 'registrations/footer'
