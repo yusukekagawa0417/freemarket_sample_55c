@@ -25,11 +25,6 @@ registration_array.each do |registration_name|
   Brand.create(name: registration_name)
 end
 
-#CSVを読み込んだ情報を格納する
-category_parent = []
-category_children = []
-category_grandchild = []
-
 #作成したDB情報を格納する
 parent_address_info = []
 children_address_info = []
