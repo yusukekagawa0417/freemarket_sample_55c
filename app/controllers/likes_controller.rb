@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     if like[0] == nil
       Like.create(like_params)
     else
-      Like.where(like_params)[0].destroy
+      Like.find_by(like_params).destroy
     end
 
     @likes = Item.find(params[:item_id]).likes
