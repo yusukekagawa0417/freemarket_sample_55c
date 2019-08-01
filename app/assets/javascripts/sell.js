@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   var imagelabel1 = $('.o_image-label1')
   var imagelabel2 = $('.o_image-label2')
   var imagezone1 = $('.o_image-zone1-parent')
