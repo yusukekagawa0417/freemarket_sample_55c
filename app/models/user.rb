@@ -12,4 +12,15 @@ class User < ApplicationRecord
   # has_many :messages, dependent: :destroy
   # has_many :evaluations, dependent: :destroy
 
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: {in: 6..128}
+  validates :nickname, presence: true, length: {maximum: 20}
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :firstname_kana, presence: true
+  validates :lastname_kana, presence: true
+  validates :birthday, presence: true
+  validates :tel, uniqueness: true 
+  validates :customer, presence: true, uniqueness: true 
+
 end
