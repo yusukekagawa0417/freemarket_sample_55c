@@ -64,6 +64,7 @@ class RegistrationsController < ApplicationController
         Payjp.api_key = Rails.application.credentials.payjp_secret_key
         response_customer = Payjp::Customer.create(card: params[:token])
         session[:customer] = response_customer.id
+        session[:card] = response_customer.default_card
         
         User.create(email:      session[:email], 
                 password:       session[:password], 
@@ -75,6 +76,7 @@ class RegistrationsController < ApplicationController
                 birthday:       session[:birthday] , 
                 tel:            session[:tel],
                 customer:       session[:customer], 
+                card:           session[:card], 
                 address_attributes:{id:            session[:id],
                                     postal_code:   session[:postal_code],   
                                     prefecture_id: session[:prefecture_id],  
