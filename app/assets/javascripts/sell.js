@@ -1,8 +1,8 @@
 $(function() {
-  var imagelabel1 = $('.o_image-label1');
-  var imagelabel2 = $('.o_image-label2');
-  var imagezone1 = $('.o_image-zone1-parent');
-  var imagezone2 = $('.o_image-zone2-parent');
+  var imagelabel1 = $('.o_image-label1')
+  var imagelabel2 = $('.o_image-label2')
+  var imagezone1 = $('.o_image-zone1-parent')
+  var imagezone2 = $('.o_image-zone2-parent')
 
   var images = [];
   var image_files = [];
@@ -60,7 +60,7 @@ $(function() {
       })
     }
 
-    var new_image = $(`<input multiple="multiple" name="image[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
+    var new_image = $(`<input multiple="multiple" name="images[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
     $('.preview-btn').append(new_image);
   })
 
@@ -122,23 +122,42 @@ $(function() {
         })
       })
     }
+  })
 
+  $('#sell-price').on('keyup', function(){
+    var price = $(this).val();
+    var mercari_fee = Math.floor(price * 0.1)
+    var seller_gain = price - mercari_fee
+
+    if (price >= 300 && price <= 9999999) {
+      $('#mercari_fee').text('¥' + mercari_fee.toLocaleString())
+      $('#seller_gain').text('¥' + seller_gain.toLocaleString())
+    } else {
+      $('#mercari_fee').text('-')
+      $('#seller_gain').text('-')
+    }
   })
 
   $('#new_item').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
-    formData.delete('image[images][]');
+    formData.delete('images[images][]');
     $.each(image_files, function(i, file){
-      formData.append("image[images][]", file)
+      formData.append("images[images][]", file)
     })
 
     $.ajax({
       url: '/items',
       type: 'POST',
       data: formData,
+      dataType: 'json',
       contentType: false,
       processData: false
+    })
+    .done(function(){
+      location.href = `/`
+    })
+    .fail(function() {
     })
     .always(function(){
       $("input[type=submit]").removeAttr("disabled");
