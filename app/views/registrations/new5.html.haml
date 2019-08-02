@@ -31,14 +31,14 @@
       %h2.k_su_section5__header
         支払い方法
 
-      = form_for(@user, url: create1_registrations_path) do |f|  
+      = form_tag(url: create5_registrations_path, method: "POST", class: "k_charge-form") do
         .k_su_section5__inner
           .k_su_section5__inner--form
             .k_su_section5__inner--form-label
               カード番号
             .k_su_section5__inner--form-span
               必須
-            %input{class: "k_su_section5__inner--form-input", placeholder: "半角数字のみ"
+            %input{class: "k_su_section5__inner--form-input k_card-number", placeholder: "半角数字のみ"}
             
           .k_su_section5__inner--form2
             .k_su_section5__inner--form2-label
@@ -50,9 +50,9 @@
             .k_su_section5__inner--form3-span
               必須
             .k_su_section5__inner--form3-input
-              %input{class: "k_su_section5__inner--form3-input-child", placeholder: "01"}
+              %input{class: "k_su_section5__inner--form3-input-child k_card-exp_month", placeholder: "12"}
               %p.k_su_section5__inner--form3-input-sentence 月
-              %input{class: "k_su_section5__inner--form3-input-child", placeholder: "19"}
+              %input{class: "k_su_section5__inner--form3-input-child k_card-exp_year", placeholder: "2020"}
               %p.k_su_section5__inner--form3-input-sentence 年
               
           .k_su_section5__inner--form4
@@ -60,7 +60,7 @@
               セキュリティコード
             .k_su_section5__inner--form4-span
               必須
-            %input{class: "k_su_section5__inner--form4-input", placeholder: "カード背面4桁もしくは3桁の番号"}  
+            %input{class: "k_su_section5__inner--form4-input k_card-cvc", placeholder: "カード背面4桁もしくは3桁の番号"}  
             .k_su_section5__inner--form4-sentence
               = link_to "#", class: 'k_su_section5__inner--form4-sentence-content' do
                 = fa_icon 'question-circle'

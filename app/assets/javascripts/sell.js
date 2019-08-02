@@ -12,8 +12,8 @@ $(function() {
     image_files.push(file);
     var reader = new FileReader();
     
-    var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
-    var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>')
+    var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>');
+    var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>');
     img.append(btn);
     
     reader.onload = function(e) {
@@ -45,7 +45,7 @@ $(function() {
         display: "block"
       })
     } else {
-      var secondrow_images = images.slice(5)
+      var secondrow_images = images.slice(5);
       $.each(secondrow_images, function(i, image){
         image.data('image', i + 5);
         $('#preview2').append(image);
