@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
                               access_key_id: ENV["AWS_ACCESS_KEY_ID"],
                               secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
                               )
-      @item.item_images.each do |image|
+      @item.images.each do |image|
         binary_data = client.get_object(bucket: 'o-freemarket', key: image.image.file.path).body.read
         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
       end
