@@ -18,22 +18,14 @@
             .k_ir_section__inner--form-sentence 
               最大10枚までアップロードできます
 
-            = f.fields_for :images do |image|
+            = f.fields_for :images, @item.images.first do |image|
               .o_image-zone1-parent
                 .o_image-zone1
                   #preview1
-                    .add_img
-                      .imag_area
-                        = image_tag image.object.image.to_s
-                      .btn_wrapper
-                        %a.btn_delete
-                          = image.check_box:_destroy
-                          %span.image_delete{ data: { id: image.index, default: 'default' } }
-                            削除
                   .o_image-label1
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "image[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
@@ -44,7 +36,7 @@
                   .o_image-label2
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "image[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
