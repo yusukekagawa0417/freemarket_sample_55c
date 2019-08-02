@@ -37,12 +37,24 @@ class ItemsController < ApplicationController
     gon.images = @item.images
 
     require 'base64'
+    require 'aws-sdk'
 
     gon.item_images_binary_datas = []
-    
-    @item.images.each do |image|
-      binary_data = File.read(image.image.file.file)
-      gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                              region: 'ap-northeast-1',
+                              access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+                              secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+                              )
+      @item.images.each do |image|
+        binary_data = client.get_object(bucket: 'o-freemarket', key: image.image.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @item.images.each do |image|
+        binary_data = File.read(image.image.file.file)
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
     end
   end
 
