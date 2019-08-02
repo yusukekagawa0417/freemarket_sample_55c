@@ -60,7 +60,7 @@ $(function() {
       })
     }
 
-    var new_image = $(`<input multiple="multiple" name="image[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
+    var new_image = $(`<input multiple="multiple" name="images[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
     $('.preview-btn').append(new_image);
   })
 
@@ -141,17 +141,23 @@ $(function() {
   $('#new_item').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
-    formData.delete('image[images][]');
+    formData.delete('images[images][]');
     $.each(image_files, function(i, file){
-      formData.append("image[images][]", file)
+      formData.append("images[images][]", file)
     })
 
     $.ajax({
       url: '/items',
       type: 'POST',
       data: formData,
+      dataType: 'json',
       contentType: false,
       processData: false
+    })
+    .done(function(){
+      location.href = `/`
+    })
+    .fail(function() {
     })
     .always(function(){
       $("input[type=submit]").removeAttr("disabled");
