@@ -83,14 +83,12 @@
           = @item.description
       .o_item__sub
         .o_item__sub--left
-          = link_to "#", class: "o_item__sub--left-btn" do
-            = fa_icon 'heart'
-            %span.k_like-sentence いいね!
-            %span.k_like-quantity
-              = @item.likes.length
-          = link_to "#", class: "o_item__sub--left-btn" do
-            = fa_icon 'flag'
-            %span 不適切な商品の報告
+          %div{class: "k_item__sub--left-btns-#{@item.id} k_item__sub--left-btns"}
+            = render partial: 'items/like', locals: {item: @item, likes: @likes}
+          %div{class: "k_item__sub--left-btns"}
+            = link_to "#", class: "o_item__sub--left-btn" do
+              = fa_icon 'flag'
+              %span 不適切な商品の報告
         .o_item__sub--right
           = link_to "#" do
             = fa_icon 'lock'
