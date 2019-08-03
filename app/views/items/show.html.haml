@@ -75,7 +75,7 @@
           (税込)
         %span.price-fee
           送料込み
-      - if @item.status == "売却済み"
+      - if @item.status == "取引中"
         .o_item__buybtn--sold
           売り切れました
       - else
