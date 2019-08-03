@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get :set_children
       get :set_grandchildren
+      get :brand
     end
   end
 
