@@ -17,6 +17,22 @@
   }
 }
 
+#brand-result {
+  max-height: 200px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+
+.brand-list {
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  &:hover {
+    background: #0099e8;
+    color: white;
+  }
+}
+
 .k_ir_wrapper {
   width: 100%;
 }
