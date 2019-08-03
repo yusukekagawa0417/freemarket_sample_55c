@@ -240,7 +240,7 @@
   justify-content: space-between;
   &--left {
     a {
-      color: #333;      
+      color: #333;
     }
     &-btn {
       background: #F5F5F5;
@@ -254,13 +254,13 @@
     }
   }
   &--right {
-    a {
+    a,i {
       color: #0099e8;
       font-size: 14px;
       &:hover {
         opacity: 0.7;
       }
-      span,i{
+      span {
         color: #0099e8;
       }
     }
