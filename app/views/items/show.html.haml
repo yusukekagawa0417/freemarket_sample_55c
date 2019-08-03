@@ -8,8 +8,9 @@
         = @item.name
       .o_item__main
         .o_item__main--image
-          .o_image-main
-            = image_tag @image.image.to_s, size: "300x300"
+          = image_tag @image.image.to_s, size: "300x300"
+          -if @item.status == "売却済み"
+            .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
               = image_tag image.image.to_s, size: "60x60"
@@ -74,10 +75,14 @@
           (税込)
         %span.price-fee
           送料込み
-      .o_item__baloon
-        .o_item__baloon-text
-          売上金¥2,285円をお持ちです
-      = link_to "購入画面に進む", new_item_purchase_path(@item.id), class: "o_item__buybtn"
+      - if @item.status == "売却済み"
+        .o_item__buybtn--sold
+          売り切れました
+      - else
+        .o_item__baloon
+          .o_item__baloon-text
+            売上金¥2,285円をお持ちです
+        = link_to "購入画面に進む", new_item_purchase_path(@item.id), class: "o_item__buybtn"
       .o_item__description
         %p
           = simple_format(@item.description)
