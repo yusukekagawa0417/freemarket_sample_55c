@@ -42,7 +42,6 @@ class RegistrationsController < ApplicationController
   end
 
   def create4
-    session[:tel]             = user_params[:tel]
     session[:id]              = user_params[:address_attributes][:id]
     session[:postal_code]     = user_params[:address_attributes][:postal_code]
     session[:prefecture_id]   = user_params[:address_attributes][:prefecture_id]
