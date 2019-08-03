@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @brand = Brand.find_by(name: params[:brand_name])
     @item = Item.new(item_params)
     if @item.save && image_params[:images].length != 0
       image_params[:images].each do |i|
@@ -96,6 +97,10 @@ class ItemsController < ApplicationController
     @grandchildren = @children.children
   end
 
+  def brand
+    @brands = Brand.where('name LIKE(?)', "%#{params[:brand_input]}%" )
+  end
+
   private
 
   def set_item
@@ -103,18 +108,34 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
-      :name,
-      :description,
-      :condition,
-      :shipping_fee,
-      :shipping_method,
-      :prefecture_id,
-      :shipping_date,
-      :price
-      )
-      .merge(category_id: params[:category_id])
-      .merge(seller_id: current_user.id).merge(status: 0)
+    if @brand
+      params.require(:item).permit(
+        :name,
+        :description,
+        :condition,
+        :shipping_fee,
+        :shipping_method,
+        :prefecture_id,
+        :shipping_date,
+        :price
+        )
+        .merge(category_id: params[:category_id])
+        .merge(brand_id: @brand.id)
+        .merge(seller_id: current_user.id).merge(status: 0)
+    else
+      params.require(:item).permit(
+        :name,
+        :description,
+        :condition,
+        :shipping_fee,
+        :shipping_method,
+        :prefecture_id,
+        :shipping_date,
+        :price
+        )
+        .merge(category_id: params[:category_id])
+        .merge(seller_id: current_user.id).merge(status: 0)
+    end
   end
 
   def image_params
