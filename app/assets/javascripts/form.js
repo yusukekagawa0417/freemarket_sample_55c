@@ -57,11 +57,6 @@ $(function() {
     }
   })
 
-  function appendBrand(brand){
-    var html = `<li data-brand-id="${brand.id}" class="brand-list">${brand.name}</li>`
-    $('#brand-result').append(html)
-  }
-
   $(document).on('keyup', '#brand', function(){
     var brand_input = $(this).val()
     $('#brand-result').removeClass('display_none')
@@ -76,7 +71,8 @@ $(function() {
     .done(function(brands){
       if (brands.length != 0){
         $.each(brands, function(i, brand){
-          appendBrand(brand)
+          var html = `<li data-brand-id="${brand.id}" class="brand-list">${brand.name}</li>`
+          $('#brand-result').append(html)
         })
       }
     })
@@ -87,7 +83,6 @@ $(function() {
 
   $(document).on('click', '.brand-list', function(){
     var brand_name = $(this).text()
-    var brand_id = $(this).data('brand-id')
     $('#brand').val(brand_name)
     $('#brand-result').addClass('display_none')
   })
