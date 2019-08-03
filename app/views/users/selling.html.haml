@@ -8,9 +8,22 @@
       = render "mypage_sidebar"
     .s_right-side
       .s_content
-        - @items.each do |item|
-          = link_to item.name, seller_item_path(item)
-          %br
+        %section.n_negotiation_list
+          %h2.n_negotiation_list__head
+            出品した商品
+          %ul.n_negotiation_list__tags
+            %li.n_negotiation_list__tags__tag.line
+              出品中
+            %li.n_negotiation_list__tags__tag.color
+              売却済み
+          - if @items.length == 0
+            .n_negotiation_list__tab_contents
+              取引中の商品がありません
+          - else
+            - @items.each do |item|
+              .selling-items
+                = link_to item.name, seller_item_path(item), class: "selling-items__item"
+                %br
 
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
