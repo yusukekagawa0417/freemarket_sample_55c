@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @categories = Category.where(ancestry: nil)
     @item = Item.new
     @item.images.build
   end
@@ -33,6 +34,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.where(ancestry: nil)
+
     gon.item = @item
     gon.images = @item.images
 
@@ -83,6 +86,16 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def set_children
+    @category = Category.find(params[:parent_id])
+    @children = @category.children
+  end
+  
+  def set_grandchildren
+    @children = Category.find(params[:child_id])
+    @grandchildren = @children.children
+  end
+
   private
 
   def set_item
@@ -95,10 +108,12 @@ class ItemsController < ApplicationController
       :description,
       :condition,
       :shipping_fee,
+      :shipping_method,
+      :prefecture_id,
       :shipping_date,
-      :price,
-      :prefecture_id
+      :price
       )
+      .merge(category_id: params[:category_id])
       .merge(seller_id: current_user.id).merge(status: 0)
   end
 
