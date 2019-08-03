@@ -1,24 +1,14 @@
 class LikesController < ApplicationController
   def create
-    like = Like.where(like_params)
-
-    if like[0] == nil
-      Like.create(like_params)
-    else
-      Like.find_by(like_params).destroy
-    end
-
-    @likes = Item.find(params[:item_id]).likes
-
-    respond_to do |format|
-      format.html { redirect_to item_path(params[:item_id]) }
-      format.json
-    end
+    Like.create(user_id: current_user.id, item_id: params[:item_id])
+    @likes = Like.where(item_id: params[:item_id])
+    @item = Item.find(params[:item_id])
   end
 
-  private
-  def like_params
-    params.permit(:item_id).merge(user_id: current_user.id)
+  def destroy
+    like = Like.find_by(user_id: current_user.id, item_id: params[:item_id])
+    like.destroy
+    @likes = Like.where(item_id: params[:item_id])
+    @item = Item.find(params[:item_id])
   end
-
 end
