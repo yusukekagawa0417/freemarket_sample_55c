@@ -31,6 +31,9 @@ class ItemsController < ApplicationController
   end
 
   def seller
+    @images = @item.images
+    @image = @images.first
+    @user = User.find(@item.seller_id)
   end
 
   def edit
