@@ -8,8 +8,19 @@
     .o_topitems-boxes
       .o_topitems-box
       
-        %h3.o_topitems-box__title    
-          レディース 新着アイテム
+        %h3.o_topitems-box__title
+          = link_to "レディース 新着アイテム", "#" 
+        .o_topitems-box__content
+          .o_topitems
+          = link_to "#" do
+            .o_topitems-box__content
+              .o_topitems
+                = render partial: 'item', collection: @items
+          .o_topitems-box__view-all
+            = link_to "すべての商品を見る", "#"
+
+        %h3.o_topitems-box__title
+          = link_to "メンズ新着アイテム", "#"
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -20,7 +31,7 @@
             = link_to "すべての商品を見る", "#"
 
         %h3.o_topitems-box__title
-          メンズ新着アイテム
+          = link_to "ベビー・キッズ 新着アイテム","#" 
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -31,18 +42,7 @@
             = link_to "すべての商品を見る", "#"
 
         %h3.o_topitems-box__title
-          ベビー・キッズ 新着アイテム
-          .o_topitems-box__content
-            .o_topitems    
-            = link_to "#" do
-              .o_topitems-box__content
-                .o_topitems
-                  = render partial: 'item', collection: @items
-            .o_topitems-box__view-all
-              = link_to "すべての商品を見る", "#"
-
-        %h3.o_topitems-box__title
-          コスメ・香水・美容 新着アイテム    
+          = link_to "コスメ・香水・美容 新着アイテム", "#"    
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -59,7 +59,7 @@
       .o_topitems-box
 
         %h3.o_topitems-box__title
-          シャネル 新着アイテム
+          = link_to "シャネル 新着アイテム", "#"
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -70,7 +70,7 @@
             = link_to "すべての商品を見る", "#"      
 
         %h3.o_topitems-box__title
-          ルイ ヴィトン 新着アイテム
+          = link_to "ルイ ヴィトン 新着アイテム", "#"
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -81,7 +81,7 @@
             = link_to "すべての商品を見る", "#"      
 
         %h3.o_topitems-box__title
-          シュプリーム 新着アイテム
+          = link_to "シュプリーム 新着アイテム", "#"
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do
@@ -92,7 +92,7 @@
             = link_to "すべての商品を見る", "#"      
 
         %h3.o_topitems-box__title
-          ナイキ 新着アイテム
+          = link_to "ナイキ 新着アイテム", "#"
         .o_topitems-box__content
           .o_topitems    
           = link_to "#" do

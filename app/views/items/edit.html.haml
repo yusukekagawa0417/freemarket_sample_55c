@@ -1,0 +1,148 @@
+= form_for @item do |f|
+  .k_ir_single-container
+    %header.k_ir_header
+      %h1.k_ir_header__title
+        = link_to root_path do
+          = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185")
+
+    %main.k_ir_wrapper
+      %section.k_ir_section
+        %h2.k_ir_section__header
+          商品の情報を入力
+        .k_ir_section__inner
+          .k_ir_section__inner--form
+            .k_ir_section__inner--form-label
+              出品画像
+            .k_ir_section__inner--form-span
+              必須
+            .k_ir_section__inner--form-sentence 
+              最大10枚までアップロードできます
+
+            = f.fields_for :images, @item.images.first do |image|
+              .o_image-zone1-parent
+                .o_image-zone1
+                  #preview1
+                  .o_image-label1
+                    = image.label :image do
+                      .o_file-field
+                        = image.file_field :image, multiple: true, name: "images[images][]"
+                      .k_ir_section__inner--form-input
+                        .k_ir_section__inner--form-input-content 
+                          %p
+                            クリックしてファイルをアップロード
+              .o_image-zone2-parent
+                .o_image-zone2
+                  #preview2
+                  .o_image-label2
+                    = image.label :image do
+                      .o_file-field
+                        = image.file_field :image, multiple: true, name: "images[images][]"
+                      .k_ir_section__inner--form-input
+                        .k_ir_section__inner--form-input-content 
+                          %p
+                            クリックしてファイルをアップロード
+
+          .k_ir_section__inner--form2
+            .k_ir_section__inner--form2-label
+              商品名
+            .k_ir_section__inner--form2-span
+              必須
+            = f.text_field :name, class: "k_ir_section__inner--form2-input", placeholder: "商品名（必須40文字まで）"
+            .k_ir_section__inner--form2-label
+              商品の説明
+            .k_ir_section__inner--form2-span
+              必須
+            = f.text_area :description, class: "k_ir_section__inner--form2-textarea", row: '3', placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年度に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+
+          .k_ir_section__inner--form3
+            .k_ir_section__inner--form3-left
+              商品の詳細
+            .k_ir_section__inner--form3-right
+              .k_ir_section__inner--form3-right-label
+                カテゴリー
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.collection_select :category_id, @categories, :id, :name, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select-category", id: "category_parent"
+              %select.k_ir_section__inner--form3-right-select-category#category_children
+              %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
+              .k_ir_section__inner--form3-right-label
+                商品の状態
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.select :condition, Item.conditions.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
+
+          .k_ir_section__inner--form3.k_ir_section__inner--form4
+            .k_ir_section__inner--form3-left
+              配送について
+              = fa_icon 'question-circle', class: 'k_ir_icon'
+            .k_ir_section__inner--form3-right
+              .k_ir_section__inner--form3-right-label
+                配送料の負担
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select", id: "shipping_fee"
+              .k_ir_section__inner--form3-right-label
+                配送の方法
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.select :shipping_method, Item.shipping_methods.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select", id: "shipping_method"
+              .k_ir_section__inner--form3-right-label
+                発送元の地域
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}
+              .k_ir_section__inner--form3-right-label
+                発送までの日数
+              .k_ir_section__inner--form3-right-span
+                必須
+              = f.select :shipping_date, Item.shipping_dates.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
+
+          .k_ir_section__inner--form5
+            .k_ir_section__inner--form5-left
+              販売価格（300~9,999,999）
+              = fa_icon 'question-circle', class: 'k_ir_icon'
+            .k_ir_section__inner--form5-right
+              .k_ir_right__content
+                .k_ir_right__content--left
+                  .k_ir_right__content--left-label
+                    価格
+                  .k_ir_right__content--left-span
+                    必須
+                .k_ir_right__content--right
+                  .k_ir_right__content--right-price
+                    ¥
+                    = f.text_field :price, class: "k_ir_right__content--right-price-input", id: "sell-price", placeholder: '例）300'
+              .k_ir_right__content
+                .k_ir_right__content--left
+                  販売手数料（10%）
+                .k_ir_right__content--right#mercari_fee
+                  - mercari_fee = (@item.price * 0.1).floor
+                  = "¥#{mercari_fee.to_s(:delimited)}"
+              .k_ir_right__content.k_ir_no_border
+                .k_ir_right__content--left
+                  .k_ir_right__content--left-label
+                    販売利益
+                .k_ir_right__content--right
+                  .k_ir_right__content--right-label#seller_gain
+                    = "¥#{(@item.price - mercari_fee).to_s(:delimited)}"
+
+          .k_ir_section__inner--form6
+            .k_ir_section__inner--form6-sentence
+              .k_ir_line1
+                = link_to '禁止されている出品', '#', class: 'k_ir_link' 
+                、
+                = link_to '行為', '#', class: 'k_ir_link' 
+                を必ずご確認ください。
+              .k_ir_line2
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to '偽ブランドの販売', '#', class: 'k_ir_link'  
+                は犯罪であり処罰される可能性があります。
+              .k_ir_line3
+                また、出品を持ちまして
+                = link_to '加盟店規約', '#', class: 'k_ir_link' 
+                に同意したことになります。
+              
+            = f.submit :変更する, class: 'k_ir_section__inner--form6-input-btn'
+
+    %footer.k_ir_footer
+      = render 'registrations/footer'
