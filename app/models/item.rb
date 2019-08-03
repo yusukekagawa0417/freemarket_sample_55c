@@ -2,14 +2,18 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture, shortcuts: :name
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
+  belongs_to :category
+  belongs_to :brand, optional: true
   has_many   :images, dependent: :destroy
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
+  validates :category_id, presence: true
   validates :condition, presence: true
   validates :shipping_fee, presence: true
+  validates :shipping_method, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_date, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
