@@ -84,7 +84,12 @@ gem 'active_hash'
 gem 'jquery-rails'
 
 gem 'fog-aws'
+gem 'aws-sdk'
 
 gem 'gretel'
+
+gem 'gon'
+
+gem 'ancestry'
 
 gem 'payjp'
