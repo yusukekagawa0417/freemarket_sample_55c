@@ -9,7 +9,7 @@
       .o_item__main
         .o_item__main--image
           = image_tag @image.image.to_s, size: "300x300"
-          - if @item.status == "売却済み"
+          - if @item.status == "取引中"
             .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
