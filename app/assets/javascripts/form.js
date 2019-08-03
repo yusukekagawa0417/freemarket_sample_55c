@@ -57,4 +57,39 @@ $(function() {
     }
   })
 
+  function appendBrand(brand){
+    var html = `<li data-brand-id="${brand.id}" class="brand-list">${brand.name}</li>`
+    $('#brand-result').append(html)
+  }
+
+  $(document).on('keyup', '#brand', function(){
+    var brand_input = $(this).val()
+    $('#brand-result').removeClass('display_none')
+    $('#brand-result').empty()
+
+    $.ajax({
+      type: 'GET',
+      url: '/items/brand',
+      data: {brand_input: brand_input},
+      dataType: 'json'
+    })
+    .done(function(brands){
+      if (brands.length != 0){
+        $.each(brands, function(i, brand){
+          appendBrand(brand)
+        })
+      }
+    })
+    .fail(function(){
+      console.log('error')
+    })
+  })
+
+  $(document).on('click', '.brand-list', function(){
+    var brand_name = $(this).text()
+    var brand_id = $(this).data('brand-id')
+    $('#brand').val(brand_name)
+    $('#brand-result').addClass('display_none')
+  })
+
 })

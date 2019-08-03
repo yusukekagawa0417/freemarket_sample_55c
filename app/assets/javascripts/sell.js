@@ -148,7 +148,10 @@ $(function() {
     
     var grandchild_id = $('#category_grandchildren').val()
     formData.append("category_id", grandchild_id)
-    
+
+    var brand_name = $('#brand').val()
+    formData.append("brand_name", brand_name)
+
     $.ajax({
       url: '/items',
       type: 'POST',
