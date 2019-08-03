@@ -74,7 +74,10 @@
         %span.price-tax
           (税込)
         %span.price-fee
+        - if @item.shipping_fee == "送料込み(出品者負担)"
           送料込み
+        - else
+          着払い
       - if @item.status == "取引中"
         .o_item__buybtn--sold
           売り切れました
