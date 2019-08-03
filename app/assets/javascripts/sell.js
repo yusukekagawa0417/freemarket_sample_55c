@@ -145,7 +145,10 @@ $(function() {
     $.each(image_files, function(i, file){
       formData.append("images[images][]", file)
     })
-
+    
+    var grandchild_id = $('#category_grandchildren').val()
+    formData.append("category_id", grandchild_id)
+    
     $.ajax({
       url: '/items',
       type: 'POST',
