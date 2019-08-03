@@ -7,11 +7,13 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @categories = Category.where(ancestry: nil)
     @item = Item.new
     @item.images.build
   end
 
   def create
+    @brand = Brand.find_by(name: params[:brand_name])
     @item = Item.new(item_params)
     if @item.save && image_params[:images].length != 0
       image_params[:images].each do |i|
@@ -32,6 +34,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.where(ancestry: nil)
+
     gon.item = @item
     gon.images = @item.images
 
@@ -82,6 +86,20 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def set_children
+    @category = Category.find(params[:parent_id])
+    @children = @category.children
+  end
+  
+  def set_grandchildren
+    @children = Category.find(params[:child_id])
+    @grandchildren = @children.children
+  end
+
+  def brand
+    @brands = Brand.where('name LIKE(?)', "%#{params[:brand_input]}%" )
+  end
+
   private
 
   def set_item
@@ -89,16 +107,34 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(
-      :name,
-      :description,
-      :condition,
-      :shipping_fee,
-      :shipping_date,
-      :price,
-      :prefecture_id
-      )
-      .merge(seller_id: current_user.id).merge(status: 0)
+    if @brand
+      params.require(:item).permit(
+        :name,
+        :description,
+        :condition,
+        :shipping_fee,
+        :shipping_method,
+        :prefecture_id,
+        :shipping_date,
+        :price
+        )
+        .merge(category_id: params[:category_id])
+        .merge(brand_id: @brand.id)
+        .merge(seller_id: current_user.id).merge(status: 0)
+    else
+      params.require(:item).permit(
+        :name,
+        :description,
+        :condition,
+        :shipping_fee,
+        :shipping_method,
+        :prefecture_id,
+        :shipping_date,
+        :price
+        )
+        .merge(category_id: params[:category_id])
+        .merge(seller_id: current_user.id).merge(status: 0)
+    end
   end
 
   def image_params

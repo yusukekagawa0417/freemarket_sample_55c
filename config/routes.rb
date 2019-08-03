@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     member do
       get :seller
     end
+    collection do
+      get :set_children
+      get :set_grandchildren
+      get :brand
+    end
   end
 
   #users関係
