@@ -254,13 +254,16 @@
     }
   }
   &--right {
-    a,i {
+    a {
       color: #0099e8;
       font-size: 14px;
       &:hover {
         opacity: 0.7;
       }
       span {
+        color: #0099e8;
+      }
+      i{
         color: #0099e8;
       }
     }
