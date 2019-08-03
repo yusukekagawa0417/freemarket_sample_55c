@@ -95,7 +95,7 @@
     width: 100%;
     &--form {
       border-bottom: 1px solid #f5f5f5;
-      padding: 40px 40px 64px;
+      padding: 40px;
       box-sizing: border-box;
       &-label {
         display: inline;
@@ -170,9 +170,8 @@
       }
     }
     &--form3 {
-      height: 300px;
       border-bottom: 1px solid #f5f5f5;
-      padding: 40px 40px 64px;
+      padding: 40px;
       box-sizing: border-box;
       display: flex;
       &-left {
@@ -184,8 +183,11 @@
       &-right {
         width: 60%;
         &-label {
-          display: inline;
+          display: inline-block;
           font-weight: bold;
+          &:not(:first-child) {
+            margin-top: 30px;
+          }
         }
         &-span {
           background-color: #ea352d;
@@ -195,12 +197,21 @@
           color: #fff;
           font-size: 12px;
           display: inline;
+          &-gray {
+            background-color: #ccc;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 12px;
+            display: inline;
+          }
         }
         &-select, select {
           width: 100%;
           display: block;
           height: 48px;
-          margin: 8px 0 40px 0;
+          margin-top: 10px;
           padding: 10px 16px 8px;
           border-radius: 4px;
           border: 1px solid #ccc;
@@ -210,13 +221,10 @@
         } 
       }
     }
-    &--form4 {
-      height: 400px;
-    }
     &--form5 {
       height: 350px;
       border-bottom: 1px solid #f5f5f5;
-      padding: 40px 40px 64px;
+      padding: 40px;
       box-sizing: border-box;
       display: flex;
       &-left {
