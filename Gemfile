@@ -90,3 +90,5 @@ gem 'gretel'
 gem 'ancestry'
 
 gem 'payjp'
+
+gem 'rails-ujs'
