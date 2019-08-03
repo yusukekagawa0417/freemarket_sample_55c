@@ -4,28 +4,33 @@
 .o_detail-container
   .o_detail-field
     .o_item
-      %h1 マライカ ペンダントトップ
+      %h1 
+        = @item.name
       .o_item__main
         .o_item__main--image
-          .o_image-main
-            = image_tag("https://placehold.jp/300x300.png")
+          = image_tag @image.image.to_s, size: "300x300"
+          - if @item.status == "取引中"
+            .o_image-soldbadge
           .o_image-sub
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
-            = image_tag("https://placehold.jp/60x60.png")
+            - @images.each do |image|
+              = image_tag image.image.to_s, size: "60x60"
         %table.o_item__main--table
           %tbody
             %tr
-              %th 出品者
+              %th 
+                出品者
               %td
-                = link_to "ニックン", "#"
+                = link_to @user.nickname, "#"
+                .o_user-evaluations
+                  .evaluation
+                    = fa_icon 'smile-o', class: "o_smile"
+                    %span 100
+                  .evaluation
+                    = fa_icon 'meh-o', class: "o_meh"
+                    %span 50
+                  .evaluation
+                    = fa_icon 'frown-o', class: "o_frown"
+                    %span 1
             %tr
               %th カテゴリー
               %td
@@ -45,43 +50,35 @@
                 = link_to "ルイ ヴィトン", "#"
             %tr
               %th 商品の状態
-              %td 新品、未使用
+              %td
+                = @item.condition
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                =@item.shipping_fee
             %tr
               %th 配送の方法
               %td 普通郵便(定形、定形外)
             %tr
               %th 配送元地域
               %td
-                = link_to "佐賀県", "#"
+                = link_to @item.prefecture_name, "#"
             %tr
               %th 発送日の目安
-              %td 4~7日で発送
+              %td
+                = @item.shipping_date
       .o_item__price
         %span.price-main
-          ¥ 2,400
+          ¥
+          = @item.price.to_s(:delimited)
         %span.price-tax
           (税込)
         %span.price-fee
           送料込み
       .o_item__description
         %p
-          とても綺麗なグリーンのアイドクレースという天然石のペンダントトップです。
-          %br/
-          銀色の縁は、シルバー925です。
-          %br/
-          気に入って先週届きましたが、私には似合わず出品致しました♪
-          %br/
-          どうぞよろしくお願い致します。
-          %br/
-          日曜日の発送予定です♪
-          %br/
-          即購入大丈夫です。
-          %br/
-          チェーンは元からありません。
-
+          = simple_format(@item.description)
+      
     .o_item__seller
       = link_to "商品の編集", edit_item_path(@item), class: "o_item__editbtn"
       %p or
