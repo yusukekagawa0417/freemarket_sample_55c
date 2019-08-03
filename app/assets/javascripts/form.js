@@ -23,7 +23,7 @@ $(function() {
       })
     })
     .fail(function(){
-      console.log('error')
+      alert('error')
     })
   })
 
@@ -46,7 +46,7 @@ $(function() {
       })
     })
     .fail(function(){
-      console.log('error')
+      alert('error')
     })
   })
 
@@ -77,7 +77,7 @@ $(function() {
       }
     })
     .fail(function(){
-      console.log('error')
+      alert('error')
     })
   })
 
