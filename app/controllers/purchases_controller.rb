@@ -2,6 +2,27 @@ class PurchasesController < ApplicationController
   before_action :set_item
 
   def new
+  
+    Payjp.api_key = Rails.application.credentials.payjp_secret_key
+    @customer = Payjp::Customer.retrieve(current_user.customer)
+    @card_information = @customer.cards.retrieve(current_user.card)
+
+    # 登録しているカード会社のブランドアイコンを表示するためのコードです
+    @card_brand = @card_information.brand      
+    case @card_brand
+    when "Visa"
+      @card_src = "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3236810361"
+    # when "JCB"
+    #   @card_src = "jcb.svg"
+    # when "MasterCard"
+    #   @card_src = "master-card.svg"
+    # when "American Express"
+    #   @card_src = "american_express.svg"
+    # when "Diners Club"
+    #   @card_src = "dinersclub.svg"
+    # when "Discover"
+    #   @card_src = "discover.svg"
+    end
   end
   
   def create

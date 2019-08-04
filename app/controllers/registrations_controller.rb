@@ -42,7 +42,6 @@ class RegistrationsController < ApplicationController
   end
 
   def create4
-    session[:tel]             = user_params[:tel]
     session[:id]              = user_params[:address_attributes][:id]
     session[:postal_code]     = user_params[:address_attributes][:postal_code]
     session[:prefecture_id]   = user_params[:address_attributes][:prefecture_id]
@@ -64,6 +63,7 @@ class RegistrationsController < ApplicationController
         Payjp.api_key = Rails.application.credentials.payjp_secret_key
         response_customer = Payjp::Customer.create(card: params[:token])
         session[:customer] = response_customer.id
+        session[:card] = response_customer.default_card
         
         User.create(email:      session[:email], 
                 password:       session[:password], 
@@ -75,6 +75,7 @@ class RegistrationsController < ApplicationController
                 birthday:       session[:birthday] , 
                 tel:            session[:tel],
                 customer:       session[:customer], 
+                card:           session[:card], 
                 address_attributes:{id:            session[:id],
                                     postal_code:   session[:postal_code],   
                                     prefecture_id: session[:prefecture_id],  
