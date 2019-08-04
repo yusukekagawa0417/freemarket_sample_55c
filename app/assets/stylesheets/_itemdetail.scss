@@ -254,13 +254,13 @@
         i {
           color: #ccc;
         }
-        &--red {
-          background: white;
-          border: 1px solid #ea352d;
+        .k_like__icon--red {
+          color: #ea352d;
         }
       }
-      .k_like__icon--red {
-        font: #ea352d;
+      .o_item__sub--left-btn--red {
+        background: white;
+        border: 1px solid #ea352d;
       }
       .k_like__sentence--red {
         color: #ea352d;

@@ -1,7 +1,7 @@
 - if user_signed_in?
   - if likes.find_by(user_id: current_user.id)
     = link_to item_likes_path(item), method: :delete, class: "o_item__sub--left-btn o_item__sub--left-btn--red", id: "like-button", remote: true do
-      = fa_icon 'heart', class: 'k_like__icon--red', style: "color:red;"
+      = fa_icon 'heart', class: 'k_like__icon--red'
       %span.k_like__sentence--red 
         いいね!
       %span.k_like__quantity--red
