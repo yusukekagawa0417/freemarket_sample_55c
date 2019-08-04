@@ -28,12 +28,16 @@ class ItemsController < ApplicationController
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id)
+    @category = Category.find(@item.category_id)
   end
 
   def seller
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id)
+    @category = Category.find(@item.category_id)
   end
 
   def edit

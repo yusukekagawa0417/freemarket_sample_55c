@@ -35,19 +35,19 @@
               %th カテゴリー
               %td
                 .td-category
-                  = link_to "メンズ", "#"
+                  = link_to @category.root.name, "#"
                 .td-category
                   = link_to "#" do
                     = fa_icon 'chevron-right'
-                    アクセサリー
+                    = @category.parent.name
                 .td-category
                   = link_to "#" do
                     = fa_icon 'chevron-right'
-                    ネックレス
+                    = @category.name
             %tr
               %th ブランド
               %td
-                = link_to "ルイ ヴィトン", "#"
+                = link_to @brand.name, "#"
             %tr
               %th 商品の状態
               %td
@@ -55,10 +55,11 @@
             %tr
               %th 配送料の負担
               %td
-                =@item.shipping_fee
+                = @item.shipping_fee
             %tr
               %th 配送の方法
-              %td 普通郵便(定形、定形外)
+              %td
+                = @item.shipping_method
             %tr
               %th 配送元地域
               %td
