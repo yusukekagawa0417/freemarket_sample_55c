@@ -83,9 +83,9 @@
           = @item.description
       .o_item__sub
         .o_item__sub--left
-          %div{class: "k_item__sub--left-btns-#{@item.id} k_item__sub--left-btns"}
+          .k_item__sub--left-btns{class: "k_item__sub--left-btns-#{@item.id}"}
             = render partial: 'items/like', locals: {item: @item, likes: @likes}
-          %div{class: "k_item__sub--left-btns"}
+          .k_item__sub--left-btns
             = link_to "#", class: "o_item__sub--left-btn" do
               = fa_icon 'flag'
               %span 不適切な商品の報告
