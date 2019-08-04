@@ -38,7 +38,7 @@
     }
   }
   .n_notification{
-    margin: 0;
+    margin-bottom: 40px;
     background-color: #fff;
     &__tags{
       display: flex;
@@ -117,43 +117,51 @@
       }
     }
   }
-  .n_negotiation_list{
-    margin: 40px 0 0;
-    background: #fff;
-    &__head{
-      font-size: 16px;
-      font-weight: 600;
-      padding: 0 16px;
-      display: block;
-      line-height: 72px;
-    }
-    &__tags{
-      display: flex;
-      &__tag{
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 70px;
-        width: 350px;
-        text-align: center;
-      }
-      .line{
-        border-top: 2px solid red;
-      }
-      .color{
-        background-color: #eee;
-      }
-    }
-    &__tab_contents{
-      padding: 160px 0 60px;
-      background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?61716930");
-      background-repeat: no-repeat;
-      background-position: center 40px;
-      background-size: 78px 85px;
-      text-align: center;
-      color: #ccc;
-      font-size: 16px;
-      font-weight: 600;
-    }     
+}
+.n_negotiation_list{
+  background: #fff;
+  &__head{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 16px;
+    display: block;
+    line-height: 72px;
   }
+  &__tags{
+    display: flex;
+    &__tag{
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 70px;
+      width: 350px;
+      text-align: center;
+    }
+    .line{
+      border-top: 2px solid red;
+    }
+    .color{
+      background-color: #eee;
+    }
+  }
+  &__tab_contents{
+    padding: 160px 0 60px;
+    background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?61716930");
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    color: #ccc;
+    font-size: 16px;
+    font-weight: 600;
+  }     
 }
 
+.selling-items {
+  padding: 10px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}

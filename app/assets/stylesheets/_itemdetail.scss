@@ -25,10 +25,36 @@
     margin-top: 20px;
     display: flex;
     &--image {
-      width: 50%;
+      width: 300px;
       margin-right: 10px;
+      position: relative;
     }
   }
+}
+
+.o_image-soldbadge::before{
+  content: "";
+  top: 0;
+  left: 0;
+  border-top: 4em solid #ea352d;
+  border-left: 4em solid #ea352d;
+  border-bottom: 4em solid transparent;
+  border-right: 4em solid transparent;
+  position: absolute;
+  z-index: 1;
+}
+.o_image-soldbadge::after{
+  content: "SOLD";
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #FFF;
+  top: 30px;
+  left: 15px;
+  transform: rotate(-45deg);
+  position: absolute;
+  z-index: 2;
 }
 
 .o_item__seller {
@@ -144,7 +170,7 @@
   &-text {
     position: relative;
     display: inline-block;
-    margin: 1.5em 0;
+    margin-top: 20px;
     padding: 10px;
     min-width: 120px;
     max-width: 100%;
@@ -181,8 +207,22 @@
   font-size: 24px;
   opacity: 0.95;
   transition-duration: 0.5s;
+  margin-top: 20px;
   &:hover {
     opacity: 1;
+  }
+  &--sold{
+    display: block;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: #888888;
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: not-allowed;
   }
 }
 
@@ -190,6 +230,7 @@
   margin-top: 50px;
   p {
     font-size: 18px;
+    word-wrap: break-word;
   }
 }
 
@@ -235,6 +276,9 @@
       font-size: 14px;
       &:hover {
         opacity: 0.7;
+      }
+      span,i {
+        color: #0099e8;
       }
     }
   }

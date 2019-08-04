@@ -8,8 +8,9 @@
         = @item.name
       .o_item__main
         .o_item__main--image
-          .o_image-main
-            = image_tag @image.image.to_s, size: "300x300"
+          = image_tag @image.image.to_s, size: "300x300"
+          - if @item.status == "取引中"
+            .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
               = image_tag image.image.to_s, size: "60x60"
@@ -74,13 +75,17 @@
           (税込)
         %span.price-fee
           送料込み
-      .o_item__baloon
-        .o_item__baloon-text
-          売上金¥2,285円をお持ちです
-      = link_to "購入画面に進む", new_item_purchase_path(@item.id), class: "o_item__buybtn"
+      - if @item.status == "取引中"
+        .o_item__buybtn--sold
+          売り切れました
+      - else
+        .o_item__baloon
+          .o_item__baloon-text
+            売上金¥2,285円をお持ちです
+        = link_to "購入画面に進む", new_item_purchase_path(@item), class: "o_item__buybtn"
       .o_item__description
         %p
-          = @item.description
+          = simple_format(@item.description)
       .o_item__sub
         .o_item__sub--left
           .k_item__sub--left-btns{class: "k_item__sub--left-btns-#{@item.id}"}
@@ -97,12 +102,12 @@
     %ul.o_item__nav
       %li
         - if @item.prev.present?
-          = link_to item_path(@item.prev.id) do
+          = link_to item_path(@item.prev) do
             = fa_icon 'chevron-left'
             = @item.prev.name
       %li
         - if @item.next.present?
-          = link_to item_path(@item.next.id) do
+          = link_to item_path(@item.next) do
             = @item.next.name
             = fa_icon 'chevron-right'
 
@@ -123,6 +128,7 @@
         = link_to "ニックンさんのその他の出品", "#"
       .o_user-items
         .o_user-item
+          = render partial: 'item', collection: @items
           = link_to "#" do
             = image_tag("https://placehold.jp/200x200.png")
             .o_user-item__body

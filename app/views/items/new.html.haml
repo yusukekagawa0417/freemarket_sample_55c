@@ -3,7 +3,7 @@
     %header.k_ir_header
       %h1.k_ir_header__title
         = link_to root_path do
-          %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185"}
+          = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", alt: "mercari", height: "49", width: "185")
 
     %main.k_ir_wrapper
       %section.k_ir_section
@@ -18,14 +18,14 @@
             .k_ir_section__inner--form-sentence 
               最大10枚までアップロードできます
 
-            = f.fields_for :images do |image|
+            = f.fields_for :images, @item.images.first do |image|
               .o_image-zone1-parent
                 .o_image-zone1
                   #preview1
                   .o_image-label1
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "image[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
@@ -36,7 +36,7 @@
                   .o_image-label2
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "image[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
@@ -62,8 +62,18 @@
                 カテゴリー
               .k_ir_section__inner--form3-right-span
                 必須
-              %select{class: "k_ir_section__inner--form3-right-select"}
-                %option ---
+              = f.collection_select :category_id, @categories, :id, :name, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select-category", id: "category_parent"
+              .display_none
+                %select.k_ir_section__inner--form3-right-select-category#category_children
+              .display_none
+                %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
+              .display_none
+                .k_ir_section__inner--form3-right-label
+                  ブランド
+                .k_ir_section__inner--form3-right-span-gray
+                  任意
+                %input.k_ir_section__inner--form3-right-select#brand
+                %ul#brand-result.display_none
               .k_ir_section__inner--form3-right-label
                 商品の状態
               .k_ir_section__inner--form3-right-span
@@ -79,7 +89,13 @@
                 配送料の負担
               .k_ir_section__inner--form3-right-span
                 必須
-              = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
+              = f.select :shipping_fee, Item.shipping_fees.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select", id: "shipping_fee"
+              .display_none
+                .k_ir_section__inner--form3-right-label
+                  配送の方法
+                .k_ir_section__inner--form3-right-span
+                  必須
+                = f.select :shipping_method, Item.shipping_methods.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select", id: "shipping_method"
               .k_ir_section__inner--form3-right-label
                 発送元の地域
               .k_ir_section__inner--form3-right-span
@@ -105,19 +121,19 @@
                 .k_ir_right__content--right
                   .k_ir_right__content--right-price
                     ¥
-                    = f.text_field :price, class: "k_ir_right__content--right-price-input", placeholder: '例）300'
+                    = f.text_field :price, class: "k_ir_right__content--right-price-input", id: "sell-price", placeholder: '例）300'
               .k_ir_right__content
                 .k_ir_right__content--left
                   販売手数料（10%）
-                .k_ir_right__content--right
-                  ー
+                .k_ir_right__content--right#mercari_fee
+                  \-
               .k_ir_right__content.k_ir_no_border
                 .k_ir_right__content--left
                   .k_ir_right__content--left-label
                     販売利益
                 .k_ir_right__content--right
-                  .k_ir_right__content--right-label
-                    ー
+                  .k_ir_right__content--right-label#seller_gain
+                    \-
 
           .k_ir_section__inner--form6
             .k_ir_section__inner--form6-sentence
