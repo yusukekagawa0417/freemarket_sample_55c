@@ -30,11 +30,13 @@
           〒
           = current_user.address.postal_code
           %br/
-          = current_user.address.prefecture_id
-          %br/
+          = current_user.address.prefecture.name
           = current_user.address.address_number
-          %br/
           = current_user.address.building_name
+          %br/
+          = current_user.lastname
+          = current_user.firstname
+
         .t_buy__user-info__link
           =link_to '#' do
             変更する
