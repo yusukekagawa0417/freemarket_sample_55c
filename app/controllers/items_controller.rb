@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @item = Item.find(params[:id])
     @likes = Like.where(item_id: @item.id)
     @images = @item.images
     @image = @images.first
