@@ -239,19 +239,36 @@
   display: flex;
   justify-content: space-between;
   &--left {
+    display: flex;
     a {
-      color: #333;
+      color: #333;    
     }
-    &-btn {
-      background: #F5F5F5;
-      border-radius: 30px;
-      font-size: 14px;
-      padding: 10px 20px;
-      margin-right: 10px;
-      i {
-        color: #ccc;
+    .k_item__sub--left-btns {
+      width: 170px;
+      .o_item__sub--left-btn {
+        background: #F5F5F5;
+        border-radius: 20px;
+        font-size: 14px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        i {
+          color: #ccc;
+        }
+        .k_like__icon--red {
+          color: #ea352d;
+        }
       }
-    }
+      .o_item__sub--left-btn--red {
+        background: white;
+        border: 1px solid #ea352d;
+      }
+      .k_like__sentence--red {
+        color: #ea352d;
+      } 
+      .k_like__quantity--red {
+        color: #ea352d;
+      }
+    }  
   }
   &--right {
     a {

@@ -88,13 +88,12 @@
           = simple_format(@item.description)
       .o_item__sub
         .o_item__sub--left
-          = link_to "#", class: "o_item__sub--left-btn" do
-            = fa_icon 'heart'
-            %span いいね!
-            %span 1
-          = link_to "#", class: "o_item__sub--left-btn" do
-            = fa_icon 'flag'
-            %span 不適切な商品の報告
+          .k_item__sub--left-btns{class: "k_item__sub--left-btns-#{@item.id}"}
+            = render partial: 'items/like', locals: {item: @item, likes: @likes}
+          .k_item__sub--left-btns
+            = link_to "#", class: "o_item__sub--left-btn" do
+              = fa_icon 'flag'
+              %span 不適切な商品の報告
         .o_item__sub--right
           = link_to "#" do
             = fa_icon 'lock'

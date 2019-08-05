@@ -93,3 +93,6 @@ gem 'gon'
 gem 'ancestry'
 
 gem 'payjp'
+
+gem 'rails-ujs'
+

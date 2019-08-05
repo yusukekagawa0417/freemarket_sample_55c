@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 2019_08_04_032206) do
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_likes_on_item_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "buyer_id"
@@ -95,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_08_04_032206) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "customer", null: false
+    t.string "card", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 2019_08_04_032206) do
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "seller_id"
+  add_foreign_key "likes", "items"
+  add_foreign_key "likes", "users"
   add_foreign_key "receipts", "items"
   add_foreign_key "receipts", "users", column: "buyer_id"
   add_foreign_key "receipts", "users", column: "seller_id"
