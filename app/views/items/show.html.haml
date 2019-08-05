@@ -132,11 +132,11 @@
         = link_to "#{@user.nickname}さんのその他の出品", "#"
       .o_user-items
         .o_user-item
-          = render @items
+          = render partial: "item", collection: @seller_item
     .o_user
       %h2
-        = link_to "#{@category.name}(#{@category.root.name})その他の商品", "#"
+        = link_to "#{@category.name} (#{@category.root.name}) その他の商品", "#"
       .o_user-items
         .o_user-item
-          = render @items
+          = render partial: "item", collection: @category_item
 = render 'layouts/footer'
