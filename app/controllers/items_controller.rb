@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id) if @item.brand_id
     @category = Category.find(@item.category_id)
+    @items = Item.order(created_at: :desc).limit(3)
   end
 
   def seller

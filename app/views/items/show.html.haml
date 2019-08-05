@@ -127,160 +127,16 @@
         = link_to "#" do
           %li.o_icon.o_pinterest
             = fa_icon 'pinterest'
-
     .o_user
       %h2
-        = link_to "ニックンさんのその他の出品", "#"
+        = link_to "#{@user.nickname}さんのその他の出品", "#"
       .o_user-items
         .o_user-item
-          = render partial: 'item', collection: @items
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-      .o_user-items
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
+          = render @items
     .o_user
       %h2
-        = link_to "ルイ ヴィトンのネックレス その他の商品", "#"
+        = link_to "#{@category.name}(#{@category.root.name})その他の商品", "#"
       .o_user-items
         .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-      .o_user-items
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
-        .o_user-item
-          = link_to "#" do
-            = image_tag("https://placehold.jp/200x200.png")
-            .o_user-item__body
-              .o_user-item__body--title
-                美品COACH
-              .o_user-item__body--bottom
-                .o_user-item__body--bottom--price
-                  ¥43,500
-                .o_user-item__body--bottom--like
-                  = fa_icon 'heart', class: "o_icon-heart"
-                  45
+          = render @items
 = render 'layouts/footer'
