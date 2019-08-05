@@ -47,7 +47,7 @@
             %tr
               %th ブランド
               %td
-                = link_to @brand.name, "#"
+                = link_to @brand.name if @item.brand_id 
             %tr
               %th 商品の状態
               %td

@@ -47,8 +47,7 @@
             %tr
               %th ブランド
               %td
-                - if @item.brand_id.present?
-                  = link_to @brand.name 
+                = link_to @brand.name if @item.brand_id 
             %tr
               %th 商品の状態
               %td
