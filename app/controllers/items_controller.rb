@@ -76,9 +76,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if params[:brand_name] != ""
-      @brand = Brand.find_by(name: params[:brand_name])
-    end
+    @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
 
     ids = @item.images.map{|image| image.id}
     exist_ids = registered_image_params[:ids].map(&:to_i)
