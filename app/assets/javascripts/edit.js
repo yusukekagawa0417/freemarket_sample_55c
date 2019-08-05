@@ -249,7 +249,6 @@ $(window).on('load', function(){
       formData.append("category_id", grandchild_id)
 
       var brand_name = $('#brand').val()
-      console.log(brand_name)
       if (brand_name != " ") {
         formData.append("brand_name", brand_name)
       }
