@@ -62,9 +62,18 @@
                 カテゴリー
               .k_ir_section__inner--form3-right-span
                 必須
-              = f.collection_select :category_id, @categories, :id, :name, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select-category", id: "category_parent"
-              %select.k_ir_section__inner--form3-right-select-category#category_children
-              %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
+              %select.k_ir_section__inner--form3-right-select-category#category_parent
+              .display
+                %select.k_ir_section__inner--form3-right-select-category#category_children
+              .display
+                %select.k_ir_section__inner--form3-right-select-category#category_grandchildren
+              .display-brand
+                .k_ir_section__inner--form3-right-label
+                  ブランド
+                .k_ir_section__inner--form3-right-span-gray
+                  任意
+                %input.k_ir_section__inner--form3-right-select#brand
+                %ul#brand-result.display_none
               .k_ir_section__inner--form3-right-label
                 商品の状態
               .k_ir_section__inner--form3-right-span
