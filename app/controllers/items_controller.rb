@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
       image_params[:images].each do |i|
         @item.images.create(image: i, item_id: @item.id)  
       end
+      flash[:success] = "出品しました"
     else
       render 'items/new'
     end
@@ -94,6 +95,7 @@ class ItemsController < ApplicationController
           @item.images.create(image: image, item_id: @item.id)
         end
       end
+      flash[:success] = "編集しました"
     else
       render 'items/edit'
     end
