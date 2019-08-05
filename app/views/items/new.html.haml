@@ -25,7 +25,7 @@
                   .o_image-label1
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "images[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]", class: "input-image"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
@@ -36,7 +36,7 @@
                   .o_image-label2
                     = image.label :image do
                       .o_file-field
-                        = image.file_field :image, multiple: true, name: "images[images][]"
+                        = image.file_field :image, multiple: true, name: "images[images][]", class: "input-image"
                       .k_ir_section__inner--form-input
                         .k_ir_section__inner--form-input-content 
                           %p
@@ -86,7 +86,7 @@
                 商品の状態
               .k_ir_section__inner--form3-right-span
                 必須
-              = f.select :condition, Item.conditions.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
+              = f.select :condition, Item.conditions.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select condition"
               .error_zone
                 %p.error_condition
 
@@ -114,14 +114,14 @@
                 発送元の地域
               .k_ir_section__inner--form3-right-span
                 必須
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, class: "prefecture_id"
               .error_zone
                 %p.error_prefecture_id
               .k_ir_section__inner--form3-right-label
                 発送までの日数
               .k_ir_section__inner--form3-right-span
                 必須
-              = f.select :shipping_date, Item.shipping_dates.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select"
+              = f.select :shipping_date, Item.shipping_dates.keys, {prompt: '---'}, class: "k_ir_section__inner--form3-right-select shipping_date"
               .error_zone
                 %p.error_shipping_date
 
@@ -131,23 +131,25 @@
               = fa_icon 'question-circle', class: 'k_ir_icon'
             .k_ir_section__inner--form5-right
               .k_ir_right__content
-                .k_ir_right__content--left
-                  .k_ir_right__content--left-label
-                    価格
-                  .k_ir_right__content--left-span
-                    必須
-                .k_ir_right__content--right
-                  .k_ir_right__content--right-price
-                    ¥
-                    = f.text_field :price, class: "k_ir_right__content--right-price-input", id: "sell-price", placeholder: '例）300'
-              .error_zone
-                %p.error_price
-              .k_ir_right__content
+                .k_ir_right__content--box
+                  .k_ir_right__content--box--content
+                    .k_ir_right__content--left
+                      .k_ir_right__content--left-label
+                        価格
+                      .k_ir_right__content--left-span
+                        必須
+                    .k_ir_right__content--right
+                      .k_ir_right__content--right-price
+                        ¥
+                        = f.text_field :price, class: "k_ir_right__content--right-price-input", id: "sell-price", placeholder: '例）300'
+                  .error_zone
+                    %p.error_price
+              .k_ir_right__content--price
                 .k_ir_right__content--left
                   販売手数料（10%）
                 .k_ir_right__content--right#mercari_fee
                   \-
-              .k_ir_right__content.k_ir_no_border
+              .k_ir_right__content--price.k_ir_no_border
                 .k_ir_right__content--left
                   .k_ir_right__content--left-label
                     販売利益
