@@ -30,12 +30,18 @@ class ItemsController < ApplicationController
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id) if @item.brand_id
+    @category = Category.find(@item.category_id)
+    @seller_items = Item.where(seller_id: @item.seller_id) .order(created_at: :DESC).limit(3)
+    @category_items = Item.where(category_id: @item.category_id).order(created_at: :DESC).limit(3)
   end
 
   def seller
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id) if @item.brand_id
+    @category = Category.find(@item.category_id)
   end
 
   def edit
