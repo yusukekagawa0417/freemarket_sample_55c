@@ -38,7 +38,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @categories = Category.where(ancestry: nil)
+    grandchild = @item.category
+    child = grandchild.parent
+    parent = child.parent
+    gon.category_grandchildren = child.children
+    gon.category_children = parent.children
+    gon.category_parents = Category.where(ancestry: nil)
+    gon.category_grandchild = grandchild
+    gon.category_child = child
+    gon.category_parent = parent
+    
+    gon.brand = @item.brand
 
     gon.item = @item
     gon.images = @item.images
@@ -66,6 +76,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
+
     ids = @item.images.map{|image| image.id}
     exist_ids = registered_image_params[:ids].map(&:to_i)
     exist_ids.clear if exist_ids[0] == 0
@@ -137,6 +149,7 @@ class ItemsController < ApplicationController
         :price
         )
         .merge(category_id: params[:category_id])
+        .merge(brand_id: nil)
         .merge(seller_id: current_user.id).merge(status: 0)
     end
   end
