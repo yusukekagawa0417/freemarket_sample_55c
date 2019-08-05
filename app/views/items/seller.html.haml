@@ -83,9 +83,7 @@
     .o_item__seller
       = link_to "商品の編集", edit_item_path(@item), class: "o_item__editbtn"
       %p or
-      = form_for @item do |f|
-        = f.hidden_field :status
-        = f.submit "出品を一旦停止する", class: "o_item__editbtn--gray"
+      = link_to "出品を一旦停止する", "#", class: "o_item__editbtn--gray"
       = link_to "この商品を削除する", item_path(@item), method: :delete, class: "o_item__editbtn--gray"
 
       
