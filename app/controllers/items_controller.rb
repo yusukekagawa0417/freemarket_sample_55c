@@ -3,7 +3,22 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :seller, :edit, :update, :destroy]
 
   def index
-    @items = Item.order(created_at: :desc).limit(4)
+    @ladies_categories = Category.where('ancestry LIKE(?)', "1/%")
+    @ladies_items = Item.where(category_id: @ladies_categories.ids).order(created_at: :desc).limit(4)
+
+    @mens_categories = Category.where('ancestry LIKE(?)', "2/%")
+    @mens_items = Item.where(category_id: @mens_categories.ids).order(created_at: :desc).limit(4)
+
+    @baby_categories = Category.where('ancestry LIKE(?)', "3/%")
+    @baby_items = Item.where(category_id: @baby_categories.ids).order(created_at: :desc).limit(4)
+
+    @cosme_categories = Category.where('ancestry LIKE(?)', "7/%")
+    @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
+
+    @chanel_items = Item.where(brand_id: 2441).order(created_at: :desc).limit(4)
+    @vuitton_items = Item.where(brand_id: 6143).order(created_at: :desc).limit(4)
+    @sup_items = Item.where(brand_id: 6759).order(created_at: :desc).limit(4)
+    @nike_items = Item.where(brand_id: 3803).order(created_at: :desc).limit(4)
   end
 
   def new
