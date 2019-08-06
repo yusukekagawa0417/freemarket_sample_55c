@@ -76,7 +76,10 @@
         %span.price-tax
           (税込)
         %span.price-fee
+        - if @item.shipping_fee == "送料込み(出品者負担)"
           送料込み
+        - else
+          着払い
       .o_item__description
         %p
           = simple_format(@item.description)
