@@ -19,6 +19,23 @@ class RegistrationsController < ApplicationController
     redirect_to new2_registrations_path
   end
 
+  def new1_1
+    @user = User.new 
+  end
+
+  def create1_1
+    session[:email]                 = user_params[:email]
+    session[:password]              = "dummy1"
+    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:nickname]              = user_params[:nickname]
+    session[:firstname]             = user_params[:firstname]
+    session[:lastname]              = user_params[:lastname]
+    session[:firstname_kana]        = user_params[:firstname_kana]
+    session[:lastname_kana]         = user_params[:lastname_kana]
+    session[:birthday]              = user_params[:birthday]
+    redirect_to new2_registrations_path
+  end
+
   def new2 
     @user = User.new 
   end
@@ -64,8 +81,9 @@ class RegistrationsController < ApplicationController
         response_customer = Payjp::Customer.create(card: params[:token])
         session[:customer] = response_customer.id
         session[:card] = response_customer.default_card
-        
-        User.create(email:      session[:email], 
+
+        user = User.create(
+                email:          session[:email], 
                 password:       session[:password], 
                 nickname:       session[:nickname], 
                 firstname:      session[:firstname], 
@@ -81,8 +99,15 @@ class RegistrationsController < ApplicationController
                                     prefecture_id: session[:prefecture_id],  
                                     city:          session[:city],           
                                     address_number:session[:address_number], 
-                                    building_name: session[:building_name]}) 
-        
+                                    building_name: session[:building_name]})
+        if (session[:uid] != nil) && (session[:provider] != nil)
+          SnsCredential.create(
+            uid:      session[:uid],
+            provider: session[:provider],
+            user_id:  user.id)
+        end
+        session[:uid] = nil
+        session[:provider] = nil
         redirect_to new6_registrations_path
       }
     end
