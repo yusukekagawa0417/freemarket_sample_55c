@@ -13,14 +13,15 @@ class User < ApplicationRecord
   # has_many :evaluations, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: {in: 6..128}
+  validates :password, presence: true, confirmation: true, length: {in: 6..128}
   validates :nickname, presence: true, length: {maximum: 20}
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :firstname_kana, presence: true
-  validates :lastname_kana, presence: true
+  validates :firstname, presence: true, format: { with: /\A[一-龥ぁ-ん]/ }
+  validates :lastname, presence: true, format: { with: /\A[一-龥ぁ-ん]/ }
+  validates :firstname_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
+  validates :lastname_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
   validates :birthday, presence: true
-  validates :tel, uniqueness: true 
-  validates :customer, presence: true, uniqueness: true 
+  validates :tel, uniqueness: true, format: {with: /\A\d{10}\z|\A\d{11}\z/ } 
+  validates :customer, presence: true, uniqueness: true
+  validates :card, presence: true, uniqueness: true 
 
 end
