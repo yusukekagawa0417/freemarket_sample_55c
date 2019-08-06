@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2019_08_02_075955) do
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
-    t.string "token"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
