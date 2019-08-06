@@ -14,7 +14,7 @@
         
       .k_su_section7__inner
         .k_su_section7__inner--form 
-        = link_to  user_facebook_omniauth_authorize_path, class: "k_su_section7__inner--form-facebook-regi" do
+          = link_to  user_facebook_omniauth_authorize_path, class: "k_su_section7__inner--form-facebook-regi" do
             = fa_icon 'facebook-square', class: "k_su_icon"
             Facebookでログイン
           = link_to  user_google_oauth2_omniauth_authorize_path, class: "k_su_section7__inner--form-google-regi" do
@@ -28,9 +28,6 @@
             = f.submit 'ログイン', class: 'k_su_section7__inner--form2-btn'
             = link_to "パスワードお忘れの方", "#", class: 'k_su_section7__inner--form2-link'
 
-
   %footer.k_su_footer
     = render 'registrations/footer'
-  
-  
   
