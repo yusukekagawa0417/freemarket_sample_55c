@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
       image_params[:images].each do |i|
         @item.images.create(image: i, item_id: @item.id)  
       end
+      flash[:success] = "出品しました"
     else
       render 'items/new'
     end
@@ -29,16 +30,32 @@ class ItemsController < ApplicationController
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id) if @item.brand_id
+    @category = Category.find(@item.category_id)
+    @seller_items = Item.where(seller_id: @item.seller_id) .order(created_at: :DESC).limit(3)
+    @category_items = Item.where(category_id: @item.category_id).order(created_at: :DESC).limit(3)
   end
 
   def seller
     @images = @item.images
     @image = @images.first
     @user = User.find(@item.seller_id)
+    @brand = Brand.find(@item.brand_id) if @item.brand_id
+    @category = Category.find(@item.category_id)
   end
 
   def edit
-    @categories = Category.where(ancestry: nil)
+    grandchild = @item.category
+    child = grandchild.parent
+    parent = child.parent
+    gon.category_grandchildren = child.children
+    gon.category_children = parent.children
+    gon.category_parents = Category.where(ancestry: nil)
+    gon.category_grandchild = grandchild
+    gon.category_child = child
+    gon.category_parent = parent
+    
+    gon.brand = @item.brand
 
     gon.item = @item
     gon.images = @item.images
@@ -66,6 +83,8 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
+
     ids = @item.images.map{|image| image.id}
     exist_ids = registered_image_params[:ids].map(&:to_i)
     exist_ids.clear if exist_ids[0] == 0
@@ -82,6 +101,7 @@ class ItemsController < ApplicationController
           @item.images.create(image: image, item_id: @item.id)
         end
       end
+      flash[:success] = "編集しました"
     else
       render 'items/edit'
     end
@@ -137,6 +157,7 @@ class ItemsController < ApplicationController
         :price
         )
         .merge(category_id: params[:category_id])
+        .merge(brand_id: nil)
         .merge(seller_id: current_user.id).merge(status: 0)
     end
   end

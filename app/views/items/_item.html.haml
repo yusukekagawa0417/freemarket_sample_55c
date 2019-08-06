@@ -11,4 +11,4 @@
           = item.price.to_s(:delimited)
         .o_topitem__body--bottom--like
           = fa_icon 'heart', class: "o_icon-heart"
-          45
+          = item.likes.count
