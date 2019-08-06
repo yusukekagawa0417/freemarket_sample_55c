@@ -96,3 +96,5 @@ gem 'payjp'
 
 gem 'rails-ujs'
 
+gem 'rails-i18n'
+
