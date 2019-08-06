@@ -111,6 +111,8 @@ class ItemsController < ApplicationController
     if @item.seller_id == current_user.id
       @item.destroy
     end
+    flash[:delete] = "商品を削除しました"
+    redirect_to selling_user_path(current_user)
   end
 
   def set_children
