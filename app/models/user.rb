@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :lastname_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
   validates :birthday, presence: true
   validates :tel, uniqueness: true, format: {with: /\A\d{10}\z|\A\d{11}\z/ } 
-  validates :customer, presence: true, uniqueness: true
-  validates :card, presence: true, uniqueness: true 
+  validates :customer, presence: true
+  validates :card, presence: true 
 
 end
