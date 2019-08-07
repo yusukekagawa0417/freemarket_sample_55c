@@ -1,17 +1,16 @@
-- if item.images.length != 0
-  .o_topitem
-    = link_to item_path(item.id) do
-      .o_item--image
-        =image_tag item.images.first.image.to_s , height: "213px" , width: "213px", class: "o_item--image"
-        - if item.status == "取引中"
-          .o_item-soldbadge
-      .o_topitem__body
-        .o_topitem__body--title
-          = item.name
-        .o_topitem__body--bottom
-          .o_topitem__body--bottom--price
-            ¥
-            = item.price.to_s(:delimited)
-          .o_topitem__body--bottom--like
-            = fa_icon 'heart', class: "o_icon-heart"
-            = item.likes.count
+.o_topitem
+  = link_to item_path(item.id) do
+    .o_item--image
+      =image_tag item.images.first.image.to_s , height: "213px" , width: "213px", class: "o_item--image"
+      - if item.status == "取引中"
+        .o_item-soldbadge
+    .o_topitem__body
+      .o_topitem__body--title
+        = item.name
+      .o_topitem__body--bottom
+        .o_topitem__body--bottom--price
+          ¥
+          = item.price.to_s(:delimited)
+        .o_topitem__body--bottom--like
+          = fa_icon 'heart', class: "o_icon-heart"
+          = item.likes.count
