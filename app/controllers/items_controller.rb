@@ -16,8 +16,8 @@ class ItemsController < ApplicationController
     @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
     @chanel_items = Item.where(brand_id: 2441).order(created_at: :desc).limit(4)
-    @vuitton_items = Item.where(brand_id: 6143).order(created_at: :desc).limit(4)
-    @sup_items = Item.where(brand_id: 6759).order(created_at: :desc).limit(4)
+    @vuitton_items = Item.where(brand_id: 10099).order(created_at: :desc).limit(4)
+    @sup_items = Item.where(brand_id: 10715).order(created_at: :desc).limit(4)
     @nike_items = Item.where(brand_id: 3803).order(created_at: :desc).limit(4)
   end
 
