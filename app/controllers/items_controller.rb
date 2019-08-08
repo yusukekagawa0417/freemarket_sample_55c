@@ -122,9 +122,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.seller_id == current_user.id
-      @item.destroy
-    end
+    @item.destroy
     flash[:delete] = "商品を削除しました"
     redirect_to selling_user_path(current_user)
   end
