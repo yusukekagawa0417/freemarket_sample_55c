@@ -147,15 +147,14 @@
                 .k_ir_right__content--left
                   販売手数料（10%）
                 .k_ir_right__content--right#mercari_fee
-                  - mercari_fee = (@item.price * 0.1).floor
-                  = "¥#{mercari_fee.to_s(:delimited)}"
+                  = display_mercari_fee(@item)
               .k_ir_right__content--price.k_ir_no_border
                 .k_ir_right__content--left
                   .k_ir_right__content--left-label
                     販売利益
                 .k_ir_right__content--right
                   .k_ir_right__content--right-label#seller_gain
-                    = "¥#{(@item.price - mercari_fee).to_s(:delimited)}"
+                    = display_seller_gain(@item)
 
           .k_ir_section__inner--form6
             .k_ir_section__inner--form6-sentence
