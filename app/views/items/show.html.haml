@@ -139,3 +139,7 @@
         .o_user-item
           = render partial: "item", collection: @category.items.order(created_at: :DESC).limit(3)
 = render 'layouts/footer'
+
+= render 'layouts/tryon-btn'
+#tryonImgDiv.display_none
+  %img{id: "tryonImg", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8fBgOVs1UNrU5k1MGFjw0V84T8haK5yzHSzyW5YudxX6flcx6g"}
