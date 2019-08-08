@@ -79,14 +79,15 @@
           送料込み
         - else
           着払い
-      - if @item.status == "取引中"
-        .o_item__buybtn--sold
-          売り切れました
-      - else
-        .o_item__baloon
-          .o_item__baloon-text
-            売上金¥2,285円をお持ちです
-        = link_to "購入画面に進む", new_item_purchase_path(@item), class: "o_item__buybtn"
+      - if user_signed_in? && @item.seller_id != current_user.id
+        - if @item.status == "取引中"
+          .o_item__buybtn--sold
+            売り切れました
+        - else
+          .o_item__baloon
+            .o_item__baloon-text
+              売上金¥2,285円をお持ちです
+          = link_to "購入画面に進む", new_item_purchase_path(@item), class: "o_item__buybtn"
       .o_item__description
         %p
           = simple_format(@item.description)
