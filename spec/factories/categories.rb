@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :category do
-    id   {1}
-    name {"category"}
+    sequence(:name) {Faker::Internet.name}
   end
 end
