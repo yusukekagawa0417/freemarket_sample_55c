@@ -53,7 +53,7 @@ class PurchasesController < ApplicationController
   end
 
   def check_user_id
-    if @item.seller_id == current_user.id
+    if Item.find(params[:item_id]).seller_id == current_user.id
       flash[:alert] = "自分が出品した商品は購入できません"
       redirect_to root_path
     end
