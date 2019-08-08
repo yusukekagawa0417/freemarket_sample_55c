@@ -5,11 +5,15 @@ $(window).on('load', function(){
     var imagezone1 = $('.o_image-zone1-parent')
     var imagezone2 = $('.o_image-zone2-parent')
     
+    // ビューで表示するための配列
     var images = []
+    // もともと登録されている画像のid
     var registered_images_ids = []
+    // 新しく追加された画像
     var new_image_files = []
     
     //アップロードされている画像の表示
+    // もともと登録されている画像をimageとregistered_images_idsに代入
     $.each(gon.images, function(i, image){
       var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
       var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>')
@@ -72,12 +76,7 @@ $(window).on('load', function(){
         display: "none"
       })
     }
-    
-    var new_image = $(
-      `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`
-    );
-    $('preview-btn').append(new_image);
-    
+
     //追加
     $(document).on('change', 'input[type= "file"]', function(){
       var file = $(this).prop('files')[0];
@@ -139,9 +138,6 @@ $(window).on('load', function(){
           display: "none"
         })
       }
-      
-      var new_image = $(`<input multiple="multiple" name="images[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
-      $('.preview-btn').append(new_image);
     })
     
     // 削除
@@ -210,6 +206,7 @@ $(window).on('load', function(){
       }
     })
     
+    // 価価格によって手数料等表示
     $('#sell-price').on('keyup', function(){
       var price = $(this).val();
       var mercari_fee = Math.floor(price * 0.1)
