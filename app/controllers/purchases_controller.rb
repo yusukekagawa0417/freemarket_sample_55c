@@ -2,7 +2,6 @@ class PurchasesController < ApplicationController
   before_action :set_item
 
   def new
-  
     Payjp.api_key = Rails.application.credentials.payjp_secret_key
     @customer = Payjp::Customer.retrieve(current_user.customer)
     @card_information = @customer.cards.retrieve(current_user.card)
