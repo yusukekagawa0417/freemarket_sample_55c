@@ -137,5 +137,5 @@
         = link_to "#{@category.name} (#{@category.root.name}) その他の商品", "#"
       .o_user-items
         .o_user-item
-          = render partial: "item", collection: @category_items
+          = render partial: "item", collection: @category.items.order(created_at: :DESC).limit(3)
 = render 'layouts/footer'
