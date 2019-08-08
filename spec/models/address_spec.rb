@@ -8,7 +8,7 @@ describe Address do
     end
 
     it "is invalid without a prefecture_id" do
-      address = build(:address, prefecture_id: nil)
+      address = build(:address, prefecture_id: "")
       address.valid?
       expect(address.errors[:prefecture_id]).to include("を入力してください")
     end
@@ -22,7 +22,7 @@ describe Address do
     it "is invalid without a address_number" do
       address = build(:address, address_number: "")
       address.valid?
-    expect(address.errors[:address_number]).to include("を入力してください")
+      expect(address.errors[:address_number]).to include("を入力してください")
     end
 
     it "is valid with  all column" do
