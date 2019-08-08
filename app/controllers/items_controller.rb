@@ -92,7 +92,7 @@ class ItemsController < ApplicationController
       end
     else
       @item.images.each do |image|
-        binary_data = File.read(image.image.file.file)
+        binary_data = File.read(image.image.file.path)
         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
       end
     end

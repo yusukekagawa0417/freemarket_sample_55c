@@ -8,13 +8,17 @@
     %section.t_buy__item
       .t_buy__item__top
         %p.t_buy__item__top--image
-          = image_tag "//placehold.jp/64x64.png", size: '64×64', alt: 'item_image'
+          = image_tag @item.images.first.image.to_s , height: "64px" , width: "64px"
         %p.t_buy__item__top--name 
           = @item.name
       %p.t_buy__item__price
         ¥
         = @item.price.to_s(:delimited)
-        %span 送料込み
+        %span
+          - if @item.shipping_fee == "送料込み(出品者負担)"
+            送料込み
+          - else
+            着払い
       %p.t_buy__item__point ポイントはありません
       .t_buy__item__pay-table
         %p.t_buy__item__pay-table__you-pay 支払い金額
@@ -31,6 +35,7 @@
           = current_user.address.postal_code
           %br/
           = current_user.address.prefecture.name
+          = current_user.address.city
           = current_user.address.address_number
           = current_user.address.building_name
           %br/
@@ -49,10 +54,7 @@
             %p 
             = "**** **** **** " + @card_information.last4
             %br/
-            - exp_month = @card_information.exp_month.to_s
-            - exp_year = @card_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
-            
+            = display_card_expiration_date(@card_information)
             %figure
             = image_tag "#{@card_src}", width: '49', alt: @card_brand
             

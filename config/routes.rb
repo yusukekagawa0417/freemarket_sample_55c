@@ -52,7 +52,5 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   resources :sessions, only: [:new]
 end
