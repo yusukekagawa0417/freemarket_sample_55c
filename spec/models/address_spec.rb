@@ -26,7 +26,7 @@ describe Address do
     end
 
     it "is valid with  all column" do
-    create(:user)
+      create(:user)
       address = build(:address)
       address.valid?
       expect(address).to be_valid
