@@ -107,7 +107,7 @@ describe Item do
 
     it "priceが9999999なら登録できる" do
       item = build(:item, price: 9999999)
-      expect(item).to be_valid
+    expect(item).to be_valid
     end
 
     it "priceが10000000なら登録できない" do
