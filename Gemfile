@@ -110,3 +110,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
   
 gem 'rails-i18n'
+
+gem 'jquery-ui-rails'
