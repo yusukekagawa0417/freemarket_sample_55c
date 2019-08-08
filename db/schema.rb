@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(version: 2019_08_02_075955) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"

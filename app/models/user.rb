@@ -17,8 +17,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true, length: {in: 6..128}
   validates :nickname, presence: true, length: {maximum: 20}
-  validates :firstname, presence: true, format: { with: /\A[一-龥ぁ-ん]/ }
-  validates :lastname, presence: true, format: { with: /\A[一-龥ぁ-ん]/ }
+  validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :lastname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :firstname_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
   validates :lastname_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
   validates :birthday, presence: true
