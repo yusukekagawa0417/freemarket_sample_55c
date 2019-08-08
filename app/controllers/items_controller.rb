@@ -122,9 +122,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    flash[:delete] = "商品を削除しました"
-    redirect_to selling_user_path(current_user)
+    if @item.destroy
+      flash[:delete] = "商品を削除しました"
+      redirect_to selling_user_path(current_user)
+    else
+      render 'users/seller'
+    end
   end
 
   def set_children
