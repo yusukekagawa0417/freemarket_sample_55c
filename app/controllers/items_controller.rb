@@ -15,10 +15,20 @@ class ItemsController < ApplicationController
     @cosme_categories = Category.where('ancestry LIKE(?)', "7/%")
     @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
-    @chanel_items = Item.where(brand_id: 2441).order(created_at: :desc).limit(4)
-    @vuitton_items = Item.where(brand_id: 6143).order(created_at: :desc).limit(4)
-    @sup_items = Item.where(brand_id: 6759).order(created_at: :desc).limit(4)
-    @nike_items = Item.where(brand_id: 3803).order(created_at: :desc).limit(4)
+
+    @chanel_brands= Brand.where('name LIKE(?)', "シャネル%")
+    @chanel_items = Item.where(brand_id: @chanel_brands.ids).order(created_at: :desc).limit(4)
+
+    @vuitton_brands = Brand.where('name LIKE(?)', "ルイ ヴィトン%")
+    @vuitton_items = Item.where(brand_id: @vuitton_brands.ids).order(created_at: :desc).limit(4)
+
+    @sup_brands = Brand.where('name LIKE(?)', "シュプリーム%")
+    @sup_items = Item.where(brand_id: @sup_brands.ids).order(created_at: :desc).limit(4)
+
+    @nike_brands = Brand.where('name LIKE(?)', "ナイキ%")
+    @nike_items = Item.where(brand_id: @nike_brands.ids).order(created_at: :desc).limit(4)
+
+    
   end
 
   def new
