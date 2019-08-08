@@ -47,8 +47,7 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id) if @item.brand_id
     @category = Category.find(@item.category_id)
-    @seller_items = Item.where(seller_id: @item.seller_id) .order(created_at: :DESC).limit(3)
-    @category_items = Item.where(category_id: @item.category_id).order(created_at: :DESC).limit(3)
+    @seller_items = Item.where(seller_id: @user.id).order(created_at: :DESC).limit(3)
   end
 
   def seller
@@ -128,6 +127,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.destroy
+      flash[:delete] = "商品を削除しました"
+      redirect_to selling_user_path(current_user)
+    else
+      render 'users/seller'
+    end
   end
 
   def set_children
