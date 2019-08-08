@@ -103,6 +103,8 @@ gem 'rails-ujs'
 
 gem 'omniauth-rails_csrf_protection'
 
+gem 'recaptcha', require: "recaptcha/rails"
+
 gem 'omniauth-google-oauth2'
 
 gem 'omniauth-facebook'

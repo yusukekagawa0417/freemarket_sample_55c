@@ -9,16 +9,20 @@ class RegistrationsController < ApplicationController
   def create1
     @user = User.new(user_params.merge(tel: "08000000000", customer: "000", card: "000"))
     if @user.valid?
-      session[:email]                 = user_params[:email] 
-      session[:password]              = user_params[:password] 
-      session[:password_confirmation] = user_params[:password_confirmation] 
-      session[:nickname]              = user_params[:nickname]
-      session[:firstname]             = user_params[:firstname]
-      session[:lastname]              = user_params[:lastname]
-      session[:firstname_kana]        = user_params[:firstname_kana]
-      session[:lastname_kana]         = user_params[:lastname_kana]
-      session[:birthday]              = user_params[:birthday]
-      redirect_to new2_registrations_path
+      if verify_recaptcha
+        session[:email]                 = user_params[:email] 
+        session[:password]              = user_params[:password] 
+        session[:password_confirmation] = user_params[:password_confirmation] 
+        session[:nickname]              = user_params[:nickname]
+        session[:firstname]             = user_params[:firstname]
+        session[:lastname]              = user_params[:lastname]
+        session[:firstname_kana]        = user_params[:firstname_kana]
+        session[:lastname_kana]         = user_params[:lastname_kana]
+        session[:birthday]              = user_params[:birthday]
+        redirect_to new2_registrations_path
+      else
+        render "new1"
+      end
     else
       render "new1"
     end
