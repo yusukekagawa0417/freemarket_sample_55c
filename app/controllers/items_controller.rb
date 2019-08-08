@@ -31,8 +31,8 @@ class ItemsController < ApplicationController
     @brand = Brand.find_by(name: params[:brand_name])
     @item = Item.new(item_params)
     if @item.save && image_params[:images].length != 0
-      image_params[:images].each do |i|
-        @item.images.create(image: i, item_id: @item.id)  
+      image_params[:images].each do |image|
+        @item.images.create(image: image, item_id: @item.id)  
       end
       flash[:success] = "出品しました"
     else
@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # itemの孫カテゴリーからそれぞれ子・親を取得してJSで使えるよう定義
     grandchild = @item.category
     child = grandchild.parent
     parent = child.parent
@@ -75,6 +76,7 @@ class ItemsController < ApplicationController
     gon.item = @item
     gon.images = @item.images
 
+    # 画像のsrcにバイナリーデータを入れる
     require 'base64'
     require 'aws-sdk'
 
@@ -100,9 +102,12 @@ class ItemsController < ApplicationController
   def update
     @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
 
-    ids = @item.images.map{|image| image.id}
+    # itemにもともと登録されている画像のid
+    ids = @item.images.map(&:id)
+    # 上記のうち編集後も残っている画像のid
     exist_ids = registered_image_params[:ids].map(&:to_i)
     exist_ids.clear if exist_ids[0] == 0
+
     if @item.update(item_params) && (exist_ids.length != 0 || image_params[:images][0] != " ")
       unless ids.length == exist_ids.length
         delete_ids = ids - exist_ids

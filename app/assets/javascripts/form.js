@@ -1,8 +1,10 @@
 $(function() {
+  // 配送料の負担を選んだら配送方法を表示
   $('#shipping_fee').on('change', function(){
     $('#shipping_method').parent().removeClass('display_none').css('margin-top', '30px')
   })
 
+  // 親カテゴリーを選んだら子カテゴリーを表示
   $(document).on('change', '#category_parent', function(){
     var parent_id = $(this).val()
     $('#category_children').parent().removeClass('display_none')
@@ -27,6 +29,7 @@ $(function() {
     })
   })
 
+  // 子カテゴリーを選んだら孫カテゴリーを表示
   $(document).on('change', '#category_children', function(){
     var child_id = $(this).val()
     $('#category_grandchildren').parent().removeClass('display_none')
@@ -50,6 +53,7 @@ $(function() {
     })
   })
 
+  // 孫カテゴリーを選んだら、親カテゴリーの種類によってブランド欄を表示
   $(document).on('change', '#category_grandchildren', function(){
     var parent_id = $('#category_parent').val()
     if (!["5", "6", "10", "11", "13"].includes(parent_id)) {
@@ -57,6 +61,7 @@ $(function() {
     }
   })
 
+  // ブランド欄に入力したらインクリメンタルサーチ 
   $(document).on('keyup', '#brand', function(){
     var brand_input = $(this).val()
     $('#brand-result').removeClass('display_none')
@@ -81,6 +86,7 @@ $(function() {
     })
   })
 
+  // インクリメンタルサーチの結果をクリックしたらフォームに補完
   $(document).on('click', '.brand-list', function(){
     var brand_name = $(this).text()
     $('#brand').val(brand_name)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_072302) do
+ActiveRecord::Schema.define(version: 2019_08_02_075955) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 2019_08_02_072302) do
     t.index ["seller_id"], name: "index_receipts_on_seller_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -112,10 +121,12 @@ ActiveRecord::Schema.define(version: 2019_08_02_072302) do
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "receipts", "items"
   add_foreign_key "receipts", "users", column: "buyer_id"
   add_foreign_key "receipts", "users", column: "seller_id"
+  add_foreign_key "sns_credentials", "users"
 end

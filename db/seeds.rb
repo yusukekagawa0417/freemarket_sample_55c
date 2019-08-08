@@ -25,7 +25,7 @@ registration_array.each do |registration_name|
   Brand.create(name: registration_name)
 end
 
-#作成したDB情報を格納する
+#Categoryテーブルの初期設定
 parent_address_info = []
 children_address_info = []
 
