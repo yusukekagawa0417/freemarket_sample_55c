@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id) if @item.brand_id
     @category = Category.find(@item.category_id)
-    @seller_items = Item.where(seller_id: @user) .order(created_at: :DESC).limit(3)
+    @seller_items = Item.where(seller_id: @user).order(created_at: :DESC).limit(3)
     @category_items = Item.where(category_id: @category).order(created_at: :DESC).limit(3)
   end
 
