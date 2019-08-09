@@ -2,13 +2,11 @@ $(function(){
   $('.t_delete').on('click', function(){
     $('.t_overlay, .t_modalWindow').fadeIn();
     locateCenter();
-    $(window).resize(localCenter);
   });
 
   $('.t_modalWindow__buttons__btn--cxl').on('click', function(){
     $('.t_overlay, .t_modalWindow').fadeOut();
   });
-
 
   function locateCenter(){
     let w = $(window).width();
