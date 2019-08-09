@@ -88,6 +88,20 @@
       = link_to "商品の編集", edit_item_path(@item), class: "o_item__editbtn"
       %p or
       = link_to "出品を一旦停止する", "#", class: "o_item__editbtn--gray"
-      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "o_item__editbtn--gray"
+      .t_delete 
+        この商品を削除する  
+      .t_overlay
+      .t_modalWindow
+        .t_modalWindow__content
+          %p
+          %span 確認 
+          %p 削除すると二度と復活できません。
+          %p 削除する代わりに停止することもできます。
+          %br
+          %p 本当に削除しますか？
+        .t_modalWindow__buttons
+          .t_modalWindow__buttons__btn--cxl
+            キャンセル
+          = link_to "削除する",item_path(@item), method: :delete, class: "t_modalWindow__buttons__btn"
 
 = render 'layouts/footer'
