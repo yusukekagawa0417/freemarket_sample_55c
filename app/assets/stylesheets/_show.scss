@@ -145,3 +145,14 @@
     }
   }
 }
+#tryonImgDiv {
+  position: fixed;
+  bottom: 32px;
+  right: 196px;
+}
+#tryonImg {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -31,7 +31,7 @@
 @import "flash";
 
 
-.sell-btn {
+.sell-btn, .tryon-btn {
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -54,7 +54,13 @@
     padding: 0 50px;
   }
 }
-
+.tryon-btn {
+  background-color: #0099e8;
+  cursor: pointer;
+  i {
+    font-size: 5.0em;
+  }
+}
 .display_none {
   display: none;
 }
