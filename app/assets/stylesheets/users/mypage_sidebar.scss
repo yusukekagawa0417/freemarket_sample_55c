@@ -3,7 +3,6 @@
   float: left;
   width: 280px;
   margin-right: 40px;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   .n_side_bar{
     &__mypage{
       .top{
@@ -27,7 +26,6 @@
             font-weight: 600;
             width: 92%;
             padding-left: 10px;
-            text-decoration: none;
             display: block;
           }
           &__side_link{
@@ -35,7 +33,6 @@
             font-size: 14px;
             width: 92%;
             padding-left: 10px;
-            text-decoration: none;
             display: block;
           }
           &__ficon{

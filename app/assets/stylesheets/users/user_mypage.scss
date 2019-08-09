@@ -1,5 +1,4 @@
 .n_mypage_center{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   width: 700px;
   float: right;
   &__user_icon{
@@ -37,6 +36,7 @@
       }
     }
   }
+
   .n_notification{
     margin-bottom: 40px;
     background-color: #fff;
@@ -112,12 +112,12 @@
           font-size: 14px;
           line-height: 56px;
           text-align: center;
-          text-decoration: none;
         }
       }
     }
   }
 }
+
 .n_negotiation_list{
   background: #fff;
   &__head{
