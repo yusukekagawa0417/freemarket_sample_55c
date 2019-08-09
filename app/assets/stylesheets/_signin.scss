@@ -36,6 +36,7 @@
       width: 328px;
       height: 150px;
       &-facebook-regi {
+        pointer-events: none;
         position: relative;
         height: 50px;
         width: 328px;
@@ -54,6 +55,7 @@
         }
       }
       &-google-regi {
+        pointer-events: none;
         position: relative;
         height: 50px;
         width: 328px;
