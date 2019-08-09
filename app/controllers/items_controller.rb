@@ -16,17 +16,17 @@ class ItemsController < ApplicationController
     @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
 
-    @chanel_brands= Brand.where('name LIKE(?)', "シャネル%")
-    @chanel_items = Item.where(brand_id: @chanel_brands.ids).order(created_at: :desc).limit(4)
+    @chanel_brands= Brand.find(2441)
+    @chanel_items = Item.where(brand_id: @chanel_brands.id).order(created_at: :desc).limit(4)
 
-    @vuitton_brands = Brand.where('name LIKE(?)', "ルイ ヴィトン%")
-    @vuitton_items = Item.where(brand_id: @vuitton_brands.ids).order(created_at: :desc).limit(4)
+    @vuitton_brands = Brand.find(6143)
+    @vuitton_items = Item.where(brand_id: @vuitton_brands.id).order(created_at: :desc).limit(4)
 
-    @sup_brands = Brand.where('name LIKE(?)', "シュプリーム%")
-    @sup_items = Item.where(brand_id: @sup_brands.ids).order(created_at: :desc).limit(4)
+    @sup_brands = Brand.find(6759)
+    @sup_items = Item.where(brand_id: @sup_brands.id).order(created_at: :desc).limit(4)
 
-    @nike_brands = Brand.where('name LIKE(?)', "ナイキ%")
-    @nike_items = Item.where(brand_id: @nike_brands.ids).order(created_at: :desc).limit(4)
+    @nike_brands = Brand.find(3803)
+    @nike_items = Item.where(brand_id: @nike_brands.id).order(created_at: :desc).limit(4)
 
     
   end
