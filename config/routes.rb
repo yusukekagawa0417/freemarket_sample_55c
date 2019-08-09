@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  devise_for :users, controllers:{
+    omniauth_callbacks: "users/omniauth_callbacks"}
   root 'items#index'
   
   #items関係
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:new, :create, :edit, :update] do
     collection do
       get :new1
+      get :new1_1
       get :new2
       get :new3
       get :new4
@@ -42,6 +43,7 @@ Rails.application.routes.draw do
     end
     collection do
       post :create1
+      post :create1_1
       post :create2
       post :create3
       post :create4
@@ -49,8 +51,6 @@ Rails.application.routes.draw do
       post :create6
     end
   end
-
-
 
   resources :sessions, only: [:new]
 end

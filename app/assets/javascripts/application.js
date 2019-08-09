@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/widgets/draggable
+//= require jquery-ui/widgets/resizable
 //= require rails-ujs
 //= require activestorage
 //= require_tree .

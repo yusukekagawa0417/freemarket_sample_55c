@@ -4,9 +4,12 @@ $(function() {
   var imagezone1 = $('.o_image-zone1-parent')
   var imagezone2 = $('.o_image-zone2-parent')
 
+  // viewで表示する配列
   var images = [];
+  // データとして送信する配列
   var image_files = [];
 
+  // 画像アップロード
   $(document).on('change', 'input[type= "file"]', function(){
     var file = $(this).prop('files')[0];
     image_files.push(file);
@@ -59,15 +62,14 @@ $(function() {
         display: "none"
       })
     }
-
-    var new_image = $(`<input multiple="multiple" name="images[images][]" data-image=${images.length} type="file" id="item_images_attributes_0_image">`);
-    $('.preview-btn').append(new_image);
   })
 
+  // 画像削除
   $(document).on('click', '.btn_delete', function(){
     var target_image = $(this).parent().parent();
     var target_image_num = target_image.data('image');
     target_image.remove();
+    // images・image_filesから削除を押した画像を削除する
     images.splice(target_image_num, 1);
     image_files.splice(target_image_num, 1);
 
@@ -124,6 +126,7 @@ $(function() {
     }
   })
 
+  // 価格によって手数料等表示
   $('#sell-price').on('keyup', function(){
     var price = $(this).val();
     var mercari_fee = Math.floor(price * 0.1)
@@ -138,10 +141,13 @@ $(function() {
     }
   })
 
+  // データ送信
   $('#new_item').on('submit', function(e) {
     e.preventDefault();
     var formData = new FormData(this);
+    // formDataから画像に関するデータを一旦削除
     formData.delete('images[images][]');
+    // データとして送るための画像を一つずつformDataに追加
     $.each(image_files, function(i, file){
       formData.append("images[images][]", file)
     })

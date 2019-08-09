@@ -101,5 +101,14 @@ gem 'payjp'
 
 gem 'rails-ujs'
 
+gem 'omniauth-rails_csrf_protection'
+
+gem 'recaptcha', require: "recaptcha/rails"
+
+gem 'omniauth-google-oauth2'
+
+gem 'omniauth-facebook'
+  
 gem 'rails-i18n'
 
+gem 'jquery-ui-rails'

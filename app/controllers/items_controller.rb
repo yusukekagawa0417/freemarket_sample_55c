@@ -4,31 +4,28 @@ class ItemsController < ApplicationController
 
   def index
     @ladies_categories = Category.where('ancestry LIKE(?)', "1/%")
-    @ladies_items = Item.where(category_id: @ladies_categories.ids).order(created_at: :desc).limit(4)
+    @ladies_items = Item.includes(:images).where(category_id: @ladies_categories.ids).order(created_at: :desc).limit(4)
 
     @mens_categories = Category.where('ancestry LIKE(?)', "2/%")
-    @mens_items = Item.where(category_id: @mens_categories.ids).order(created_at: :desc).limit(4)
+    @mens_items = Item.includes(:images).where(category_id: @mens_categories.ids).order(created_at: :desc).limit(4)
 
     @baby_categories = Category.where('ancestry LIKE(?)', "3/%")
-    @baby_items = Item.where(category_id: @baby_categories.ids).order(created_at: :desc).limit(4)
+    @baby_items = Item.includes(:images).where(category_id: @baby_categories.ids).order(created_at: :desc).limit(4)
 
     @cosme_categories = Category.where('ancestry LIKE(?)', "7/%")
-    @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
-
+    @cosme_items = Item.includes(:images).where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
     @chanel_brand= Brand.find_by(name: "シャネル")
-    @chanel_items = Item.where(brand_id: @chanel_brand.id).order(created_at: :desc).limit(4)
+    @chanel_items = Item.includes(:images).where(brand_id: @chanel_brand.id).order(created_at: :desc).limit(4)
 
     @vuitton_brand = Brand.find_by(name: "ルイ ヴィトン")
-    @vuitton_items = Item.where(brand_id: @vuitton_brand.id).order(created_at: :desc).limit(4)
+    @vuitton_items = Item.includes(:images).where(brand_id: @vuitton_brand.id).order(created_at: :desc).limit(4)
 
     @sup_brand = Brand.find_by(name: "シュプリーム")
-    @sup_items = Item.where(brand_id: @sup_brand.id).order(created_at: :desc).limit(4)
+    @sup_items = Item.includes(:images).where(brand_id: @sup_brand.id).order(created_at: :desc).limit(4)
 
     @nike_brand = Brand.find_by(name: "ナイキ")
-    @nike_items = Item.where(brand_id: @nike_brand.id).order(created_at: :desc).limit(4)
-
-    
+    @nike_items = Item.includes(:images).where(brand_id: @nike_brand.id).order(created_at: :desc).limit(4)  
   end
 
   def new
@@ -41,8 +38,8 @@ class ItemsController < ApplicationController
     @brand = Brand.find_by(name: params[:brand_name])
     @item = Item.new(item_params)
     if @item.save && image_params[:images].length != 0
-      image_params[:images].each do |i|
-        @item.images.create(image: i, item_id: @item.id)  
+      image_params[:images].each do |image|
+        @item.images.create(image: image, item_id: @item.id)  
       end
       flash[:success] = "出品しました"
     else
@@ -57,8 +54,7 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
     @brand = Brand.find(@item.brand_id) if @item.brand_id
     @category = Category.find(@item.category_id)
-    @seller_items = Item.where(seller_id: @item.seller_id) .order(created_at: :DESC).limit(3)
-    @category_items = Item.where(category_id: @item.category_id).order(created_at: :DESC).limit(3)
+    @seller_items = Item.where(seller_id: @user.id).order(created_at: :DESC).limit(3)
   end
 
   def seller
@@ -70,6 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    # itemの孫カテゴリーからそれぞれ子・親を取得してJSで使えるよう定義
     grandchild = @item.category
     child = grandchild.parent
     parent = child.parent
@@ -85,6 +82,7 @@ class ItemsController < ApplicationController
     gon.item = @item
     gon.images = @item.images
 
+    # 画像のsrcにバイナリーデータを入れる
     require 'base64'
     require 'aws-sdk'
 
@@ -101,7 +99,7 @@ class ItemsController < ApplicationController
       end
     else
       @item.images.each do |image|
-        binary_data = File.read(image.image.file.file)
+        binary_data = File.read(image.image.file.path)
         gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
       end
     end
@@ -110,9 +108,12 @@ class ItemsController < ApplicationController
   def update
     @brand = Brand.find_by(name: params[:brand_name]) if params[:brand_name] != ""
 
-    ids = @item.images.map{|image| image.id}
+    # itemにもともと登録されている画像のid
+    ids = @item.images.map(&:id)
+    # 上記のうち編集後も残っている画像のid
     exist_ids = registered_image_params[:ids].map(&:to_i)
     exist_ids.clear if exist_ids[0] == 0
+
     if @item.update(item_params) && (exist_ids.length != 0 || image_params[:images][0] != " ")
       unless ids.length == exist_ids.length
         delete_ids = ids - exist_ids
@@ -133,6 +134,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if @item.destroy
+      flash[:delete] = "商品を削除しました"
+      redirect_to selling_user_path(current_user)
+    else
+      render 'users/seller'
+    end
   end
 
   def set_children

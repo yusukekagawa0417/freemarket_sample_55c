@@ -1,8 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :set_item
+  before_action :check_user_id
 
   def new
-  
     Payjp.api_key = Rails.application.credentials.payjp_secret_key
     @customer = Payjp::Customer.retrieve(current_user.customer)
     @card_information = @customer.cards.retrieve(current_user.card)
@@ -50,5 +50,12 @@ class PurchasesController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def check_user_id
+    if Item.find(params[:item_id]).seller_id == current_user.id
+      flash[:alert] = "自分が出品した商品は購入できません"
+      redirect_to root_path
+    end
   end
 end
