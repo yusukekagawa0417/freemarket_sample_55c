@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_075955) do
+ActiveRecord::Schema.define(version: 2019_08_09_081844) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
@@ -76,14 +76,19 @@ ActiveRecord::Schema.define(version: 2019_08_02_075955) do
   end
 
   create_table "receipts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.bigint "buyer_id"
-    t.bigint "seller_id"
+    t.bigint "item_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_receipts_on_buyer_id"
     t.index ["item_id"], name: "index_receipts_on_item_id"
     t.index ["seller_id"], name: "index_receipts_on_seller_id"
+  end
+
+  create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
