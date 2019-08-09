@@ -16,16 +16,16 @@ class ItemsController < ApplicationController
     @cosme_items = Item.where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
 
-    @chanel_brands= Brand.find(2441)
+    @chanel_brands= Brand.find_by(name: "シャネル")
     @chanel_items = Item.where(brand_id: @chanel_brands.id).order(created_at: :desc).limit(4)
 
-    @vuitton_brands = Brand.find(6143)
+    @vuitton_brands = Brand.find_by(name: "ルイ ヴィトン")
     @vuitton_items = Item.where(brand_id: @vuitton_brands.id).order(created_at: :desc).limit(4)
 
-    @sup_brands = Brand.find(6759)
+    @sup_brands = Brand.find_by(name: "シュプリーム")
     @sup_items = Item.where(brand_id: @sup_brands.id).order(created_at: :desc).limit(4)
 
-    @nike_brands = Brand.find(3803)
+    @nike_brands = Brand.find_by(name: "ナイキ")
     @nike_items = Item.where(brand_id: @nike_brands.id).order(created_at: :desc).limit(4)
 
     
