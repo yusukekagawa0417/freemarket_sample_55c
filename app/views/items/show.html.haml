@@ -13,7 +13,7 @@
             .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
-              = image_tag image.image.to_s, size: "60x60"
+              = image_tag image.image.to_s, size: "60x60", class: "o_image-sub--one"
         %table.o_item__main--table
           %tbody
             %tr

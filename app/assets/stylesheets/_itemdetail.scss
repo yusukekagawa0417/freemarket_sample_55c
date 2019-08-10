@@ -159,10 +159,12 @@
   display: flex;
   -webkit-flex-wrap: nowrap;
   flex-wrap: wrap;
-  opacity: 0.7;
   cursor: pointer;
-  &--image:hover {
+  &--one{
+    opacity: 0.7;
+    &:hover {
     opacity: 1;
+    }
   }
 }
 
