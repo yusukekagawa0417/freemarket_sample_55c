@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
 
-  #新規会員登録方法選択（email, facebook, google）ページ
+#新規会員登録（5ページ目にあたるcreate5でテーブルにデータ登録完了。それまではsessionで一時保存）
+
+  #登録方法選択（email, facebook, google）ページ 
   def new
   end
 
@@ -156,6 +158,7 @@ class RegistrationsController < ApplicationController
                                     city:          session[:city],           
                                     address_number:session[:address_number], 
                                     building_name: session[:building_name]})
+
         if (session[:uid] != nil) && (session[:provider] != nil)
           SnsCredential.create(
             uid:      session[:uid],
@@ -164,6 +167,8 @@ class RegistrationsController < ApplicationController
         end
         session[:uid] = nil
         session[:provider] = nil
+
+        sign_in User.find(user.id) unless user_signed_in?
         redirect_to new6_registrations_path
       }
     end
