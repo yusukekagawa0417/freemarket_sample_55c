@@ -38,6 +38,9 @@
             .k_su_section2__inner--form-label
               携帯電話の番号
             = f.text_field :tel, class: "k_su_section2__inner--form-input", placeholder: "携帯電話の番号を入力" 
+            .error_zone
+              %p.error_message
+                = @user.errors.full_messages_for(:tel)[0]
             .k_su_section2__inner--form-sentence
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             .k_su_section2__inner--form-submit
