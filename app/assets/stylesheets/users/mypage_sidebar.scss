@@ -1,0 +1,65 @@
+.n_side{
+  background-color: #fff;
+  float: left;
+  width: 280px;
+  margin-right: 40px;
+}
+<<<<<<< HEAD
+=======
+
+>>>>>>> f87488681f8d87a5b3d3d0c7ad0ae07308c957dd
+.n_side_bar__mypage__list{
+  min-height: 48px;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  &:hover {
+    background: #eee;
+  }
+  &__parent{
+    display: flex;
+    height: 48px;
+    line-height: 48px;
+<<<<<<< HEAD
+    &__side_toplink{
+      color: rgb(51, 51, 51);
+      font-size: 14px;
+      font-weight: 600;
+      width: 92%;
+      padding-left: 10px;
+      text-decoration: none;
+      display: block;
+    }
+=======
+>>>>>>> f87488681f8d87a5b3d3d0c7ad0ae07308c957dd
+    &__side_link{
+      color: #333;
+      font-size: 14px;
+      width: 92%;
+      padding-left: 10px;
+<<<<<<< HEAD
+      text-decoration: none;
+      display: block;
+    }
+    &__ficon{
+      color: #333;
+      width: 8%;
+      line-height: 48px;
+=======
+>>>>>>> f87488681f8d87a5b3d3d0c7ad0ae07308c957dd
+      display: block;
+    }
+    &__icon{
+      color: #ccc;
+      width: 8%;
+      line-height: 48px;
+      display: block;
+    }
+  }
+}
+
+.n_side_bar__head{
+  background-color: rgb(248, 248, 248);
+  padding-top: 40px;
+  font-weight: 600;
+}
