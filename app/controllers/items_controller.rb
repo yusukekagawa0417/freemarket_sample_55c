@@ -15,10 +15,17 @@ class ItemsController < ApplicationController
     @cosme_categories = Category.where('ancestry LIKE(?)', "7/%")
     @cosme_items = Item.includes(:images).where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
-    @chanel_items = Item.includes(:images).where(brand_id: 2441).order(created_at: :desc).limit(4)
-    @vuitton_items = Item.includes(:images).where(brand_id: 6143).order(created_at: :desc).limit(4)
-    @sup_items = Item.includes(:images).where(brand_id: 6759).order(created_at: :desc).limit(4)
-    @nike_items = Item.includes(:images).where(brand_id: 3803).order(created_at: :desc).limit(4)
+    @chanel_brand= Brand.find_by(name: "シャネル")
+    @chanel_items = Item.includes(:images).where(brand_id: @chanel_brand.id).order(created_at: :desc).limit(4)
+
+    @vuitton_brand = Brand.find_by(name: "ルイ ヴィトン")
+    @vuitton_items = Item.includes(:images).where(brand_id: @vuitton_brand.id).order(created_at: :desc).limit(4)
+
+    @sup_brand = Brand.find_by(name: "シュプリーム")
+    @sup_items = Item.includes(:images).where(brand_id: @sup_brand.id).order(created_at: :desc).limit(4)
+
+    @nike_brand = Brand.find_by(name: "ナイキ")
+    @nike_items = Item.includes(:images).where(brand_id: @nike_brand.id).order(created_at: :desc).limit(4)  
   end
 
   def new
