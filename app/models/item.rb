@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   has_many   :images, dependent: :destroy
   has_many   :likes, dependent: :destroy
-
+  has_one    :receipt, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, presence: true, length: { maximum: 40 }
