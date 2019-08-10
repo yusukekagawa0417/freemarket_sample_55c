@@ -1,11 +1,12 @@
 = render 'layouts/header'
 - breadcrumb :profile
 = render 'users/top_column'
+= render 'layouts/flash'
 .o_useredit
   .o_useredit-container
     .n_mypage-sidebar
       = render 'users/mypage_sidebar'
-    = form_for(@user, url: registration_path) do |f|
+    = form_for @user, url: registration_path do |f|
       .o_useredit-field
         %h2 プロフィール
         .o_useredit-form
@@ -15,6 +16,9 @@
               = f.text_field :nickname, value: @user.nickname, placeholder: "例)AYA☆セール中"
           .o_useredit-form__bottom
             = f.text_area :profile, value: @user.profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+            %br
+            = f.label :password
+            = f.password_field :password
             = f.submit "変更する", class: "o_useredit-button"
 = render 'layouts/footer'
 = render 'layouts/sell-btn'
