@@ -1,6 +1,5 @@
 @import "reset";
 @import "font-awesome";
-<<<<<<< HEAD
 
 @import "items/item_regi";
 @import "items/itemdetail";
@@ -34,35 +33,6 @@
 @import "users/registration/signup_page6";
 @import "users/registration/signup";
 
-=======
-@import "layouts/toppage";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/flash";
-@import "layouts/breadcrumbs";
-@import "users/user_mypage";
-@import "users/mypage_sidebar";
-@import "users/credit_information";
-@import "users/confirmation";
-@import "users/logout";
-@import "users/useredit";
-@import "users/user_wrapper";
-@import "users/registration/signup_header";
-@import "users/registration/signup_footer";
-@import "users/registration/signup";
-@import "users/registration/signup_page1";
-@import "users/registration/signup_page2";
-@import "users/registration/signup_page3";
-@import "users/registration/signup_page4";
-@import "users/registration/signup_page5";
-@import "users/registration/signup_page6";
-@import "users/registration/signup_error";
-@import "users/registration/signin";
-@import "items/purchase";
-@import "items/itemdetail";
-@import "items/item_regi";
-
->>>>>>> f87488681f8d87a5b3d3d0c7ad0ae07308c957dd
 * {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   color: #333;
