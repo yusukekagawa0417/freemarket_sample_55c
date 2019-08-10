@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   end
 
   resources :sessions, only: [:new]
+
+  #search関係
+  namespace :searches do
+    get :category
+    get :search
+  end
 end
