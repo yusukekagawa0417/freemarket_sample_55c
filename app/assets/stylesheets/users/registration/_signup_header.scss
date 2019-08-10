@@ -2,6 +2,11 @@
   height: 128px;
   width: 100%;
   text-align: center;
+  &__title {
+    text-align: center;
+    line-height: 128px;
+    padding: 20px 0 0 0;
+  }
   &__inner {
     display: flex; 
     width: 800px;

@@ -1,6 +1,12 @@
+.n_mypage_top{
+  position: relative;
+  border-top: 1px solid #eee;
+  border-bottom: 3px solid rgba(54, 52, 52, 0.2);
+  background: #fff;
+}
+
 .breadcrumbs {
   font-size: 14px;
-  height: 50px;
   width: 80%;
   margin: 0 auto;
   line-height: 50px;

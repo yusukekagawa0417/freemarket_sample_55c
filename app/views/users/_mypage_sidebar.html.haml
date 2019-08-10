@@ -1,10 +1,10 @@
 .n_side
   %nav.n_side_bar
     %ul.n_side_bar__mypage
-      %li.n_side_bar__mypage__list.top
+      %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
-          = link_to "マイページ", user_path(current_user), class: "n_side_bar__mypage__list__parent__side_toplink" 
-          = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__ficon"
+          = link_to "マイページ", user_path(current_user), class: "n_side_bar__mypage__list__parent__side_link" 
+          = fa_icon "chevron-right", class: "n_side_bar__mypage__list__parent__icon"
       %li.n_side_bar__mypage__list
         .n_side_bar__mypage__list__parent
           = link_to "お知らせ", "#", class: "n_side_bar__mypage__list__parent__side_link"

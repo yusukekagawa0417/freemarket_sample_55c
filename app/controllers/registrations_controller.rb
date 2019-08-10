@@ -133,12 +133,16 @@ class RegistrationsController < ApplicationController
 
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to edit_registration_path(current_user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "編集しました"
+      sign_in User.find(params[:id]) unless user_signed_in?
+      redirect_to edit_registration_path(@user)
+    end
   end
 
   private
@@ -163,5 +167,9 @@ class RegistrationsController < ApplicationController
                                 :city, 
                                 :address_number, 
                                 :building_name])
+  end
+
+  def update_params
+    params.require(:user).permit(:nickname, :profile)
   end
 end
