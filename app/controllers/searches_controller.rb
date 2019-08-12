@@ -1,10 +1,7 @@
 class SearchesController < ApplicationController
   before_action :prepare_detail_search
 
-  def search
-  end
-
-  def category
+  def fuzzy_search
   end
 
   #詳細検索結果表示
