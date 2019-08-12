@@ -1,13 +1,21 @@
 class RegistrationsController < ApplicationController
+
+#新規会員登録（5ページ目にあたるcreate5でテーブルにデータ登録完了。それまではsessionで一時保存）
+
+  #登録方法選択（email, facebook, google）ページ 
   def new
   end
 
+  #1ページ目（email）
   def new1
     @user = User.new
   end
 
   def create1
-    @user = User.new(user_params.merge(tel: "08000000000", customer: "000", card: "000"))
+    @user = User.new(user_params
+                .merge(tel:       "08000000000", 
+                       customer:  "000", 
+                       card:      "000"))
     if @user.valid?
       if verify_recaptcha
         session[:email]                 = user_params[:email] 
@@ -28,32 +36,65 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  #1ページ目（facebook, google専用ページから遷移後の1ページ目）
   def new1_1
     @user = User.new 
   end
 
   def create1_1
-    session[:email]                 = user_params[:email]
-    session[:password]              = "dummy1"
-    session[:password_confirmation] = user_params[:password_confirmation]
-    session[:nickname]              = user_params[:nickname]
-    session[:firstname]             = user_params[:firstname]
-    session[:lastname]              = user_params[:lastname]
-    session[:firstname_kana]        = user_params[:firstname_kana]
-    session[:lastname_kana]         = user_params[:lastname_kana]
-    session[:birthday]              = user_params[:birthday]
-    redirect_to new2_registrations_path
+    @user = User.new(user_params
+                .merge(password:              "000000", 
+                       password_confirmation: "000000", 
+                       tel:                   "08000000000", 
+                       customer:              "000", 
+                       card:                  "000"))
+    if @user.valid?
+      if verify_recaptcha
+        session[:email]                 = user_params[:email]
+        session[:password]              = "000000"
+        session[:password_confirmation] = user_params[:password_confirmation]
+        session[:nickname]              = user_params[:nickname]
+        session[:firstname]             = user_params[:firstname]
+        session[:lastname]              = user_params[:lastname]
+        session[:firstname_kana]        = user_params[:firstname_kana]
+        session[:lastname_kana]         = user_params[:lastname_kana]
+        session[:birthday]              = user_params[:birthday]
+        redirect_to new2_registrations_path
+      else
+        render "new1_1"
+      end
+    else
+      render "new1_1"
+    end
   end
 
+  #2ページ目
   def new2 
     @user = User.new 
   end
 
   def create2
-    session[:tel]  = user_params[:tel] 
-    redirect_to new4_registrations_path
+    @user = User.new(user_params
+                .merge(email:                 "abc@abc", 
+                       password:              "000000", 
+                       password_confirmation: "000000", 
+                       nickname:              "abc", 
+                       firstname:             "あああ", 
+                       lastname:              "あああ", 
+                       firstname_kana:        "アアア", 
+                       lastname_kana:         "アアア",  
+                       birthday:              "1990-01-01",
+                       customer:              "000", 
+                       card:                  "000"))
+    if @user.valid?
+      session[:tel]  = user_params[:tel] 
+      redirect_to new4_registrations_path
+    else
+      render "new2"
+    end
   end
 
+  #3ページ目
   def new3 
     @user = User.new 
   end
@@ -62,6 +103,7 @@ class RegistrationsController < ApplicationController
     redirect_to new4_registrations_path
   end
 
+  #4ページ目
   def new4 
     @user = User.new 
     @user.build_address
@@ -84,6 +126,7 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  #5ページ目
   def new5 
     @user = User.new 
   end
@@ -115,6 +158,7 @@ class RegistrationsController < ApplicationController
                                     city:          session[:city],           
                                     address_number:session[:address_number], 
                                     building_name: session[:building_name]})
+
         if (session[:uid] != nil) && (session[:provider] != nil)
           SnsCredential.create(
             uid:      session[:uid],
@@ -123,22 +167,29 @@ class RegistrationsController < ApplicationController
         end
         session[:uid] = nil
         session[:provider] = nil
+
+        sign_in User.find(user.id) unless user_signed_in?
         redirect_to new6_registrations_path
       }
     end
   end
 
+  #6ページ目
   def new6 
   end
 
-
+  
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to edit_registration_path(current_user)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "編集しました"
+      sign_in User.find(params[:id]) unless user_signed_in?
+      redirect_to edit_registration_path(@user)
+    end
   end
 
   private
@@ -163,5 +214,9 @@ class RegistrationsController < ApplicationController
                                 :city, 
                                 :address_number, 
                                 :building_name])
+  end
+
+  def update_params
+    params.require(:user).permit(:nickname, :profile)
   end
 end

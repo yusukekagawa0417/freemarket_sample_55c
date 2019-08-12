@@ -1,0 +1,53 @@
+.k_search
+  .k_search__title
+    %h3 詳細検索
+
+  = search_form_for(@q, url: searches_detail_search_path) do |f|
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p キーワードを追加する
+      = f.search_field :name_cont, class: "k_search__group--form", placeholder: "例）値下げ"
+
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p カテゴリーを選択する
+      = f.collection_select :category_id_eq, @categories, :id, :name, {include_blank: "指定なし"}, {class: "k_search__group--form"}
+      
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p ブランド名から探す
+      = f.search_field :brand_name_cont, class: "k_search__group--form", placeholder: "例）シャネル"
+
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p 価格
+      .k_search__group--forms
+        = f.search_field :price_gteq, class: "k_search__group--form k_form-mini", placeholder: "例）¥ Min"
+        = f.search_field :price_lteq, class: "k_search__group--form k_form-mini", placeholder: "例）¥ Max"
+
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p 商品の状態
+      = f.search_field :condition_cont, class: "k_search__group--form", placeholder: "例）新品、未使用"
+      
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p 配送料の負担
+      = f.search_field :shipping_fee_cont, class: "k_search__group--form", placeholder: "例）送料込み(出品者負担)"
+
+    .k_search__group
+      .k_search__group--label
+        = fa_icon "search"
+        %p 販売状況
+      = f.search_field :status_cont, class: "k_search__group--form", placeholder: "例）出品中"
+
+    .k_search__btns
+      = button_tag type: "button", class: "k_search__btn k_search__btn--clear" do
+        クリア
+      = f.submit "完了", class: "k_search__btn  k_search__btn--red"

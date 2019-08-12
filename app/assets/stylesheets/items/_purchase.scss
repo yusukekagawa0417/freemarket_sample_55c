@@ -1,31 +1,26 @@
-
 .t_main{
   position: relative;
-  min-height: 100%;
-  font-size: 14px;
   color: #333;
   line-height: 1;
   background: #f5f5f5;
-  padding: 128px 0 220px;
   width: 100%;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
-  a{
-    text-decoration: none;
+  .t_buy__user-info__link a{
     color: #0099E8;
     display: block;
     text-align: right;
+  }
+  i{
+    color: #0099E8;
   }
   a:hover {
     text-decoration: underline;
     opacity:0.8;
   }
-
   h2{
     font-size: 22px;
     font-weight: bold;
   }
-
   h3{
     font-size: 14px;
     font-weight: bold;
@@ -38,16 +33,13 @@
   margin:0 auto;
   &__head{
     box-sizing: border-box;
-    height: 65px;
     padding: 16px;
     text-align: center;
-    line-height: normal;
     border-bottom: 1px solid #f5f5f5;
   }
   &__item{
-    padding: 24px 12.5% 0;
-    width: 320px;
-    margin: auto;
+    padding: 24px 25% 0;
+    margin: 0;
     &__top {
       display: flex;
       &--name{
@@ -61,7 +53,6 @@
     }
     &__price{
       margin: 8px 0 0;
-      height: 33px;
       font-size: 22px;
       font-weight: 600;
       line-height: 1.5;
@@ -74,7 +65,6 @@
     }
     &__point{
       box-sizing: border-box;
-      height: 48px;
       padding: 16px;
       font-size: 14px;
       text-align: center;
@@ -83,18 +73,16 @@
       background-color: rgb(204, 204, 204);
     }
     &__pay-table{
-      display: table;
-      width: 320px;
-      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       &__you-pay{
-        display: table-cell;
         width: 187px;
         padding: 16px 0;
         font-size: 18px;
         font-weight: bold;
       }
       &__cell-price{
-        display: table-cell;
         padding: 16px 0;
         text-align: right;
         font-size: 28px;
@@ -103,7 +91,6 @@
     }
     &__btn{
       padding: 0;
-      margin: 8px 0 0;
       background: #ea352d;
       border: 1px solid #ea352d;
       color: #fff;
@@ -112,6 +99,7 @@
       line-height: 48px;
       font-size: 14px;
       font-weight: 600;
+      text-align: center;
     }
   }
   &__user-info{
@@ -119,22 +107,19 @@
     margin: 40px auto 0;
     border-top: 1px solid #f5f5f5;
     &__delivery{
-      width: 320px;
       margin: 0 auto;
-      padding: 24px 12.5% 0;
+      padding: 24px 25% 0;
       font-size: 14px;
       border-style: solid;
       border-width: 0;
       &__address{
-        height: 57px;
         margin: 8px 0 0;
         line-height: 1.5;
       }
     }
     &__payment{
-      width: 320px;
       margin: 0 auto;
-      padding: 24px 12.5% 40px;
+      padding: 24px 25% 40px;
       &__card{
         width: 320px;
         margin: 8px 0 0;
@@ -145,4 +130,15 @@
       }
     }
   }
+}
+#tryonImgDiv {
+  position: fixed;
+  bottom: 32px;
+  right: 196px;
+}
+#tryonImg {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  cursor: pointer;
 }
