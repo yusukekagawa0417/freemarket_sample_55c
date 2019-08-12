@@ -32,6 +32,19 @@
   }
 }
 
+.o_image-sub {
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: wrap;
+  cursor: pointer;
+  &--one{
+    opacity: 0.7;
+    &:hover {
+    opacity: 1;
+    }
+  }
+}
+
 .o_image-soldbadge::before{
   content: "";
   top: 0;
@@ -155,18 +168,6 @@
   }
 }
 
-.o_image-sub {
-  display: flex;
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: wrap;
-  cursor: pointer;
-  &--one{
-    opacity: 0.7;
-    &:hover {
-    opacity: 1;
-    }
-  }
-}
 
 .o_item__main--table {
   width: 50%;
