@@ -58,5 +58,6 @@ Rails.application.routes.draw do
   namespace :searches do
     get :category
     get :search
+    get :detail_search
   end
 end
