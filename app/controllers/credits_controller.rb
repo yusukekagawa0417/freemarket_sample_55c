@@ -9,7 +9,4 @@ class CreditsController < ApplicationController
     @card_brand = @card_information.brand      
     @card_src = "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3236810361"
   end
-
-  def create
-  end
 end
