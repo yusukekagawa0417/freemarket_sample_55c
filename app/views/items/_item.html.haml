@@ -1,7 +1,10 @@
 .o_topitem
   = link_to item_path(item.id) do
     .o_item--image
-      =image_tag item.images.first.image.to_s , height: "213px" , width: "213px", class: "o_item--image"
+      - if item.images.first.image.content_type.include?('image/')
+        = image_tag item.images.first.image.to_s , height: "213px" , width: "213px", class: "o_item--image"
+      - else
+        = video_tag item.images.first.image.to_s , height: "213px" , width: "213px", class: "o_item--image", controls: true, autobuffer: true
       - if item.status == "取引中"
         .o_item-soldbadge
     .o_topitem__body
