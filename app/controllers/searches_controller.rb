@@ -25,12 +25,12 @@ class SearchesController < ApplicationController
   def detail_search_params
     params.require(:q)
     .permit(:name_cont, 
-            :category_id_eq, 
+            {category_id_in: []}, 
             :brand_name_cont, 
             :price_gteq, 
             :price_lteq, 
-            :condition_cont, 
-            :shipping_fee_cont, 
-            :status_cont)
+            {condition_in: []}, 
+            {shipping_fee_in: []}, 
+            {status_in: []})
   end
 end
