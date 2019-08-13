@@ -11,8 +11,6 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :receipts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  # has_many :messages, dependent: :destroy
-  # has_many :evaluations, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true, length: {in: 6..128}

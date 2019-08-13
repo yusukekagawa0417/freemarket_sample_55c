@@ -56,6 +56,7 @@ $(function() {
   // 孫カテゴリーを選んだら、親カテゴリーの種類によってブランド欄を表示
   $(document).on('change', '#category_grandchildren', function(){
     var parent_id = $('#category_parent').val()
+    // 親カテゴリが「本・音楽・ゲーム」「おもちゃ・ホビー・グッズ」「ハンドメイド」「チケット」「その他」の場合はブランドフォームを表示しない
     if (!["5", "6", "10", "11", "13"].includes(parent_id)) {
       $('#brand').parent().removeClass('display_none').css('margin-top', '30px')
     }
