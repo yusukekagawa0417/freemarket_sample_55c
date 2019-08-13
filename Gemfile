@@ -112,3 +112,5 @@ gem 'omniauth-facebook'
 gem 'rails-i18n'
 
 gem 'jquery-ui-rails'
+
+gem 'ransack'
