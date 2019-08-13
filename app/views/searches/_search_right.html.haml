@@ -1,9 +1,15 @@
 .n_search_right_top
   .n_search_field
-    .n_search_field__result_message
-    .n_search_field__result_num
+    .n_search_field__result
+      = @keyword 
+      %span.n_search_field__result__message
+        -if @keyword != ""
+          の検索結果
+          .n_search_field__result_num
+            1-#{@items.count}件表示
+        -else
+          %span.n_search_field__result__message__new
+            新着商品
     .n_search_field__items
       .n_item_box
-        .n_
-
-      
+        = render partial: 'search_item', collection: @items

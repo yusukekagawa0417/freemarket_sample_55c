@@ -1,0 +1,23 @@
+.n_search_right_top{
+  width: 700px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .n_search_field{
+    &__result{
+      font-size: 22px;
+      font-weight: 600;
+      margin: 16px 0 8px;
+      &__message{
+        font-size: 18px;
+        font-weight: 500;
+        &__new{
+          font-weight: 600;
+        }
+      }
+    }
+    &__result_num{
+      color: #888;
+      font-size: 12px;
+      margin-top: 16px;
+    }
+  }
+}
