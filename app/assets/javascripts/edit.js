@@ -15,7 +15,6 @@ $(window).on('load', function(){
     //アップロードされている画像の表示
     // もともと登録されている画像をimageとregistered_images_idsに代入
     $.each(gon.images, function(i, image){
-      console.log(image)
       if (image.image.url.match(/mp4/) || image.image.url.match(/mov/)) {
         var img = $('<div class="add_img"><div class="img_area"><video controls="controls" autobuffer="true" width="110px" height="85px"></video></div></div>')
       } else {
