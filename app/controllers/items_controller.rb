@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @cosme_categories = Category.where('ancestry LIKE(?)', "7/%")
     @cosme_items = Item.includes(:images).where(category_id: @cosme_categories.ids).order(created_at: :desc).limit(4)
 
-    @chanel_brand= Brand.find_by(name: "シャネル")
+    @chanel_brand = Brand.find_by(name: "シャネル")
     @chanel_items = Item.includes(:images).where(brand_id: @chanel_brand.id).order(created_at: :desc).limit(4)
 
     @vuitton_brand = Brand.find_by(name: "ルイ ヴィトン")
