@@ -1,8 +1,6 @@
 .k_su_single-container {
-  height: 100%;
   width: 100%;
   background-color: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: #333; 
 } 
@@ -10,12 +8,10 @@
 .k_su_wrapper {
   width: 100%;
   .k_su_section {
-    height: 100%;
     width: 700px;
     background-color: white;
     margin: 0 auto;
     &__header {
-      height: 97px;
       font-size: 22px;
       font-weight: bold;
       text-align: center;
@@ -23,7 +19,6 @@
       border-bottom: 1px solid #f5f5f5;
     }
     &__inner {
-      height: 287px;
       width: 343px;
       margin: 0 auto;
       padding: 40px 0px 64px;

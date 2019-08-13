@@ -1,7 +1,6 @@
 .o_detail-container {
   background: #F5F5F5;
   padding: 30px 0 50px;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
 }
 
@@ -25,6 +24,24 @@
       width: 300px;
       margin-right: 10px;
       position: relative;
+    }
+  }
+}
+
+.o_image{
+  width: 100%;
+  object-fit: cover;
+}
+.o_image-sub {
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: wrap;
+  cursor: pointer;
+  &--one{
+    object-fit: cover;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
     }
   }
 }
@@ -147,17 +164,6 @@
         cursor: pointer;
       }
     }
-  }
-}
-
-.o_image-sub {
-  display: flex;
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: wrap;
-  opacity: 0.7;
-  cursor: pointer;
-  &--image:hover {
-    opacity: 1;
   }
 }
 

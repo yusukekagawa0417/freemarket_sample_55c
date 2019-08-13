@@ -1,31 +1,38 @@
 @import "reset";
 @import "font-awesome";
-@import "layouts/toppage";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/flash";
+
+@import "items/item_regi";
+@import "items/itemdetail";
+@import "items/purchase";
+@import "items/detail_search";
+
 @import "layouts/breadcrumbs";
-@import "users/user_mypage";
-@import "users/mypage_sidebar";
-@import "users/credit_information";
+@import "layouts/flash";
+@import "layouts/footer";
+@import "layouts/header";
+@import "layouts/toppage";
+@import "layouts/searches";
+
 @import "users/confirmation";
+@import "users/credit_information";
 @import "users/logout";
 @import "users/useredit";
-@import "users/user_wrapper";
-@import "users/registration/signup_header";
+@import "users/wrapper";
+@import "users/mypage_sidebar";
+@import "users/mypage_top";
+@import "users/user_mypage";
+
+@import "users/registration/signin";
+@import "users/registration/signup_error";
 @import "users/registration/signup_footer";
-@import "users/registration/signup";
+@import "users/registration/signup_header";
 @import "users/registration/signup_page1";
 @import "users/registration/signup_page2";
 @import "users/registration/signup_page3";
 @import "users/registration/signup_page4";
 @import "users/registration/signup_page5";
 @import "users/registration/signup_page6";
-@import "users/registration/signup_error";
-@import "users/registration/signin";
-@import "items/purchase";
-@import "items/itemdetail";
-@import "items/item_regi";
+@import "users/registration/signup";
 
 * {
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;

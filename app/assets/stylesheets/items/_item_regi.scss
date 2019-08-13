@@ -1,8 +1,7 @@
 .k_ir_single-container {
   height: 100%;
   width: 100%;
-  background-color: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: hsl(0, 0%, 96%);
   font-size: 14px;
   color: #333;
 } 
@@ -326,6 +325,11 @@
       }
     }
   }
+}
+
+#seller_gain {
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .error_zone {
