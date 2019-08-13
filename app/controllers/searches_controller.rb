@@ -19,7 +19,6 @@ class SearchesController < ApplicationController
   def prepare_detail_search
     @q = Item.ransack(params[:q])
     @categories = Category.where(ancestry: nil)
-    @brands = Brand.all
   end
 
   def detail_search_params
