@@ -13,7 +13,10 @@
       .k_search__group--label
         = fa_icon "search"
         %p カテゴリーを選択する
-      = f.collection_select :category_id_eq, @categories, :id, :name, {include_blank: "指定なし"}, {class: "k_search__group--form"}
+      = f.collection_select :category_id_in, @categories, :id, :name, {include_blank: "---"}, {class: "k_search__group--form", id: "category_parent", name: "q[category_id_in][]" }
+      .display_none
+        %select.k_search__group--form#category_children{name: "q[category_id_in][]"}
+      .k_search__category_group
       
     .k_search__group
       .k_search__group--label
@@ -26,28 +29,85 @@
         = fa_icon "search"
         %p 価格
       .k_search__group--forms
-        = f.search_field :price_gteq, class: "k_search__group--form k_form-mini", placeholder: "例）¥ Min"
-        = f.search_field :price_lteq, class: "k_search__group--form k_form-mini", placeholder: "例）¥ Max"
+        = f.search_field :price_gteq, class: "k_search__group--form k_form-mini", placeholder: "¥ Min"
+        %p 〜
+        = f.search_field :price_lteq, class: "k_search__group--form k_form-mini", placeholder: "¥ Max"
 
     .k_search__group
       .k_search__group--label
         = fa_icon "search"
         %p 商品の状態
-      = f.search_field :condition_cont, class: "k_search__group--form", placeholder: "例）新品、未使用"
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, class: "k_condition-all k_checkbox"
+          = 'すべて'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '0', nil
+          = '新品、未使用'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '1', nil
+          = '未使用に近い'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '2', nil
+          = '目立った傷や汚れなし'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '3', nil
+          = '送料込み(出品者負担)'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '4', nil
+          = 'やや傷や汚れあり'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '5', nil
+          = '傷や汚れあり'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :condition_in, {multiple: true, class: "k_condition k_checkbox"}, '6', nil
+          = '全体的に状態が悪い'
       
     .k_search__group
       .k_search__group--label
         = fa_icon "search"
         %p 配送料の負担
-      = f.search_field :shipping_fee_cont, class: "k_search__group--form", placeholder: "例）送料込み(出品者負担)"
-
+      .k_search__group--checkbox
+        %label
+          = f.check_box :shipping_fee_in, class: "k_shipping_fee-all k_checkbox"
+          = 'すべて'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :shipping_fee_in, {multiple: true, class: "k_shipping_fee k_checkbox"}, '0', nil
+          = '送料込み(出品者負担)'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :shipping_fee_in, {multiple: true, class: "k_shipping_fee k_checkbox"}, '1', nil
+          = '着払い(購入者負担)'
+      
     .k_search__group
       .k_search__group--label
         = fa_icon "search"
         %p 販売状況
-      = f.search_field :status_cont, class: "k_search__group--form", placeholder: "例）出品中"
-
+      .k_search__group--checkbox
+        %label
+          = f.check_box :status_in, class: "k_status-all k_checkbox"
+          = 'すべて'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :status_in, {multiple: true, class: "k_status k_checkbox"}, '0', nil
+          = '出品中'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :status_in, {multiple: true, class: "k_status k_checkbox"}, '1', nil
+          = '取引中'
+      .k_search__group--checkbox
+        %label
+          = f.check_box :status_in, {multiple: true, class: "k_status k_checkbox"}, '3', nil
+          = '売却済み'
+    
     .k_search__btns
-      = button_tag type: "button", class: "k_search__btn k_search__btn--clear" do
-        クリア
+      = button_tag "クリア", type: "button", class: "k_search__btn k_search__btn--clear"
       = f.submit "完了", class: "k_search__btn  k_search__btn--red"
