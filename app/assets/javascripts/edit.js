@@ -15,7 +15,13 @@ $(window).on('load', function(){
     //アップロードされている画像の表示
     // もともと登録されている画像をimageとregistered_images_idsに代入
     $.each(gon.images, function(i, image){
-      var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
+      console.log(image)
+      if (image.image.url.match(/mp4/) || image.image.url.match(/mov/)) {
+        var img = $('<div class="add_img"><div class="img_area"><video controls="controls" autobuffer="true" width="110px" height="85px"></video></div></div>')
+      } else {
+        var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
+      }
+
       var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>')
       img.attr("data-image", i)
       img.append(btn)
@@ -83,12 +89,17 @@ $(window).on('load', function(){
       new_image_files.push(file);
       var reader = new FileReader();
 
-      var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>')
+      if (file.type.match(/image/)) {
+        var img = $('<div class="add_img"><div class="img_area"><img></div></div>');
+      } else {
+        var img = $('<div class="add_img"><div class="img_area"><video controls="controls" autobuffer="true" width="110px" height="85px"></video></div></div>')
+      }
       var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>')
       img.append(btn);
       
       reader.onload = function(e) {
         img.find('img').attr({ src: e.target.result });
+        img.find('video').attr({ src: e.target.result });
       };
       
       reader.readAsDataURL(file);
