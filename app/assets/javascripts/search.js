@@ -41,7 +41,7 @@ $(function(){
       $.each(category.grandchildren, function(i, grandchild){
         var grandchild = `<div class="k_search__group--checkbox">
                             <label>
-                              <input class="k_category k_checkbox" type="checkbox" value="${i}" name="q[category_id_in][]" id="q_category_id_in_${i}">
+                              <input class="k_category k_checkbox" type="checkbox" value="${grandchild.id}" name="q[category_id_in][]">
                                 ${grandchild.name}
                             </label>
                           </div>`
