@@ -6,12 +6,14 @@
 @import "items/purchase";
 @import "items/detail_search";
 
+@import "items/searches/search_right";
+@import "items/searches/search_result_box";
+
 @import "layouts/breadcrumbs";
 @import "layouts/flash";
 @import "layouts/footer";
 @import "layouts/header";
 @import "layouts/toppage";
-@import "layouts/searches";
 
 @import "users/confirmation";
 @import "users/credit_information";

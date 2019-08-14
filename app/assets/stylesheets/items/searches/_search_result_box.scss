@@ -1,0 +1,30 @@
+.n_topitems {
+  display: inline-block;
+}
+
+.n_topitem {
+  background: #FFF;
+  margin: 10px;
+  max-width: 213px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &__body {
+    height: 80px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    &--title {
+      height: 70%;
+      text-align: left;
+    }
+    &--bottom {
+      height: 30%;
+      display: flex;
+      justify-content: space-between;
+      &--price {
+        font-weight: bold;
+      }
+    }
+  }
+}

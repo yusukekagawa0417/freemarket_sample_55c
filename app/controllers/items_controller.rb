@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :seller, :edit, :update, :destroy]
+  before_action :search_preparation
 
   def index
     @ladies_categories = Category.where('ancestry LIKE(?)', "1/%")
@@ -200,5 +201,10 @@ class ItemsController < ApplicationController
 
   def registered_image_params
     params.require(:registered_images_ids).permit({ids: []})
+  end
+    
+  #あいまい検索用の設定読み込み
+  def search_preparation
+    @q = Item.ransack(params[:q])
   end
 end
