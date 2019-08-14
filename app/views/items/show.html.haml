@@ -149,4 +149,6 @@
 
 = render 'layouts/tryon-btn'
 #tryonImgDiv.display_none
-  = image_tag current_user.icon_image.to_s, id: "tryonImg"
+  - if user_signed_in?
+    = image_tag current_user.icon_image.to_s, id: "tryonImg"
+
