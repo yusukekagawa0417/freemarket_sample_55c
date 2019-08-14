@@ -10,8 +10,9 @@ class SearchesController < ApplicationController
 
 #詳細検索結果表示
   def detail_search
+    @keyword = params[:q][:name_cont]
     tmp = Item.search(detail_search_params)
-    @items = tmp.result.includes(:category, :brand)
+    @items = tmp.result
   end
 
   private
