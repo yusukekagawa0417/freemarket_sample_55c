@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_user
+  before_action :search_preparation
 
   def show
     @user = User.find(params[:id])
@@ -28,5 +29,10 @@ class UsersController < ApplicationController
       flash[:alert] = "権限がありません"
       redirect_to root_path
     end
+  end
+
+  #あいまい検索用の設定読み込み
+  def search_preparation
+    @q = Item.ransack(params[:q])
   end
 end

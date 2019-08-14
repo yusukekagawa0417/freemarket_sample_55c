@@ -1,0 +1,17 @@
+.n_topitems
+  .n_topitem
+    = link_to item_path(search_item.id) do
+      .n_item--image
+        =image_tag search_item.images.first.image.to_s , height: "160px" , width: "160px", class: "n_item--image"
+        - if search_item.status == "取引中"
+          .o_item-soldbadge
+      .n_topitem__body
+        .n_topitem__body--title
+          = truncate(search_item.name, length: 14)
+        .n_topitem__body--bottom
+          .n_topitem__body--bottom--price
+            ¥
+            = search_item.price.to_s(:delimited)
+          .n_topitem__body--bottom--like
+            = fa_icon 'heart', class: "o_icon-heart"
+            = search_item.likes.count

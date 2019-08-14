@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   #search関係
   namespace :searches do
-    get :category
-    get :search
+    get :fuzzy_search
+    get :detail_search
   end
 end

@@ -37,48 +37,48 @@
               = user.birthday.strftime('%Y/%m/%d')
 
           .s_content__mypage__single-inner__form-group
-            %label{for: "zip_code"}
-              郵便番号
-            %span.s_content__mypage__single-inner__form-group__any 
-              任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "zip_code", placeholder: "例）1234567", type: "text", value: user.address.postal_code}
+            = f.fields_for :address do |i|
+              .k_su_section4__inner--form3
+                .k_su_section4__inner--form3-label
+                  郵便番号
+                .k_su_section4__inner--form3-span
+                  必須
+                = i.text_field :postal_code, class: "k_su_section4__inner--form3-input k_form", placeholder: "例）123-4567"
+                
+              .k_su_section4__inner--form3
+                .k_su_section4__inner--form3-label
+                  都道府県
+                .k_su_section4__inner--form3-span
+                  必須
+                = i.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}
+                
+              .k_su_section4__inner--form3
+                .k_su_section4__inner--form3-label
+                  市区町村
+                .k_su_section4__inner--form3-span
+                  必須
+                = i.text_field :city, class: "k_su_section4__inner--form3-input", placeholder: "例）横浜市緑区"
+              
+              .k_su_section4__inner--form3
+                .k_su_section4__inner--form3-label
+                  番地
+                .k_su_section4__inner--form3-span
+                  必須
+                = i.text_field :address_number, class: "k_su_section4__inner--form3-input", placeholder: "例）青山1-1-1"
+      
+              .k_su_section4__inner--form4
+                .k_su_section4__inner--form4-label
+                  建物名
+                .k_su_section4__inner--form4-span
+                  任意
+                = i.text_field :building_name, class: "k_su_section4__inner--form4-input", placeholder: "例）柳ビル103"
 
-          .s_content__mypage__single-inner__form-group
-            %label{for: "prefecture"}
-              都道府県
-            %span.s_content__mypage__single-inner__form-group__any
-              任意
-            .s_content__mypage__single-inner__form-group__select-Prefecture
-              %i.s_content__mypage__single-inner__form-group__select-Prefecture--icon
-              %input.s_content__mypage__single-inner__form-group__select-Prefecture__select{name: "prefecture"} 
+          = f.submit '登録する', class: 'k_su_section4__inner--form5-input-btn'
 
-          .s_content__mypage__single-inner__form-group
-            %label{for: "city"}
-              市区町村
-            %span.s_content__mypage__single-inner__form-group__any
-              任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: user.address.city}
-
-          .s_content__mypage__single-inner__form-group
-            %label{for: "address1_label"}
-              番地
-            %span.s_content__mypage__single-inner__form-group__any 
-              任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: user.address.address_number}
-
-          .s_content__mypage__single-inner__form-group
-            %label{for: "address2_label"}
-              建物名
-            %span.s_content__mypage__single-inner__form-group__any
-              任意
-            %input.s_content__mypage__single-inner__form-group__input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: user.address.building_name}
-
-          %button.s_content__mypage__single-inner__btn-red{type: "submit"}
-            登録する
         
-        .s_content__mypage__single-inner__text-right
+        .s_content__mypage__single-inner__textright
           %p 
             =link_to "#" do
               本人情報の登録について
-              %i.s_content__mypage__single-inner__text-right
+              %i.s_content__mypage__single-inner__textright
                 = fa_icon 'chevron-right', class:'s_content__mypage__single-inner--textright-icon'
