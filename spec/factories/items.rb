@@ -10,6 +10,7 @@ FactoryBot.define do
     prefecture_id   {1}
     shipping_method {0}
     association :category
+    association :brand
     association :seller, factory: :user
     images {[
       FactoryBot.build(:image, item: nil)  #itemと同時にimage作成

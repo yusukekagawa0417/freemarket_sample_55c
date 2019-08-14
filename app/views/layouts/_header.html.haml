@@ -3,10 +3,12 @@
     %h1
       = link_to root_path do
         %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3135490372", width: "150px"}
-    %form
-      %input{type: "text", placeholder: "何かお探しですか？"}
-      = link_to "#" do
-        = fa_icon 'search', class: "o_icon-search"
+    .fuzzy_search
+      = search_form_for(@q, url: searches_fuzzy_search_path) do |f|
+        = f.label class: "fuzzy_search__label" do
+          = fa_icon 'search', class: "fuzzy_search__label--icon"
+          = f.submit class: "fuzzy_search__label--btn"
+        = f.search_field :name_cont, class: "fuzzy_search__field", placeholder: "何かお探しですか？"
   .header-bottom
     .header-bottom__left
       %ul
@@ -47,4 +49,4 @@
           %li
             = link_to "新規会員登録", new_registration_path, class: "o_btn o_registration"
           %li
-            = link_to "ログイン", new_user_session_path, class: "o_btn o_login"
+          = link_to "ログイン", new_user_session_path, class: "o_btn o_login"

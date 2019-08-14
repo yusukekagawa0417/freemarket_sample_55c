@@ -7,14 +7,22 @@
     .o_item
       %h1 
         = @item.name
+
       .o_item__main
         .o_item__main--image
-          = image_tag @image.image.to_s, size: "300x300"
-          - if @item.status == "取引中"
-            .o_image-soldbadge
+          - if @image.image.content_type.include?('image/')
+            = image_tag @image.image.to_s, size: "300x300", class:"o_image"
+          - else
+            = video_tag @image.image.to_s, size: "300x300", controls: true, autobuffer: true, class:"o_image"
+            - if @item.status == "取引中"
+              .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
-              = image_tag image.image.to_s, size: "60x60"
+              - if image.image.content_type.include?('image/')
+                = image_tag image.image.to_s, size: "60x60", class: "o_image-sub--one"
+              - else
+                = video_tag image.image.to_s, size: "60x60", controls: true, autobuffer: true, class: "o_image-sub--one"
+
         %table.o_item__main--table
           %tbody
             %tr

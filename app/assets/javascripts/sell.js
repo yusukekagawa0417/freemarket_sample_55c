@@ -15,12 +15,17 @@ $(function() {
     image_files.push(file);
     var reader = new FileReader();
     
-    var img = $('<div class="add_img"><div class="img_area"><img class="image"></div></div>');
+    if (file.type.match(/image/)) {
+      var img = $('<div class="add_img"><div class="img_area"><img></div></div>');
+    } else {
+      var img = $('<div class="add_img"><div class="img_area"><video controls="controls" autobuffer="true" width="110px" height="85px"></video></div></div>')
+    }
     var btn = $('<div class="btn_wrapper"><a class="btn_delete">削除</a></div>');
     img.append(btn);
     
     reader.onload = function(e) {
       img.find('img').attr({ src: e.target.result });
+      img.find('video').attr({ src: e.target.result });
     };
     
     reader.readAsDataURL(file);

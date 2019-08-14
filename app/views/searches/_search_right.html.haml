@@ -1,0 +1,19 @@
+.n_search_right_top
+  .n_search_field
+    .n_search_field__result
+      = @keyword 
+      %span.n_search_field__result__message
+        -if @keyword != "" 
+          の検索結果
+          -if @items.count != 0
+            .n_search_field__result_num
+              1-#{@items.count}件表示
+          -else
+            .n_search_field__result_noitem
+              該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        -else
+          .n_search_field__result__message__new
+            新着商品
+    .n_search_field__items
+      .n_item_box
+        = render partial: 'search_item', collection: @items
