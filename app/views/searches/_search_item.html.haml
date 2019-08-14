@@ -1,8 +1,11 @@
 .n_topitems
   .n_topitem
     = link_to item_path(search_item.id) do
-      .n_item--image
-        =image_tag search_item.images.first.image.to_s , height: "160px" , width: "160px", class: "n_item--image"
+      .n_item--image.o_item--image
+        - if search_item.images.first.image.content_type.include?('image/')
+          = image_tag search_item.images.first.image.to_s , height: "160px" , width: "160px", class: "n_item--image"
+        - else
+          = video_tag search_item.images.first.image.to_s , height: "160px" , width: "160px", class: "n_item--image", controls: true, autobuffer: true
         - if search_item.status == "取引中"
           .o_item-soldbadge
       .n_topitem__body

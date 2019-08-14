@@ -1,1 +1,11 @@
-= render "searches/form"
+= render 'layouts/header'
+= render 'layouts/flash'
+
+.n_main
+  .n_wrapper
+    .n_left_space
+      = render "searches/form"
+    .n_right_space
+      = render "search_right"
+= render 'layouts/footer'
+= render 'layouts/sell-btn'

@@ -8,7 +8,11 @@
     %section.t_buy__item
       .t_buy__item__top
         %p.t_buy__item__top--image
-          = image_tag @item.images.first.image.to_s , height: "64px" , width: "64px"
+          - if @item.images.first.image.content_type.include?('image/')
+            = image_tag @item.images.first.image.to_s , height: "64px" , width: "64px"
+          - else 
+            = video_tag @item.images.first.image.to_s , height: "64px" , width: "64px", controls: true, autobuffer: true
+
         %p.t_buy__item__top--name 
           = @item.name
       %p.t_buy__item__price
