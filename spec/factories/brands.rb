@@ -3,3 +3,4 @@ FactoryBot.define do
     sequence(:name) {Faker::Name.name}
   end
 end
+
