@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    id              {1}
     name            {"test-item"}
     description     {"テストの商品です"}
     condition       {0}
@@ -13,5 +12,8 @@ FactoryBot.define do
     association :category
     association :brand
     association :seller, factory: :user
+    images {[
+      FactoryBot.build(:image, item: nil)  #itemと同時にimage作成
+    ]}
   end
 end
