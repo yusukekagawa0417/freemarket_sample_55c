@@ -12,7 +12,7 @@ feature '購入機能', type: :feature do
   let!(:nike_brand) {create(:brand, name: "ナイキ")}
 
   scenario '未ログイン時は購入ボタンがない' do
-      # 未ログイン時に購入ボタンを押すとログインページに遷移
+      # 未ログイン時には購入ボタンがない
       visit item_path(item)
       expect(page).to have_no_content('購入画面に進む')
       
@@ -22,7 +22,7 @@ feature '購入機能', type: :feature do
       fill_in 'user_password', with: user.password
       find('input[name="commit"]').click
 
-      # 商品一覧ページに行くと購入がある
+      # ログイン後商品詳細ページに行くと購入ボタンがある
       visit item_path(item)
       expect(page).to have_content('購入画面に進む')
     end
