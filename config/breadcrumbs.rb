@@ -6,6 +6,10 @@ crumb :mypage do |user|
   link "マイページ", user_path(current_user)
 end
 
+crumb :search do
+  link "検索結果", searches_fuzzy_search_path
+end
+
 crumb :detail do |item|
   link item.name, item_path(item)
 end
@@ -20,8 +24,8 @@ crumb :credit do
   parent :mypage
 end
 
-crumb :confirmation do
-  link "本人情報の登録", edit_user_path
+crumb :confirmation do |user|
+  link "本人情報の登録", edit_user_path(current_user)
   parent :mypage
 end
 
