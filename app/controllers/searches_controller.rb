@@ -24,7 +24,7 @@ class SearchesController < ApplicationController
 
   #あいまい検索用
   def fuzzy_search_params
-  params.require(:q).permit(:name_cont)
+    params.require(:q).permit(:name_cont)
   end
   
   #詳細検索用
