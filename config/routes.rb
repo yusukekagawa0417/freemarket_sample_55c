@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :purchases, only: [:new, :create]
     resource :likes, only: [:create, :destroy]
-    resources :messages, only: [:index, :create]
-    resources :purchases, only: [:new, :create]
     member do
       get :seller
     end
@@ -20,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   #users関係
-  resources :users, only: [:new, :create, :show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update] do
     member do
       get :logout
       get :selling
@@ -28,10 +26,10 @@ Rails.application.routes.draw do
   end
 
   #credits関係
-  resources :credits, only: [:new, :create]
+  resources :credits, only: [:new]
 
   #devise関係
-  resources :registrations, only: [:new, :create, :edit, :update] do
+  resources :registrations, only: [:new, :edit, :update] do
     collection do
       get :new1
       get :new1_1
@@ -48,7 +46,6 @@ Rails.application.routes.draw do
       post :create3
       post :create4
       post :create5
-      post :create6
     end
   end
 

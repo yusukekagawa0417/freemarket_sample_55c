@@ -16,7 +16,7 @@ crumb :profile do
 end
 
 crumb :credit do
-  link "支払い方法", credits_path
+  link "支払い方法", new_credit_path
   parent :mypage
 end
 
