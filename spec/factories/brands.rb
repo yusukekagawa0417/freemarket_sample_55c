@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :category do
+  factory :brand do
     sequence(:name) {Faker::Name.name}
-    ancestry    {"1/20"}
   end
-end
+end 

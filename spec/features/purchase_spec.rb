@@ -3,13 +3,16 @@ require 'rails_helper'
 feature '購入機能', type: :feature do
   let(:user) {create(:user)}
   let(:item) {create(:item)}
+  let!(:category1) {create(:category, id: 1, ancestry: nil)}  #親カテゴリー
+  let!(:category2) {create(:category, id: 20, ancestry: "1")} #子カテゴリー
+  let!(:category3) {create(:category)}                        #孫カテゴリー
   let!(:chanel_brand) {create(:brand, name: "シャネル")}
   let!(:vuitton_brand) {create(:brand, name: "ルイ ヴィトン")}
   let!(:sup_brand) {create(:brand, name: "シュプリーム")}
   let!(:nike_brand) {create(:brand, name: "ナイキ")}
 
   scenario '未ログイン時は購入ボタンがない' do
-      # 未ログイン時に出品ボタンを押すとログインページに遷移
+      # 未ログイン時に購入ボタンを押すとログインページに遷移
       visit item_path(item)
       expect(page).to have_no_content('購入画面に進む')
       
@@ -19,7 +22,7 @@ feature '購入機能', type: :feature do
       fill_in 'user_password', with: user.password
       find('input[name="commit"]').click
 
-      # emailとpasswordを入力しクリックすると出品ページに遷移
+      # 商品一覧ページに行くと購入がある
       visit item_path(item)
       expect(page).to have_content('購入画面に進む')
     end
