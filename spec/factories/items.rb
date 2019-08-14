@@ -11,6 +11,7 @@ FactoryBot.define do
     prefecture_id   {1}
     shipping_method {0}
     association :category
+    association :brand
     association :seller, factory: :user
   end
 end
