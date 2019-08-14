@@ -39,7 +39,7 @@
         %p 商品の状態
       .k_search__group--checkbox
         %label
-          = f.check_box :condition_in, class: "k_condition-all k_checkbox"
+          %input{type: "checkbox", class: "k_condition-all k_checkbox"}
           = 'すべて'
       .k_search__group--checkbox
         %label
@@ -76,7 +76,7 @@
         %p 配送料の負担
       .k_search__group--checkbox
         %label
-          = f.check_box :shipping_fee_in, class: "k_shipping_fee-all k_checkbox"
+          %input{type: "checkbox", class: "k_shipping_fee-all k_checkbox"}
           = 'すべて'
       .k_search__group--checkbox
         %label
@@ -93,7 +93,7 @@
         %p 販売状況
       .k_search__group--checkbox
         %label
-          = f.check_box :status_in, class: "k_status-all k_checkbox"
+          %input{type: "checkbox", class: "k_status-all k_checkbox"}
           = 'すべて'
       .k_search__group--checkbox
         %label
