@@ -44,7 +44,7 @@ category_parent.each_with_index do |parent,i|
   parent_address_info[i] = tmp
 end
 
-# 子カテゴリの作成
+# 子カテゴリの作成、空行でデータの境を区切って親カテゴリを切り替えている。
 category_children.each_with_index do |child,i|
   if child != []
     parent_data = parent_address_info[parent_count]
@@ -57,7 +57,7 @@ end
 #iが[]の箇所に対してもループが回ってしまっている。該当箇所がnilとなっているため削除する
 children_address_info.compact!
 
-#孫カテゴリの作成
+#孫カテゴリの作成。空行でデータの境を区切って孫カテゴリを切り替えている。
 category_grandchild.each_with_index do |gchild,i|
   if gchild != []
     children_data = children_address_info[children_count]
