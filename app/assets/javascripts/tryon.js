@@ -17,4 +17,15 @@ $(function(){
   // 顔写真の移動・拡大・縮小
   $("#tryonImg").resizable();
   $("#tryonImgDiv").draggable();
+
+  // 顔写真登録
+  // 画像アップロード
+  $(document).on('change', 'input[type= "file"]', function(){
+    var file = $(this).prop('files')[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('.icon_image').attr({ src: e.target.result });
+    };
+    reader.readAsDataURL(file);
+  });
 });

@@ -23,6 +23,8 @@ class User < ApplicationRecord
   validates :tel, uniqueness: true, format: {with: /\A\d{10}\z|\A\d{11}\z/ } 
   validates :customer, presence: true
   validates :card, presence: true 
+
+  mount_uploader :icon_image, ImageUploader
   
   def self.find_oauth(auth)
     uid = auth.uid

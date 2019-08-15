@@ -41,7 +41,7 @@
           %li
             = link_to user_path(current_user), class: "o_link-mypage" do
               .header-bottom__right--image 
-                %img{src: "https://placehold.jp/30x30.png"}
+                = image_tag current_user.icon_image.to_s, width: "32px", height: "32px"
               %span マイページ
     - else
       .header-bottom__right
@@ -49,4 +49,4 @@
           %li
             = link_to "新規会員登録", new_registration_path, class: "o_btn o_registration"
           %li
-          = link_to "ログイン", new_user_session_path, class: "o_btn o_login"
+            = link_to "ログイン", new_user_session_path, class: "o_btn o_login"

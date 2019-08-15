@@ -150,4 +150,6 @@
 
 = render 'layouts/tryon-btn'
 #tryonImgDiv.display_none
-  = image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8fBgOVs1UNrU5k1MGFjw0V84T8haK5yzHSzyW5YudxX6flcx6g", id: "tryonImg"
+  - if user_signed_in?
+    = image_tag current_user.icon_image.to_s, id: "tryonImg"
+

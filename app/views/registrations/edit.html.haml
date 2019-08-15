@@ -12,7 +12,13 @@
         .o_useredit-form
           .o_useredit-form__top
             .o_useredi-form__top--content
-              = image_tag("https://placehold.jp/60x60.png")
+              = f.label :icon_image do
+                - if @user.icon_image.present?
+                  = image_tag @user.icon_image.to_s, class: "icon_image", width: "60px", height: "60px"
+                - else 
+                  = image_tag("https://placehold.jp/60x60.png", class: "icon_image", width: "60px", height: "60px")
+                .o_file-field
+                  = f.file_field :icon_image
               = f.text_field :nickname, value: @user.nickname, placeholder: "例)AYA☆セール中"
           .o_useredit-form__bottom
             = f.text_area :profile, value: @user.profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"

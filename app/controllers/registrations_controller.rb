@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
+  before_action :search_preparation, only:[:edit]
 
-#新規会員登録（5ページ目にあたるcreate5でテーブルにデータ登録完了。それまではsessionで一時保存）
+  #新規会員登録（5ページ目にあたるcreate5でテーブルにデータ登録完了。それまではsessionで一時保存）
 
   #登録方法選択（email, facebook, google）ページ 
   def new
@@ -217,6 +218,10 @@ class RegistrationsController < ApplicationController
   end
 
   def update_params
-    params.require(:user).permit(:nickname, :profile)
+    params.require(:user).permit(:nickname, :profile, :icon_image)
+  end
+
+  def search_preparation
+    @q = Item.ransack(params[:q])
   end
 end
