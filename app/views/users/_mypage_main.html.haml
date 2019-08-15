@@ -1,7 +1,10 @@
 .n_mypage_center
   %seciton.n_mypage_center__user_icon
     = link_to "#", class: "n_mypage_center__user_icon__link" do
-      %img.n_mypage_center__user_icon__avater{src:"https://static.mercdn.net/images/member_photo_noimage_thumb.png"}
+      - if current_user.icon_image.present?
+        = image_tag current_user.icon_image.to_s, width: "32px", height: "32px", class: "n_mypage_center__user_icon__avater"
+      - else
+        = image_tag("https://static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32px", height: "32px", class: "n_mypage_center__user_icon__avater")
       .n_mypage_center__user_icon__name
         = user.nickname
         %ul.n_mypage_center__user_icon__name__list
