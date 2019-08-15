@@ -186,7 +186,7 @@ class RegistrationsController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.valid_password?(user_params[:password]) && @user.update(user_params)
       flash[:success] = "編集しました"
       sign_in User.find(params[:id]) unless user_signed_in?
       redirect_to edit_registration_path(@user)
