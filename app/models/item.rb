@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture, shortcuts: :name
   belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
-  belongs_to :category, optional: true
+  belongs_to :category
   belongs_to :brand, optional: true
   has_one    :receipt, dependent: :destroy
   has_many   :images, dependent: :destroy
