@@ -12,8 +12,8 @@
             = image_tag @image.image.to_s, size: "300x300", class:"o_image"
           - else
             = video_tag @image.image.to_s, size: "300x300", controls: true, autobuffer: true, class:"o_image"
-            - if @item.status == "取引中"
-              .o_image-soldbadge
+          - if @item.status == "取引中"
+            .o_image-soldbadge
           .o_image-sub
             - @images.each do |image|
               - if image.image.content_type.include?('image/')

@@ -42,6 +42,9 @@
     margin: 0;
     &__top {
       display: flex;
+      img{
+        object-fit: contain;
+      }
       &--name{
         width: 240px;
         margin: 0 0 0 16px;
