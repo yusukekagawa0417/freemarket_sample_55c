@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :search_preparation, only:[:edit]
+  before_action :search_preparation, only:[:edit, :update]
 
   #新規会員登録（5ページ目にあたるcreate5でテーブルにデータ登録完了。それまではsessionで一時保存）
 
@@ -190,6 +190,9 @@ class RegistrationsController < ApplicationController
       flash[:success] = "編集しました"
       sign_in User.find(params[:id]) unless user_signed_in?
       redirect_to edit_registration_path(@user)
+    else
+      flash[:alert] = "入力内容に不備があります"
+      render 'edit'
     end
   end
 
