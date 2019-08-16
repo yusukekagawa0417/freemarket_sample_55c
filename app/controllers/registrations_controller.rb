@@ -113,7 +113,7 @@ class RegistrationsController < ApplicationController
 
   def create4
     @user = User.new(user_params)
-    @address = Address.new(user_params[:address_attributes].merge(user_id: "1"))
+    @address = Address.new(user_params[:address_attributes].merge(user_id: User.first.id)) #user_idは既存データを仮データとして使用
     if @address.valid? 
       session[:id]              = user_params[:address_attributes][:id]
       session[:postal_code]     = user_params[:address_attributes][:postal_code]
