@@ -1,10 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   prepend_before_action :check_captcha, only: [:create]
 
-  def new
-    super
-  end
-
   def create
     super
   end
