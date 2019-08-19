@@ -30,7 +30,7 @@ class SearchesController < ApplicationController
   #詳細検索用
   def detail_search_params
     params.require(:q)
-    .permit(:name_cont, 
+    .permit(:name_or_category_name_or_brand_name_cont,
             {category_id_in: []}, 
             :brand_name_cont, 
             :price_gteq, 
