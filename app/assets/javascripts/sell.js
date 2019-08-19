@@ -15,6 +15,10 @@ $(function() {
     image_files.push(file);
     var reader = new FileReader();
     
+    if (file.size >= 1000) {
+      alert('サイズは1メガバイトまでです。削除してください。')
+    }
+    
     if (file.type.match(/image/)) {
       var img = $('<div class="add_img"><div class="img_area"><img></div></div>');
     } else {
