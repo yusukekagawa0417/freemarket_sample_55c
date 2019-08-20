@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(function(){
   $('.header-bottom__left__list__category').hover(function() {
     $(this).addClass('active');
     var category_obj = $('.active').children('.category_list');
