@@ -15,8 +15,8 @@ $(function() {
     image_files.push(file);
     var reader = new FileReader();
     
-    if (file.size >= 1000) {
-      alert('サイズは1メガバイトまでです。削除してください。')
+    if (file.size >= 1000000) {
+      alert('1メガバイト以上の画像は登録できません。削除してください。。')
     }
     
     if (file.type.match(/image/)) {
