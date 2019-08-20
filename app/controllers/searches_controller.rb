@@ -20,6 +20,8 @@ class SearchesController < ApplicationController
   def search_preparation
     @q = Item.ransack(params[:q])
     @categories = Category.where(ancestry: nil)
+    #カテゴリ表示用の読み込み
+    @category_list = Category.all
   end
 
   #あいまい検索用

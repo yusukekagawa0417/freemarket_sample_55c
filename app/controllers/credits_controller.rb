@@ -13,8 +13,11 @@ class CreditsController < ApplicationController
   end
   
   private
-    #あいまい検索用の設定読み込み
-    def search_preparation
-      @q = Item.ransack(params[:q])
-    end
+  #検索用の設定読み込み
+  def search_preparation
+    #あいまい検索用の読み込み
+    @q = Item.ransack(params[:q])
+    #カテゴリ表示用の読み込み
+    @category_list = Category.all
+  end
 end
