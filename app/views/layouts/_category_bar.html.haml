@@ -1,0 +1,14 @@
+.category_list
+  - @category_list.find_each do |parent_category| 
+    -if parent_category[:ancestry] == nil
+      %ul.parent_top
+        %li.parent_list
+          = parent_category[:name]
+          %ul.child_top
+            - parent_category.children.find_each do |child_category|
+              %li.child_list
+                = child_category[:name]
+                %ul.gchild_top
+                  - child_category.children.find_each do |gchild_category|
+                    %li.gchild_list
+                      = gchild_category[:name]
