@@ -34,5 +34,6 @@ class UsersController < ApplicationController
   #あいまい検索用の設定読み込み
   def search_preparation
     @q = Item.ransack(params[:q])
+    @category_list = Category.all
   end
 end
