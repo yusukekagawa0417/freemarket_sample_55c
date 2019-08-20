@@ -11,12 +11,13 @@
         = f.search_field :name_cont, class: "fuzzy_search__field", placeholder: "何かお探しですか？"
   .header-bottom
     .header-bottom__left
-      %ul
-        %li
-          %h2
+      %ul.header-bottom__left__list
+        %li.header-bottom__left__list__category
+          %h2.header-bottom__left__list__category_field
             = link_to "#" do
               = fa_icon 'list-ul', class: "o_icon-red"
               %span カテゴリーから探す
+          = render "layouts/category_bar" 
         %li
           %h2
             = link_to "#" do
